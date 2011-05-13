@@ -1,0 +1,14 @@
+project --topLevelPackage org.whirlwind.db.example.roo --projectName whirlwind-example-roo --java 6
+persistence setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY 
+entity --class ~.domain.House
+field date --fieldName createdDate --type java.util.Date
+enum type --class ~.domain.PropertyType
+enum constant --name DETACHED
+enum constant --name SEMIDETATCHED
+enum constant --name TERRACED
+enum constant --name FLAT
+enum constant --name STUDIO
+enum constant --name MOBILE
+enum constant --name TENT
+field enum --fieldName propertyType --type org.whirlwind.db.example.roo.domain.PropertyType
+// Spring Roo 1.1.2.RELEASE [rev fbc33bb] log closed at 2011-05-13 14:54:33
