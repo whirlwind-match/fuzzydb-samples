@@ -8,5 +8,7 @@
 <h1>
 	Hello world!
 </h1>
+
+We've had ${count} page views.
 </body>
 </html>
