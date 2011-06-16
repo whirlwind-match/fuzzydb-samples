@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.wwm.db.internal.CurrentTransactionDataOperationsProxy;
+import com.wwm.db.DataOperations;
 
 /**
  * Handles requests for the application home page.
@@ -18,7 +18,7 @@ import com.wwm.db.internal.CurrentTransactionDataOperationsProxy;
 public class HomeController {
 
 	@Autowired
-	private CurrentTransactionDataOperationsProxy persister;
+	private DataOperations persister;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
