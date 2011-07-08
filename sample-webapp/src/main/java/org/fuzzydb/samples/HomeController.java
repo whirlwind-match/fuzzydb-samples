@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.wwm.db.DataOperations;
+import com.wwm.db.spring.repository.FuzzyRepository;
 
 /**
  * Handles requests for the application home page.
@@ -18,7 +18,7 @@ import com.wwm.db.DataOperations;
 public class HomeController {
 
 	@Autowired
-	private DataOperations persister;
+	private FuzzyRepository<MyCounter> counterRepo;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -30,13 +30,13 @@ public class HomeController {
 	public String home(Model model) {
 		logger.info("Welcome home!");
 		
-		MyCounter counter = persister.retrieveFirstOf(MyCounter.class);
+		MyCounter counter = counterRepo.findFirst();
 		
 		if (counter == null) {
 			counter = new MyCounter();
 		}
 		counter.count++;
-		persister.save(counter);
+		counterRepo.save(counter);
 		
 		model.addAttribute("count", counter.count);
 		return "home";

@@ -2,13 +2,15 @@ package org.fuzzydb.samples;
 
 import java.io.Serializable;
 
-import org.springframework.data.annotation.Persistent;
+import org.springframework.data.annotation.Id;
 
-// TODO: make @Persistent a target for an aspect to mixin Serializable and/or 
-// Ref, RefAware interfaces and implementations to save developer from these concerns :)
-@Persistent
+import com.wwm.db.GenericRef;
+
 public class MyCounter implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	private GenericRef<MyCounter> ref;
 
 	public int count = 0;
 }
