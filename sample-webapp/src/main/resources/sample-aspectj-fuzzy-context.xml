@@ -19,5 +19,6 @@
     <fuzzy:initialize />
 
 	<fuzzy:repository id="counterRepository" class="org.fuzzydb.samples.MyCounter" />
+	<fuzzy:repository id="itemRepository" class="org.fuzzydb.samples.FuzzyItem" useDefaultNamespace="true" />
 
 </beans>

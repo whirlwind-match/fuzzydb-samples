@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScoreConfiguration name="similarPeople">
+
+    <BooleanScorer>
+        <name>isSameSex</name>
+        <scorerAttrId>isMale</scorerAttrId>
+        <otherAttrId>isMale</otherAttrId>
+        <weight>0.7</weight>
+    </BooleanScorer>
+
+    <MultiEnumScorer>
+        <name>newspapers</name>
+        <scorerAttrId>newspapers</scorerAttrId>
+        <otherAttrId>newspapers</otherAttrId>
+        <weight>0.7</weight>
+    </MultiEnumScorer>        
+
+    <EnumMatchScorer>
+        <name>education</name>
+        <scorerAttrId>education</scorerAttrId>
+        <otherAttrId>education</otherAttrId>
+        <weight>0.7</weight>
+    </EnumMatchScorer>        
+
+    <SimilarFloatValueScorer>
+        <name>similarSalary</name>
+        <scorerAttrId>salary</scorerAttrId>
+        <otherAttrId>salary</otherAttrId>
+        <expectedRange>5e4f</expectedRange> <!-- Within 50k -->
+        <weight>0.7</weight>
+    </SimilarFloatValueScorer>
+
+    <SimilarFloatValueScorer>
+        <name>similarAge</name>
+        <scorerAttrId>age</scorerAttrId>
+        <otherAttrId>age</otherAttrId>
+        <expectedRange>20</expectedRange> 
+        <weight>0.7</weight>
+    </SimilarFloatValueScorer>
+    
+	<EnumScoresMapScorer>
+        <name>compatibleSmoking</name>
+		<scorerAttrId>smoke</scorerAttrId>
+		<otherAttrId>smoke</otherAttrId>
+		<filter>false</filter>
+		<weight>0.7</weight>
+	    <map scorerEnumDefinition="smokeDef" otherEnumDefinition="smokeDef" url="classpath:/fuzzy/matchers/smokeEnumMap.html"/>
+	</EnumScoresMapScorer>
+
+</ScoreConfiguration>

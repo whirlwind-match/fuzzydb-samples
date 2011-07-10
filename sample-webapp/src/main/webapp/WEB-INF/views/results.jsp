@@ -2,20 +2,23 @@
 <%@ page session="false" %>
 <html>
 <head>
-	<title>Home</title>
+	<title>${heading}</title>
 </head>
 <body>
 <h1>
-	Hello world!
+	${heading}
 </h1>
-
-We've had ${count} page views.
-
 
 	<ul>
 		<li><a href="createMatt">create Matt</a></li>
 		<li><a href="createMorePeople">create others</a></li>
 		<li><a href="mattsMatches">Do a fuzzy query</a></li>
 	</ul>
+
+
+	<pre>
+	${results}
+	</pre>
+
 </body>
 </html>
