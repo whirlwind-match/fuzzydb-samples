@@ -1,7 +1,5 @@
 package org.fuzzydb.samples;
 
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -11,9 +9,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.wwm.db.query.Result;
 import com.wwm.db.spring.repository.AttributeMatchQuery;
@@ -107,28 +105,30 @@ public class HomeController {
 
 	@Transactional
 	@RequestMapping(value="/mattsMatches", method=RequestMethod.GET)
-	public String findMatchesForMatt(Model model) {
+	public String findMatchesForMatt(
+			Model model, 
+			@RequestParam(defaultValue="similarPeople") String style) {
 	
-//		xdo search here...
 		FuzzyItem matt = createMatt();
-		AttributeMatchQuery<FuzzyItem> query = new SimpleAttributeMatchQuery<FuzzyItem>(matt, "similarPeople", 10);
-		List<Result<FuzzyItem>> results = toList(itemRepo.findMatchesFor(query));
+		AttributeMatchQuery<FuzzyItem> query = new SimpleAttributeMatchQuery<FuzzyItem>(matt, style, 10);
+		List<Result<FuzzyItem>> results = Utils.toList(itemRepo.findMatchesFor(query));
+		
+		augment(results);
 		
 		model.addAttribute("heading", "Matt's matches:");
 		model.addAttribute("results", results);
 		return "results";
 	}
 	
-	public static <T> List<T> toList(Iterator<T> items) {
-		Assert.notNull(items);
-		
-		List<T> list = new LinkedList<T>();
-		for (Iterator<T> iterator = items; iterator.hasNext();) {
-			T item = iterator.next();
-			list.add(item);
+	/** 
+	 * Add some interesting derived attributes to our results
+	 */
+	private void augment(List<Result<FuzzyItem>> results) {
+		for (Result<FuzzyItem> result : results) {
+			float score = result.getScore().total();
+			result.getItem().setDerivedAttr("cssRgbColourForScore", Utils.toCssRGBColor(score));
+			result.getItem().setDerivedAttr("scorePercent", Math.round(score * 100f));
 		}
-		return list;
 	}
-
 }
 

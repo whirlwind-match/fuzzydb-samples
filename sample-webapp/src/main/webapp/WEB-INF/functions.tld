@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<taglib 
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+    version="2.1">
+
+    <display-name>Custom Functions</display-name>    
+    <tlib-version>1.0</tlib-version>
+    <uri>/functions</uri>
+
+    <function>
+        <name>toCssRGBColor</name>
+        <function-class>org.fuzzydb.samples.Utils</function-class>
+        <function-signature>java.lang.String toCssRGBColor(float)</function-signature>
+    </function>
+
+    <function>
+        <name>forwardsScore</name>
+        <function-class>org.fuzzydb.samples.Utils</function-class>
+        <function-signature>float forwardsScore(com.wwm.db.query.Result, java.lang.String)</function-signature>
+    </function>
+
+    <function>
+        <name>reverseScore</name>
+        <function-class>org.fuzzydb.samples.Utils</function-class>
+        <function-signature>float reverseScore(com.wwm.db.query.Result, java.lang.String)</function-signature>
+    </function>
+
+    <function>
+        <name>round</name>
+        <function-class>java.lang.Math</function-class>
+        <function-signature>int round(float)</function-signature>
+    </function>
+</taglib>
