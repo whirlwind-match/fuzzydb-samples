@@ -32,7 +32,7 @@
 				    </c:forEach> 
 		    	<div style="padding: 15px 2px">Attributes:
 				    <c:forEach items="${result.item.attributes}" var="item">
-				    	<div>${item.key}: ${item.value}</div>
+				    	<div>${item.key}: ${f:toString(item.value)}</div>
 				    </c:forEach> 
 		    	</div>
 		    </div>

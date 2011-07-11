@@ -46,4 +46,36 @@ public abstract class Utils {
 	public static <T> float reverseScore(Result<T> result, String matcher) {
 		return result.getScore().getReverseScore(matcher);
 	}
+	
+	/**
+	 * A little help for things like Arrays
+	 * @param object
+	 * @return formatted string representation
+	 */
+	public static String toString(Object object) {
+		if (object instanceof Object[]) {
+			Object[] array = (Object[]) object;
+			StringBuilder sb = new StringBuilder();
+			for (int i = 0; i < array.length; i++) {
+				sb.append(array[i].toString());
+				if (i < array.length - 1) {
+					sb.append(", ");
+				}
+			}
+			return sb.toString();
+		} 
+		else if (object instanceof float[]) {
+			float[] array = (float[]) object;
+			StringBuilder sb = new StringBuilder();
+			for (int i = 0; i < array.length; i++) {
+				sb.append(array[i]);
+				if (i < array.length - 1) {
+					sb.append(", ");
+				}
+			}
+			return sb.toString();
+		}
+
+		return object.toString();
+	}
 }

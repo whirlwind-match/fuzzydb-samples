@@ -28,6 +28,12 @@
     </function>
 
     <function>
+        <name>toString</name>
+        <function-class>org.fuzzydb.samples.Utils</function-class>
+        <function-signature>java.lang.String toString(java.lang.Object)</function-signature>
+    </function>
+
+    <function>
         <name>round</name>
         <function-class>java.lang.Math</function-class>
         <function-signature>int round(float)</function-signature>
