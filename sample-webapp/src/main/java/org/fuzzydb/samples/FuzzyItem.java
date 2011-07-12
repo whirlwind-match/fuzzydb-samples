@@ -16,8 +16,6 @@ public class FuzzyItem implements Serializable {
 	
 	private Map<String, Object> attributes = new HashMap<String,Object>();
 	
-	transient Map<String, Object> derivedAttrs;
-	
 	@Id
 	private GenericRef<FuzzyItem> ref;
 
@@ -43,18 +41,6 @@ public class FuzzyItem implements Serializable {
 	public void setAttr(String name, Object value) {
 		attributes.put(name, value);
 	}
-	
-	public Map<String, Object> getDerivedAttrs() {
-		return derivedAttrs;
-	}
-	
-	public void setDerivedAttr(String name, Object value) {
-		if (derivedAttrs == null){
-			derivedAttrs = new HashMap<String,Object>();
-		}
-		derivedAttrs.put(name, value);
-	}
-	
 	
 	public String getDescription() {
 		return description;

@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.util.Assert;
 
 import com.wwm.db.query.Result;
+import com.wwm.model.attributes.Score;
 
 public abstract class Utils {
 
@@ -27,6 +28,24 @@ public abstract class Utils {
 	    return "rgb(" + color.getRed() + "," + color.getGreen() + ","+ color.getBlue() +")";
 	}
 
+	/**
+	 * Returns a string of the form rgb(100,200,0) to be used
+	 * to indicate the percentage.  100% is green, 0% is red.
+	 * HSV model:
+	 *   Hue 0 -> 120 (red -> green)
+	 *   Sat -> fixed @ 85
+	 *   Brightness -> fixed @ 90
+	 *   
+	 *   @param value 0 - 1.0f
+	 */
+	public static String toCssRGBColor(Score score) {
+		return toCssRGBColor(score.total());
+	}
+	
+	public static int toPercent(Score score) {
+		return Math.round(score.total() * 100f);
+	}
+		
 	public static <T> List<T> toList(Iterator<T> items) {
 		Assert.notNull(items);
 		

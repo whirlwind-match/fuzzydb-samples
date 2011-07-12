@@ -113,22 +113,10 @@ public class HomeController {
 		AttributeMatchQuery<FuzzyItem> query = new SimpleAttributeMatchQuery<FuzzyItem>(matt, style, 10);
 		List<Result<FuzzyItem>> results = Utils.toList(itemRepo.findMatchesFor(query));
 		
-		augment(results);
-		
 		model.addAttribute("heading", "Matt's matches:");
 		model.addAttribute("results", results);
 		return "results";
 	}
 	
-	/** 
-	 * Add some interesting derived attributes to our results
-	 */
-	private void augment(List<Result<FuzzyItem>> results) {
-		for (Result<FuzzyItem> result : results) {
-			float score = result.getScore().total();
-			result.getItem().setDerivedAttr("cssRgbColourForScore", Utils.toCssRGBColor(score));
-			result.getItem().setDerivedAttr("scorePercent", Math.round(score * 100f));
-		}
-	}
 }
 
