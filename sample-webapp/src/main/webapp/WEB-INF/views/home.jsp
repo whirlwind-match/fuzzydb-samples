@@ -15,7 +15,7 @@ We've had ${count} page views.
 	<ul>
 		<li><a href="createMatt">create Matt</a></li>
 		<li><a href="createMorePeople">create others</a></li>
-		<li><a href="mattsMatches">Do a fuzzy query</a></li>
+		<li><a href="matches">Do a fuzzy query</a></li>
 	</ul>
 </body>
 </html>

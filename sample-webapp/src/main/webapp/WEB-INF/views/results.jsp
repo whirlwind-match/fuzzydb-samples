@@ -15,12 +15,14 @@
 	<ul>
 		<li><a href="createMatt">create Matt</a></li>
 		<li><a href="createMorePeople">create others</a></li>
-		<li><a href="mattsMatches">Do a fuzzy query</a></li>
+		<li><a href="matches">Do a fuzzy query</a></li>
 	</ul>
 
 
     <c:forEach items="${results}" var="result">
-	    <div style="float:left;border: solid gray 1px; width:200px; margin: 2px; padding: 5px"><h3>${result.item}</h3>
+	    <div style="float:left;border: solid gray 1px; width:200px; margin: 2px; padding: 5px">
+	    	<h3>${result.item}</h3>
+	    	<a href="?name=${result.item}">search</a>
 		    <div style="margin: 2px; padding: 2px">Score:
 		    	<div style="width: 100px; text-align:center; background-color: ${f:toCssRGBColor(result.score)}">
 		    	${f:toPercent(result.score)}%</div>
