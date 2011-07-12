@@ -52,7 +52,7 @@ public class SearchController {
 	
 	@Transactional
 	@RequestMapping(value="/matches", method=RequestMethod.GET)
-	public String findMatchesForMatt(
+	public String findMatches(
 			Model model, 
 			@RequestParam(defaultValue="Matt") String name,
 			@RequestParam(defaultValue="similarPeople") String style) {
@@ -63,6 +63,7 @@ public class SearchController {
 		
 		model.addAttribute("heading", "Matches for " + subject + ":");
 		model.addAttribute("results", results);
+		model.addAttribute("style", style);
 		return "results";
 	}
 }

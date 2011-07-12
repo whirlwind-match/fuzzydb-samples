@@ -8,33 +8,30 @@
 	<title>${heading}</title>
 </head>
 <body>
+
+
 <h1>
 	${heading}
 </h1>
 
-	<ul>
-		<li><a href="createMatt">create Matt</a></li>
-		<li><a href="createMorePeople">create others</a></li>
-		<li><a href="matches">Do a fuzzy query</a></li>
-	</ul>
-
-
+<h2>Match style: ${style}</h2>
     <c:forEach items="${results}" var="result">
-	    <div style="float:left;border: solid gray 1px; width:200px; margin: 2px; padding: 5px">
-	    	<h3>${result.item}</h3>
-	    	<a href="?name=${result.item}">search</a>
-		    <div style="margin: 2px; padding: 2px">Score:
+	    <div style="float:left; border: solid gray 1px; width:250px; margin: 2px; padding: 5px; min-height: 420px;">
+	    	<span style="text-decoration: underline; font-weight: bold; font-size: larger">${result.item}</span>&nbsp;
+	    	matches: <a style="display: block;float: right; padding-right: 10px" href="?name=${result.item}">lax</a>
+	    	<a style="display: block;float: right; padding-right: 10px" href="?name=${result.item}&style=similarPeopleStrict">strict</a>
+		    <div style="margin: 2px; padding: 2px"><b>Overall Score:</b>
 		    	<div style="width: 100px; text-align:center; background-color: ${f:toCssRGBColor(result.score)}">
 		    	${f:toPercent(result.score)}%</div>
 		    	</div>
-		    	<div style="padding: 15px 2px">Scores:
+		    	<div style="padding: 15px 2px"><b>Scores:</b>
 				    <c:forEach items="${result.score.scorerAttrNames}" var="match">
 				    	<c:set var="fwd" value="${f:forwardsScore(result,match)}"/>
-				    	<div>${match}: ${f:round(fwd * 100.1)}%</div>
+				    	<div style="padding-left: 10px">${match}: ${f:round(fwd * 100.1)}%</div>
 				    </c:forEach> 
-		    	<div style="padding: 15px 2px">Attributes:
+		    	<div style="padding: 15px 2px"><b>Attributes:</b>
 				    <c:forEach items="${result.item.attributes}" var="item">
-				    	<div>${item.key}: ${f:toString(item.value)}</div>
+				    	<div  style="padding-left: 10px">${item.key}: ${f:toString(item.value)}</div>
 				    </c:forEach> 
 		    	</div>
 		    </div>

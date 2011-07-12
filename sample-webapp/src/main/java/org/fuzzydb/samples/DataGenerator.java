@@ -33,7 +33,7 @@ public class DataGenerator {
 		brad.setAttr("isMale", Boolean.TRUE);
 		brad.setAttr("age", 37f);
 		brad.setAttr("ageRange", new float[]{22f, 30f, 40f});
-		brad.setAttr("salary", 550000f);
+		brad.setAttr("salary", 549999f);
 		people.put("Brad", brad);
 
 		FuzzyItem neale = new FuzzyItem("Neale");
