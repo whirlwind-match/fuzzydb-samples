@@ -17,17 +17,22 @@
 <h2>Match style: ${style}</h2>
     <c:forEach items="${results}" var="result">
 	    <div style="float:left; border: solid gray 1px; width:250px; margin: 2px; padding: 5px; min-height: 420px;">
+	    	<span style="display: block;float: right; padding-right: 10px">matches: 
+	    		<a href="?name=${result.item}">lax</a>
+	    		<a href="?name=${result.item}&style=similarPeopleStrict">strict</a>
+	    	</span>
 	    	<span style="text-decoration: underline; font-weight: bold; font-size: larger">${result.item}</span>&nbsp;
-	    	matches: <a style="display: block;float: right; padding-right: 10px" href="?name=${result.item}">lax</a>
-	    	<a style="display: block;float: right; padding-right: 10px" href="?name=${result.item}&style=similarPeopleStrict">strict</a>
-		    <div style="margin: 2px; padding: 2px"><b>Overall Score:</b>
+		    <div style="margin: 2px; padding: 12 2 2 2"><b>Overall Score:</b>
 		    	<div style="width: 100px; text-align:center; background-color: ${f:toCssRGBColor(result.score)}">
 		    	${f:toPercent(result.score)}%</div>
 		    	</div>
 		    	<div style="padding: 15px 2px"><b>Scores:</b>
 				    <c:forEach items="${result.score.scorerAttrNames}" var="match">
 				    	<c:set var="fwd" value="${f:forwardsScore(result,match)}"/>
-				    	<div style="padding-left: 10px">${match}: ${f:round(fwd * 100.1)}%</div>
+				    	<div style="padding-left: 10px">
+				    		<span style="float:right; width: 50px; text-align:center; background-color: ${f:floatToCssRGBColor(fwd)}">${f:round(fwd * 100.1)}%</span>
+				    		${match}: 
+				    	</div>
 				    </c:forEach> 
 		    	<div style="padding: 15px 2px"><b>Attributes:</b>
 				    <c:forEach items="${result.item.attributes}" var="item">
