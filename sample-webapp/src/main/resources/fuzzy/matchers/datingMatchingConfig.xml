@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScoreConfiguration name="datingMatches">
+<ScoreConfiguration name="potential dates">
 
     <BooleanScorer>
         <name>genderPreference</name>

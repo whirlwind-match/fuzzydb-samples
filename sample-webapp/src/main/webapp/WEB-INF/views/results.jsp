@@ -5,21 +5,27 @@
 
 <html>
 <head>
-	<title>${heading}</title>
+	<title>Matches for ${subject}:</title>
 </head>
 <body>
 
 
-<h1>
-	${heading}
-</h1>
+	<h3>Click match styles here to experiment with strict vs soft matches in determining overall score:</h3>
+	<ul>
+	    <li><a href="?name=${subject}">similar people - soft</a></li>
+	    <li><a href="?name=${subject}&style=similarPeopleStrict">similar people - strict</a></li>
+	</ul>
 
-<h2>Match style: ${style}</h2>
+	<hr>
+	<h3>Matches for ${subject} using match style: ${style}</h3>
+	<p>
+	<em>Click on 'matches' link to change to find matches for that person</em>
+	</p>
+	
     <c:forEach items="${results}" var="result">
 	    <div style="float:left; border: solid gray 1px; width:250px; margin: 2px; padding: 5px; min-height: 420px;">
-	    	<span style="display: block;float: right; padding-right: 10px">matches: 
-	    		<a href="?name=${result.item}">lax</a>
-	    		<a href="?name=${result.item}&style=similarPeopleStrict">strict</a>
+	    	<span style="display: block;float: right; padding-right: 10px"> 
+	    		<a href="?name=${result.item}&style=${style}">matches</a>
 	    	</span>
 	    	<span style="text-decoration: underline; font-weight: bold; font-size: larger">${result.item}</span>&nbsp;
 		    <div style="margin: 2px; padding: 12 2 2 2"><b>Overall Score:</b>
@@ -42,6 +48,5 @@
 		    </div>
 	    </div>
     </c:forEach> 
-
 </body>
 </html>

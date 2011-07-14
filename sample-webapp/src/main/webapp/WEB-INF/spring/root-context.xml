@@ -5,5 +5,5 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		
-	<import resource="classpath*:sample-aspectj-fuzzy-context.xml"/>
+	<import resource="classpath*:fuzzy-repository-context.xml"/>
 </beans>

@@ -33,7 +33,8 @@ public class DataGenerator {
 		brad.setAttr("isMale", Boolean.TRUE);
 		brad.setAttr("age", 37f);
 		brad.setAttr("ageRange", new float[]{22f, 30f, 40f});
-		brad.setAttr("salary", 549999f);
+		brad.setAttr("salary", 547000f);
+		brad.setAttr("newspapers", new String[]{"LA Times"});
 		people.put("Brad", brad);
 
 		FuzzyItem neale = new FuzzyItem("Neale");
@@ -41,7 +42,16 @@ public class DataGenerator {
 		neale.setAttr("age", 21f); // I wish (sort of)
 		neale.setAttr("salary", 25000f);
 		neale.setAttr("smoke", "Non-smoker");
+		neale.setAttr("newspapers", new String[]{"Guardian"});
 		people.put("Neale", neale);
+
+		FuzzyItem wayne = new FuzzyItem("Wayne");
+		wayne.setAttr("isMale", Boolean.TRUE);
+		wayne.setAttr("age", 33f); 
+		wayne.setAttr("salary", 2500000f);
+		wayne.setAttr("smoke", "Non-smoker");
+		wayne.setAttr("newspapers", new String[]{"Sun"});
+		people.put("Wayne", wayne);
 
 	}
 	

@@ -1,5 +1,6 @@
 package org.fuzzydb.samples;
 
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,42 +27,58 @@ public class SearchController {
 	@Autowired
 	private DataGenerator dataGenerator;
 	
+	/**
+	 * A repository provided the line
+	 * <code>&lt;fuzzy:repository id="itemRepository" class="org.fuzzydb.samples.FuzzyItem" useDefaultNamespace="true" /></code>
+	 * in the application context.
+	 */
 	@Autowired
 	@Qualifier("itemRepository")
 	private FuzzyRepository<FuzzyItem> itemRepo;
 
 
-	@Transactional
-	@RequestMapping(value="/createMatt", method=RequestMethod.GET) 
-	public String saveMatt(Model model) {
-		itemRepo.save(dataGenerator.createPerson("Matt"));
-		return "redirect:/";
-	}
-
 	
 	@Transactional
-	@RequestMapping(value="/createMorePeople", method=RequestMethod.GET) 
-	public String createMorePeople() {
+	@RequestMapping(value="/createPeople", method=RequestMethod.GET) 
+	public String createPeople() {
 		
+		itemRepo.save(dataGenerator.createPerson("Matt"));
 		itemRepo.save(dataGenerator.createPerson("Angelina"));
 		itemRepo.save(dataGenerator.createPerson("Brad"));
 		itemRepo.save(dataGenerator.createPerson("Neale"));
-		return "redirect:/";
+		itemRepo.save(dataGenerator.createPerson("Wayne"));
+		return "redirect:/matches";
 	}
 
 	
-	@Transactional
+	@Transactional(readOnly=true)
 	@RequestMapping(value="/matches", method=RequestMethod.GET)
 	public String findMatches(
 			Model model, 
 			@RequestParam(defaultValue="Matt") String name,
 			@RequestParam(defaultValue="similarPeople") String style) {
 	
+		// We need some attributes to search against.  This doesn't have to be something already in the 
+		// database.  For ease, we'll just grab a named sample from our dataGenerator
 		FuzzyItem subject = dataGenerator.createPerson(name);
-		AttributeMatchQuery<FuzzyItem> query = new SimpleAttributeMatchQuery<FuzzyItem>(subject, style, 10);
-		List<Result<FuzzyItem>> results = Utils.toList(itemRepo.findMatchesFor(query));
+
+		// This lets the database know the maximum number of results you're going to iterate over
+		// you could potentially feed results out as you get them, so long as you've got the 
+		// transaction held open... hmmm. I feel some Ajax coming on ;)
+		int maxResults = 10; 
+		                    
+		// In future milestone, we'll rename SimpleAttributeMatchQuery to SubjectMatchQuery, and introduce more
+		// query styles.
+		AttributeMatchQuery<FuzzyItem> query = new SimpleAttributeMatchQuery<FuzzyItem>(subject, style, maxResults);
 		
-		model.addAttribute("heading", "Matches for " + subject + ":");
+		// Do the actual query
+		Iterator<Result<FuzzyItem>> resultIterator = itemRepo.findMatchesFor(query);
+		
+		// Extract the results
+		List<Result<FuzzyItem>> results = Utils.toList(resultIterator);
+		
+		// Stick 'em in our model for our view to render
+		model.addAttribute("subject", subject);
 		model.addAttribute("results", results);
 		model.addAttribute("style", style);
 		return "results";
