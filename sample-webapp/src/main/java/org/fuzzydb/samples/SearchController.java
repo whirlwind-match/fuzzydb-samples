@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.wwm.db.query.Result;
 import com.wwm.db.spring.repository.AttributeMatchQuery;
 import com.wwm.db.spring.repository.FuzzyRepository;
-import com.wwm.db.spring.repository.SimpleAttributeMatchQuery;
+import com.wwm.db.spring.repository.SubjectMatchQuery;
 
 /**
  * Example controller for creating fuzzy items and querying them
@@ -67,9 +67,9 @@ public class SearchController {
 		// transaction held open... hmmm. I feel some Ajax coming on ;)
 		int maxResults = 10; 
 		                    
-		// In future milestone, we'll rename SimpleAttributeMatchQuery to SubjectMatchQuery, and introduce more
-		// query styles.
-		AttributeMatchQuery<FuzzyItem> query = new SimpleAttributeMatchQuery<FuzzyItem>(subject, style, maxResults);
+		// A SubjectMatchQuery looks for the best matches for a provided subject, according to the
+		// requested match style
+		AttributeMatchQuery<FuzzyItem> query = new SubjectMatchQuery<FuzzyItem>(subject, style, maxResults);
 		
 		// Do the actual query
 		Iterator<Result<FuzzyItem>> resultIterator = itemRepo.findMatchesFor(query);
