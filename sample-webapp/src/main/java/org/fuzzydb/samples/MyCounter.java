@@ -9,6 +9,7 @@ import com.wwm.db.Ref;
 public class MyCounter implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@SuppressWarnings("unused")
 	@Id
 	private Ref<MyCounter> ref;
 

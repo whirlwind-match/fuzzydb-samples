@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beansProjectDescription>
 	<version>1</version>
-	<pluginVersion><![CDATA[2.6.0.201104111100-PATCH]]></pluginVersion>
+	<pluginVersion><![CDATA[2.7.1.201107082359-RELEASE]]></pluginVersion>
 	<configSuffixes>
 		<configSuffix><![CDATA[xml]]></configSuffix>
 	</configSuffixes>
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
+		<config>target/classes/fuzzy-repository-context.xml</config>
+		<config>target/classes/security-context.xml</config>
 	</configs>
 	<configSets>
 	</configSets>

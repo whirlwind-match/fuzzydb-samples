@@ -11,6 +11,8 @@
 
 
 	<context:annotation-config/>
+	
+	<import resource="security-context.xml"/>
 
     <tx:annotation-driven mode="aspectj" transaction-manager="transactionManager" />
     <fuzzy:tx-manager />
