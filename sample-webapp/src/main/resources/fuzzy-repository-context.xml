@@ -23,4 +23,9 @@
 	<fuzzy:repository id="counterRepository" class="org.fuzzydb.samples.MyCounter" />
 	<fuzzy:repository id="itemRepository" class="org.fuzzydb.samples.FuzzyItem" useDefaultNamespace="true" />
 
+	<bean id="userDetailsRepository" class="com.wwm.db.spring.repository.RawCRUDRepository">
+		<qualifier value="userDetailsRepository"/>
+		<constructor-arg value="org.fuzzydb.samples.security.WhirlwindUserDetails"/>
+	</bean>
+
 </beans>
