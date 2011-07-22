@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns:beans="http://www.springframework.org/schema/beans"
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns="http://www.springframework.org/schema/security"
@@ -10,7 +10,7 @@
     <http use-expressions="true">
         <intercept-url pattern="/" access="permitAll"/>
         <intercept-url pattern="/static/**" filters="none" />
-        <intercept-url pattern="/createPeople" access="isAuthenticated()" />
+<!--         <intercept-url pattern="/createPeople" access="isAuthenticated()" /> -->
         <form-login />
         <logout />
     </http>
@@ -21,4 +21,4 @@
 
 	<beans:bean id="myUserDetailsService" class="org.fuzzydb.samples.security.WhirlwindUserDetailsService"/>
 
-</beans>
+</beans:beans>
