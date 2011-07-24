@@ -5,6 +5,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.wwm.db.spring.repository.WhirlwindCrudRepository;
 
@@ -21,6 +22,7 @@ public class WhirlwindUserDetailsService implements UserDetailsService {
 	private WhirlwindCrudRepository<WhirlwindUserDetails, String> repository;
 	
 
+	@Transactional(readOnly=true)
 	@Override
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException, DataAccessException {
