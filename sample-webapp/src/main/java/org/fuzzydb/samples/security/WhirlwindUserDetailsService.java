@@ -26,7 +26,14 @@ public class WhirlwindUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException, DataAccessException {
-		return repository.findOne(username);
+		WhirlwindUserDetails userDetails = repository.findOne(username);
+		if (userDetails == null) {
+			throw new UsernameNotFoundException("'" + username + "' is not a registered user id");
+		}
+		if (userDetails.getAuthorities() == null || userDetails.getAuthorities().size() == 0) {
+			throw new UsernameNotFoundException("User '" + username + "' has no granted authorities");
+		}
+		return userDetails;
 	}
 
 	public void setRepository(WhirlwindCrudRepository<WhirlwindUserDetails, String> repository) {

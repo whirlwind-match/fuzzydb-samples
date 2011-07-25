@@ -11,7 +11,7 @@
         <intercept-url pattern="/" access="permitAll"/>
         <intercept-url pattern="/static/**" filters="none" />
         <intercept-url pattern="/createPeople" access="isAuthenticated()" />
-        <form-login />
+        <form-login login-page="/login"/>
         <logout />
     </http>
     
@@ -20,7 +20,7 @@
 	</authentication-manager>
 
 	<beans:bean id="myUserDetailsService" class="org.fuzzydb.samples.security.WhirlwindUserDetailsService">
-		<beans:property name="repository" ref="userDetailsRepository"></beans:property>
+		<beans:property name="repository" ref="userDetailsRepository"/>
 	</beans:bean>
 
 </beans:beans>
