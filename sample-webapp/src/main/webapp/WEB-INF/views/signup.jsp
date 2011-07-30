@@ -13,8 +13,16 @@
 
 <form:form action="signup" method="post" >
 
-	<form:input path="email" /><br/>
-	<form:password path="password" /><br/>
+	<table>
+	<tr>
+		<td>Email:</td>
+		<td><form:input path="email" /> <form:errors path="email"/></td>
+	</tr>
+	<tr>
+		<td>Password:</td>
+		<td><form:input path="password" /> <form:errors path="password"/></td>
+	</tr>
+	</table>
 	<input type="submit" value="Sign up"/>
 </form:form>
 
