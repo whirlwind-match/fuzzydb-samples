@@ -40,19 +40,31 @@ public class UserDetailsController {
 
 	@RequestMapping(value="/signup", method=RequestMethod.POST)
 	public String doSignup(@ModelAttribute("command") @Valid SignupForm form, Errors result) {
-		
+	
 		Collection<GrantedAuthorityImpl> auths = new LinkedList<GrantedAuthorityImpl>();
 		auths.add(new GrantedAuthorityImpl("USER"));
 		WhirlwindUserDetails userDetails = new WhirlwindUserDetails(form.getEmail(), form.getPassword(), true, true, true, true, auths );
-		
+		 
+		if (exists(form)) { 
+			result.rejectValue("email", "accounts.emailAlreadyRegistered");
+		}
+
+		if (result.hasErrors()) {
+			return "signup";
+		}
+	
 		try {
 			saveUser(userDetails);
+			return "redirect:/";
 		} catch (DuplicateKeyException e) {
 			result.rejectValue("email", "accounts.emailAlreadyRegistered");
 			return "signup";
 		}
-		
-		return "redirect:/";
+	}
+
+	@Transactional(readOnly=true)
+	private boolean exists(SignupForm form) {
+		return userRepo.exists(form.getEmail());
 	}
 
 	@Transactional

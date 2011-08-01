@@ -5,9 +5,10 @@ import javax.validation.constraints.Size;
 
 public class SignupForm {
 
-//	@Pattern(regexp="^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$", "not an accepted email address format")
+	@Pattern(regexp="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[a-zA-Z]{2,4}$", message="not an accepted email address format. Expect: a@a.aa as minimum")
 	private String email;
-//	@Size(min=6, message="password too short")
+	
+	@Size(min=6, message="password too short")
 	private String password;
 	
 	public String getEmail() {
