@@ -1,0 +1,30 @@
+<objects>
+    <org.fuzzydb.samples.security.WhirlwindUserDetails>
+        <email>one@one.com</email>
+        <username>one@one.com</username>
+        <password>sdfsdfsdf</password>
+        <accountNonExpired>true</accountNonExpired>
+        <accountNonLocked>true</accountNonLocked>
+        <credentialsNonExpired>true</credentialsNonExpired>
+        <enabled>true</enabled>
+        <authorities>
+            <org.springframework.security.core.authority.GrantedAuthorityImpl>
+                <role>USER</role>
+            </org.springframework.security.core.authority.GrantedAuthorityImpl>
+        </authorities>        
+    </org.fuzzydb.samples.security.WhirlwindUserDetails>
+    <org.fuzzydb.samples.security.WhirlwindUserDetails>
+        <email>two@two.com</email>
+        <username>two@two.com</username>
+        <password>asdfsdfsd</password>
+        <accountNonExpired>true</accountNonExpired>
+        <accountNonLocked>true</accountNonLocked>
+        <credentialsNonExpired>true</credentialsNonExpired>
+        <enabled>true</enabled>
+        <authorities>
+            <org.springframework.security.core.authority.GrantedAuthorityImpl>
+                <role>USER</role>
+            </org.springframework.security.core.authority.GrantedAuthorityImpl>
+        </authorities>        
+    </org.fuzzydb.samples.security.WhirlwindUserDetails>
+</objects>

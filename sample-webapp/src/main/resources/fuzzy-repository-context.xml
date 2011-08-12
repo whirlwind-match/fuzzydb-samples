@@ -27,5 +27,11 @@
 		<qualifier value="userDetailsRepository"/>
 		<constructor-arg value="org.fuzzydb.samples.security.WhirlwindUserDetails"/>
 	</bean>
+    
+    <bean id="userInitialiser" class="com.wwm.db.spring.repository.XStreamRepositoryInitializer">
+        <constructor-arg name="repo" ref="userDetailsRepository"/>
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="resources" value="classpath:/data/initialUsers.xml"/>
+    </bean>
 
 </beans>
