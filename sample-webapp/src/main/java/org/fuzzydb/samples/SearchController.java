@@ -1,5 +1,7 @@
 package org.fuzzydb.samples;
 
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Iterator;
 import java.util.List;
 
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.thoughtworks.xstream.XStream;
 import com.wwm.db.query.Result;
 import com.wwm.db.spring.repository.AttributeMatchQuery;
 import com.wwm.db.spring.repository.FuzzyRepository;
@@ -82,6 +85,42 @@ public class SearchController {
 		model.addAttribute("results", results);
 		model.addAttribute("style", style);
 		return "results";
+	}
+
+
+	@Transactional(readOnly=true)
+	@RequestMapping(value="/dump", method=RequestMethod.GET)
+	public void dump(OutputStream response) throws IOException {
+
+		Iterable<FuzzyItem> people = itemRepo.findAll();
+		
+		XStream xs = new XStream();
+		
+		for (FuzzyItem item : people) {
+			xs.toXML(item, response);
+		}
+	}
+	
+	@Transactional(readOnly=true)
+	@RequestMapping(value="/dumpMatches", method=RequestMethod.GET)
+	public void dumpMatches(
+			Model model, 
+			@RequestParam(defaultValue="Matt") String name,
+			@RequestParam(defaultValue="similarPeople") String style,
+			OutputStream response) {
+	
+		FuzzyItem subject = dataGenerator.createPerson(name);
+		int maxResults = 10; 
+		AttributeMatchQuery<FuzzyItem> query = new SubjectMatchQuery<FuzzyItem>(subject, style, maxResults);
+		Iterator<Result<FuzzyItem>> resultIterator = itemRepo.findMatchesFor(query);
+		
+		XStream xs = new XStream();
+		
+		for (Iterator<Result<FuzzyItem>> iterator = resultIterator; iterator.hasNext();) {
+			Result<FuzzyItem> item = iterator.next();
+			
+			xs.toXML(item.getItem(), response);
+		}
 	}
 }
 

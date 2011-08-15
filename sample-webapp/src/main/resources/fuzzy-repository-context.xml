@@ -33,5 +33,10 @@
         <property name="transactionManager" ref="transactionManager"/>
         <property name="resources" value="classpath:/data/initialUsers.xml"/>
     </bean>
+    <bean id="peopleInitialiser" class="com.wwm.db.spring.repository.XStreamRepositoryInitializer">
+        <constructor-arg name="repo" ref="itemRepository"/>
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="resources" value="classpath:/data/initialPeople.xml"/>
+    </bean>
 
 </beans>
