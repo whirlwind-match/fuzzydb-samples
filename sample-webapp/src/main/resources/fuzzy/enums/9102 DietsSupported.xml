@@ -1,0 +1,8 @@
+<EnumDefinition name="DietsSupported">
+    <string>Vegan</string>
+    <string>Vegetarian</string>
+    <string>Pescatarian</string>
+    <string>Wheat Free</string>
+    <string>Dairy Free</string>
+    <!-- TODO: Other food intolerances -->
+</EnumDefinition>

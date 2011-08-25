@@ -1,0 +1,6 @@
+<EnumDefinition name="FoodSourcing">
+    <string>Organic</string>
+    <string>Fairtrade</string>
+    <string>Local</string>
+    <string>Rainforest Alliance</string>             
+</EnumDefinition>

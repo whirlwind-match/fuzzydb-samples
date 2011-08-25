@@ -1,0 +1,7 @@
+<EnumDefinition name="EstablishmentType">
+    <string>Cafe</string>
+    <string>Restaurant</string>
+    <string>Pub</string>
+    <string>On-street</string> <!-- e.g. van, kiosk, window, i.e. take away -->
+    <string>Take Away</string>
+</EnumDefinition>
