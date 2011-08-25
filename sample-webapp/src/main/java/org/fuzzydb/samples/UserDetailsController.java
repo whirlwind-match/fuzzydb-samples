@@ -5,11 +5,10 @@ import java.util.LinkedList;
 
 import javax.validation.Valid;
 
+import org.fuzzydb.samples.repositories.UserRepository;
 import org.fuzzydb.samples.security.WhirlwindUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.dao.DuplicateKeyException;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.security.core.authority.GrantedAuthorityImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,16 +18,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.wwm.db.exceptions.KeyCollisionException;
-
 
 @Controller
 public class UserDetailsController {
 
 	
 	@Autowired
-	@Qualifier("userDetailsRepository")
-	private CrudRepository<WhirlwindUserDetails,String> userRepo;
+	private UserRepository userRepo;
 
 
 	
