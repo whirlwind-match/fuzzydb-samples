@@ -19,8 +19,6 @@
 		<authentication-provider user-service-ref="myUserDetailsService"/>
 	</authentication-manager>
 
-	<beans:bean id="myUserDetailsService" class="org.fuzzydb.samples.security.WhirlwindUserDetailsService">
-		<beans:property name="repository" ref="userRepository"/>
-	</beans:bean>
+	<beans:bean id="myUserDetailsService" class="org.fuzzydb.samples.security.WhirlwindUserDetailsService"/>
 
 </beans:beans>

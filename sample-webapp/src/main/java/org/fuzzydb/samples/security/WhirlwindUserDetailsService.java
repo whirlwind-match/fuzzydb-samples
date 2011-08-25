@@ -3,12 +3,12 @@ package org.fuzzydb.samples.security;
 import org.fuzzydb.samples.repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Simple UserDetailsService implementation
@@ -22,10 +22,10 @@ public class WhirlwindUserDetailsService implements UserDetailsService {
 	
 	static private Logger log = LoggerFactory.getLogger(WhirlwindUserDetailsService.class);
 
+	@Autowired
 	private UserRepository repository;
 	
 
-	@Transactional(readOnly=true)
 	@Override
 	public UserDetails loadUserByUsername(String username)
 			throws UsernameNotFoundException, DataAccessException {
@@ -38,9 +38,5 @@ public class WhirlwindUserDetailsService implements UserDetailsService {
 		}
 		log.debug("Found user: {}", username);
 		return userDetails;
-	}
-
-	public void setRepository(UserRepository repository) {
-		this.repository = repository;
 	}
 }
