@@ -24,8 +24,6 @@
 
     <fuzzy:repositories base-package="org.fuzzydb.samples.repositories" />
 
-	<fuzzy:repository id="counterRepository" class="org.fuzzydb.samples.MyCounter" />
-
     
     <bean id="userInitialiser" class="com.wwm.db.spring.repository.XStreamRepositoryInitializer">
         <constructor-arg name="repo" ref="userRepository"/>

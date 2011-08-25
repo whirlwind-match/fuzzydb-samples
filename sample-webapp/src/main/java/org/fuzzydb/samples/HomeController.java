@@ -1,15 +1,14 @@
 package org.fuzzydb.samples;
 
+import org.fuzzydb.samples.repositories.StatsRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import com.wwm.db.spring.repository.FuzzyRepository;
 
 /**
  * Handles requests for the application home page.
@@ -17,9 +16,10 @@ import com.wwm.db.spring.repository.FuzzyRepository;
 @Controller
 public class HomeController {
 
+	private static final String HOME_PAGE = "/";
+
 	@Autowired
-	@Qualifier("counterRepository")
-	private FuzzyRepository<MyCounter> counterRepo;
+	private StatsRepository counterRepo;
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -27,14 +27,14 @@ public class HomeController {
 	 * Simple scenario for updating one composite object
 	 */
 	@Transactional
-	@RequestMapping(value="/", method=RequestMethod.GET)
+	@RequestMapping(value=HOME_PAGE, method=RequestMethod.GET)
 	public String home(Model model) {
 		logger.info("Welcome home!");
 		
-		MyCounter counter = counterRepo.findFirst();
+		MyCounter counter = counterRepo.findOne(HOME_PAGE);
 		
 		if (counter == null) {
-			counter = new MyCounter();
+			counter = new MyCounter(HOME_PAGE);
 		}
 		counter.count++;
 		counterRepo.save(counter);
