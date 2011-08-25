@@ -20,7 +20,7 @@
 	</authentication-manager>
 
 	<beans:bean id="myUserDetailsService" class="org.fuzzydb.samples.security.WhirlwindUserDetailsService">
-		<beans:property name="repository" ref="userDetailsRepository"/>
+		<beans:property name="repository" ref="userRepository"/>
 	</beans:bean>
 
 </beans:beans>

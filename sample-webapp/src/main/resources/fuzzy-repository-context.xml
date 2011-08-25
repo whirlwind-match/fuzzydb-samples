@@ -14,22 +14,21 @@
 	
 	<import resource="security-context.xml"/>
 
-    <tx:annotation-driven mode="aspectj" transaction-manager="transactionManager" />
+    <tx:annotation-driven mode="proxy" transaction-manager="transactionManager" />
     <fuzzy:tx-manager />
 
     <fuzzy:embedded-database />
     <fuzzy:initialize />
 
-	<fuzzy:repository id="counterRepository" class="org.fuzzydb.samples.MyCounter" />
-	<fuzzy:repository id="itemRepository" class="org.fuzzydb.samples.FuzzyItem" useDefaultNamespace="true" />
+    <bean class="com.wwm.db.spring.transaction.WhirlwindExceptionTranslator" />
 
-	<bean id="userDetailsRepository" class="com.wwm.db.spring.repository.RawCRUDRepository">
-		<qualifier value="userDetailsRepository"/>
-		<constructor-arg value="org.fuzzydb.samples.security.WhirlwindUserDetails"/>
-	</bean>
+    <fuzzy:repositories base-package="org.fuzzydb.samples.repositories" />
+
+	<fuzzy:repository id="counterRepository" class="org.fuzzydb.samples.MyCounter" />
+
     
     <bean id="userInitialiser" class="com.wwm.db.spring.repository.XStreamRepositoryInitializer">
-        <constructor-arg name="repo" ref="userDetailsRepository"/>
+        <constructor-arg name="repo" ref="userRepository"/>
         <property name="transactionManager" ref="transactionManager"/>
         <property name="resources" value="classpath:/data/initialUsers.xml"/>
     </bean>
