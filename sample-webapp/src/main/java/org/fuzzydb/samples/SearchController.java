@@ -5,8 +5,8 @@ import java.io.OutputStream;
 import java.util.Iterator;
 import java.util.List;
 
+import org.fuzzydb.samples.repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.thoughtworks.xstream.XStream;
 import com.wwm.db.query.Result;
 import com.wwm.db.spring.repository.AttributeMatchQuery;
-import com.wwm.db.spring.repository.FuzzyRepository;
 import com.wwm.db.spring.repository.SubjectMatchQuery;
 
 /**
@@ -36,8 +35,7 @@ public class SearchController {
 	 * in the application context.
 	 */
 	@Autowired
-	@Qualifier("itemRepository")
-	private FuzzyRepository<FuzzyItem> itemRepo;
+	private ItemRepository itemRepo;
 
 
 	
