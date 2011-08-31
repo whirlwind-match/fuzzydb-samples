@@ -17,7 +17,7 @@
     <tx:annotation-driven mode="aspectj" transaction-manager="transactionManager" />
     <fuzzy:tx-manager />
 
-    <fuzzy:embedded-database />
+    <fuzzy:embedded-database persistent="false" />
     <fuzzy:initialize />
 
     <bean class="com.wwm.db.spring.transaction.WhirlwindExceptionTranslator" />
