@@ -18,6 +18,10 @@
 	<logger name="com.wwm">
 		<level value="debug" />
 	</logger>
+
+    <logger name="com.wwm.db.internal.StoreImpl">
+        <level value="trace" />
+    </logger>
 	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
