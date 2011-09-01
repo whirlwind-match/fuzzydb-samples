@@ -12,8 +12,8 @@
 
 	<h3>Click match styles here to experiment with strict vs soft matches in determining overall score:</h3>
 	<ul>
-	    <li><a href="?name=${subject}">similar people - soft</a></li>
-	    <li><a href="?name=${subject}&style=similarPeopleStrict">similar people - strict</a></li>
+	    <li><a href="?ref=${ref}">similar people - soft</a></li>
+	    <li><a href="?ref=${ref}&style=similarPeopleStrict">similar people - strict</a></li>
 	</ul>
 
 	<hr>
@@ -25,7 +25,7 @@
     <c:forEach items="${results}" var="result">
 	    <div style="float:left; border: solid gray 1px; width:250px; margin: 2px; padding: 5px; min-height: 420px;">
 	    	<span style="display: block;float: right; padding-right: 10px"> 
-	    		<a href="?name=${result.item}&style=${style}">matches</a>
+	    		<a href="?ref=${result.item.ref}&style=${style}">matches</a>
 	    	</span>
 	    	<span style="text-decoration: underline; font-weight: bold; font-size: larger">${result.item}</span>&nbsp;
 		    <div style="margin: 2px; padding: 12 2 2 2"><b>Overall Score:</b>

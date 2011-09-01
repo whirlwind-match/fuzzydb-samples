@@ -36,4 +36,7 @@
         <property name="resources" value="classpath:/data/initialPeople.xml"/>
     </bean>
 
+    <bean id="randomGenerator" class="com.wwm.db.spring.random.RandomAttributeSource"/>
+
+
 </beans>

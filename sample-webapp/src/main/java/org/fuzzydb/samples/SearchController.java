@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.thoughtworks.xstream.XStream;
+import com.wwm.db.Ref;
 import com.wwm.db.query.Result;
 import com.wwm.db.spring.repository.AttributeMatchQuery;
 import com.wwm.db.spring.repository.SubjectMatchQuery;
@@ -28,6 +29,7 @@ public class SearchController {
 
 	@Autowired
 	private DataGenerator dataGenerator;
+	
 	
 	/**
 	 * A repository provided the line
@@ -43,30 +45,35 @@ public class SearchController {
 	@RequestMapping(value="/createPeople", method=RequestMethod.GET) 
 	public String createPeople() {
 		
-		itemRepo.save(dataGenerator.createPerson("Matt"));
-		itemRepo.save(dataGenerator.createPerson("Angelina"));
-		itemRepo.save(dataGenerator.createPerson("Brad"));
-		itemRepo.save(dataGenerator.createPerson("Neale"));
-		itemRepo.save(dataGenerator.createPerson("Wayne"));
+		itemRepo.save(dataGenerator.createRandomPerson());
+		itemRepo.save(dataGenerator.createRandomPerson());
+		itemRepo.save(dataGenerator.createRandomPerson());
+		itemRepo.save(dataGenerator.createRandomPerson());
 		return "redirect:/matches";
 	}
 
 	
+	/**
+	 * 
+	 * @param style The name of the matching configuration or 'style'
+	 * @param ref A database reference - something we probably don't want in a real app
+	 * @param maxResults This lets the database know the maximum number of results you're going to iterate over
+     *	 		you could potentially feed results out as you get them, so long as you've got the 
+	 *			transaction held open... hmmm. I feel some Ajax coming on ;)
+	 */
 	@Transactional(readOnly=true)
 	@RequestMapping(value="/matches", method=RequestMethod.GET)
 	public String findMatches(
 			Model model, 
-			@RequestParam(defaultValue="Matt") String name,
-			@RequestParam(defaultValue="similarPeople") String style) {
+			@RequestParam(defaultValue="similarPeople") String style,
+			@RequestParam(required=false) Ref<FuzzyItem> ref,
+			@RequestParam(defaultValue="10") Integer maxResults) {
 	
 		// We need some attributes to search against.  This doesn't have to be something already in the 
-		// database.  For ease, we'll just grab a named sample from our dataGenerator
-		FuzzyItem subject = dataGenerator.createPerson(name);
+		// database.  For the default, we'll just grab a named sample from our dataGenerator.
+		// If we have a key (ref), then we'll use that to grab an item.
+		FuzzyItem subject = ref == null ? dataGenerator.createPerson("Matt") : itemRepo.findOne(ref);
 
-		// This lets the database know the maximum number of results you're going to iterate over
-		// you could potentially feed results out as you get them, so long as you've got the 
-		// transaction held open... hmmm. I feel some Ajax coming on ;)
-		int maxResults = 10; 
 		                    
 		// A SubjectMatchQuery looks for the best matches for a provided subject, according to the
 		// requested match style
@@ -80,6 +87,7 @@ public class SearchController {
 		
 		// Stick 'em in our model for our view to render
 		model.addAttribute("subject", subject);
+		model.addAttribute("ref", ref);
 		model.addAttribute("results", results);
 		model.addAttribute("style", style);
 		return "results";

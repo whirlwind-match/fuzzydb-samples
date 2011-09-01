@@ -9,7 +9,17 @@
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
-	<annotation-driven />
+	<annotation-driven conversion-service="conversionService" />
+
+    <beans:bean id="conversionService"
+          class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <beans:property name="converters">
+            <beans:list>
+                <beans:bean class="com.wwm.attrs.converters.StringToRefConverter"/> <!-- NOTE: Exposing refs in website URLs is not recommended ;) -->
+                <beans:bean class="com.wwm.attrs.converters.RefToStringConverter"/>
+            </beans:list>
+        </beans:property>
+    </beans:bean>
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />

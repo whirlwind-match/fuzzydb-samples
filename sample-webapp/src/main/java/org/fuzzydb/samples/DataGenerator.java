@@ -3,14 +3,49 @@ package org.fuzzydb.samples;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
-public class DataGenerator {
+import com.wwm.db.spring.random.RandomAttributeSource;
+import com.wwm.model.attributes.Attribute;
 
+@Component
+public class DataGenerator implements InitializingBean {
+
+	@Autowired
+	private RandomAttributeSource randomSource;
+	
 	private Map<String, FuzzyItem> people = new HashMap<String, FuzzyItem>();
 	
 	public DataGenerator() {
+		addHardcodedPeople();
+	}
+
+	
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		randomSource.configureFloatAttr("age", 13f, 100f, 0);
+		randomSource.configureFloatAttr("salary", 5000f, 1e6f, 10);
+	}
+
+	
+	public FuzzyItem createPerson(String key) {
+		return people.get(key);
+	}
+	
+	public FuzzyItem createRandomPerson() {
+		String name = "Anon"; // TODO randomise
+		FuzzyItem item = new FuzzyItem(name);
+		addRandomAttr(item, "isMale");
+		addRandomAttr(item, "age");
+		addRandomAttr(item, "salary");
+		
+		return item;
+	}
+
+
+	private void addHardcodedPeople() {
 		FuzzyItem matt = new FuzzyItem("Matt");
 		matt.setAttr("isMale", Boolean.TRUE);
 		matt.setAttr("age", 32f);
@@ -52,12 +87,13 @@ public class DataGenerator {
 		wayne.setAttr("smoke", "Non-smoker");
 		wayne.setAttr("newspapers", new String[]{"Sun"});
 		people.put("Wayne", wayne);
-
 	}
-	
-	
-	public FuzzyItem createPerson(String key) {
-		return people.get(key);
+
+	private void addRandomAttr(FuzzyItem item, String attr) {
+		Attribute<?> random = randomSource.getRandom(attr);
+		if (random != null) {
+			item.setAttr(attr, random.getValueAsObject());
+		}
 	}
 
 }
