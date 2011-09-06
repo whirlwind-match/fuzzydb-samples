@@ -10,7 +10,7 @@
     <http use-expressions="true">
         <intercept-url pattern="/" access="permitAll"/>
         <intercept-url pattern="/static/**" filters="none" />
-        <intercept-url pattern="/createPeople" access="isAuthenticated()" />
+        <intercept-url pattern="/createPeopleAuth" access="isAuthenticated()" />
         <form-login login-page="/login"/>
         <logout />
     </http>
