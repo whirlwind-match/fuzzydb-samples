@@ -9,14 +9,24 @@
 </head>
 <body>
 
+	<div style="float:left; width: 30%">
+	<h3>Add more people:</h3>
+	<ul>
+	    <li><a href="createPeople?numPeople=10">Add 10</a></li>
+	    <li><a href="createPeople?numPeople=100">Add 100</a></li>
+	    <li><a href="createPeople?numPeople=1000">Add 1000</a></li>
+	</ul>
+	</div>
 
+	<div style="float:left; margin-left:10px">
 	<h3>Click match styles here to experiment with strict vs soft matches in determining overall score:</h3>
 	<ul>
 	    <li><a href="?ref=${ref}">similar people - soft</a></li>
 	    <li><a href="?ref=${ref}&style=similarPeopleStrict">similar people - strict</a></li>
 	</ul>
-
-	<hr>
+	</div>
+	
+	<hr style="clear: left"/>
 	<h3>Matches for ${subject} using match style: ${style}</h3>
 	<p>
 	<em>Click on 'matches' link to change to find matches for that person</em>

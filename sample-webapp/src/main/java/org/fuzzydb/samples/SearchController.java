@@ -43,12 +43,11 @@ public class SearchController {
 	
 	@Transactional
 	@RequestMapping(value="/createPeople", method=RequestMethod.GET) 
-	public String createPeople() {
+	public String createPeople(@RequestParam(defaultValue="5") int numPeople) {
 		
-		itemRepo.save(dataGenerator.createRandomPerson());
-		itemRepo.save(dataGenerator.createRandomPerson());
-		itemRepo.save(dataGenerator.createRandomPerson());
-		itemRepo.save(dataGenerator.createRandomPerson());
+		for (int i = 0; i < numPeople; i++) {
+			itemRepo.save(dataGenerator.createRandomPerson());
+		}
 		return "redirect:/matches";
 	}
 

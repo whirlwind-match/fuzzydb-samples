@@ -21,6 +21,7 @@
         <otherAttrId>salary</otherAttrId>
         <expectedRange>5e4f</expectedRange>
         <weight>1.0</weight>
+        <scoreOnNull>0.5</scoreOnNull>
     </SimilarFloatValueScorer>
 
     <SimilarFloatValueScorer>
@@ -29,6 +30,7 @@
         <otherAttrId>age</otherAttrId>
         <expectedRange>10</expectedRange> 
         <weight>1.0</weight>
+        <scoreNull>false</scoreNull>
     </SimilarFloatValueScorer>
     
 	<EnumScoresMapScorer>
