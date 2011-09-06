@@ -10,12 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.thoughtworks.xstream.XStream;
-import com.wwm.db.Ref;
 import com.wwm.db.query.Result;
 import com.wwm.db.spring.repository.AttributeMatchQuery;
 import com.wwm.db.spring.repository.SubjectMatchQuery;
@@ -66,13 +66,13 @@ public class SearchController {
 	public String findMatches(
 			Model model, 
 			@RequestParam(defaultValue="similarPeople") String style,
-			@RequestParam(required=false) Ref<FuzzyItem> ref,
+			@RequestParam(required=false) String ref,
 			@RequestParam(defaultValue="10") Integer maxResults) {
 	
 		// We need some attributes to search against.  This doesn't have to be something already in the 
 		// database.  For the default, we'll just grab a named sample from our dataGenerator.
 		// If we have a key (ref), then we'll use that to grab an item.
-		FuzzyItem subject = ref == null ? dataGenerator.createPerson("Matt") : itemRepo.findOne(ref);
+		FuzzyItem subject = StringUtils.hasText(ref) ? itemRepo.findOne(ref) : dataGenerator.createPerson("Matt");
 
 		                    
 		// A SubjectMatchQuery looks for the best matches for a provided subject, according to the
