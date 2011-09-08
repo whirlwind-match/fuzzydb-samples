@@ -37,6 +37,6 @@
     </bean>
 
     <bean id="randomGenerator" class="com.wwm.db.spring.random.RandomAttributeSource"/>
-
+    <bean id="postcodeConverter" class="com.wwm.postcode.PostcodeConvertor" />
 
 </beans>

@@ -5,16 +5,28 @@ import java.util.Map;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+import com.wwm.attrs.location.EcefVector;
 import com.wwm.db.spring.random.RandomAttributeSource;
+import com.wwm.geo.GeoInformation;
 import com.wwm.model.attributes.Attribute;
+import com.wwm.model.attributes.NonIndexStringAttribute;
+import com.wwm.model.attributes.Point3DAttribute;
+import com.wwm.postcode.RandomUKShortPostcode;
 
 @Component
 public class DataGenerator implements InitializingBean {
 
+
 	@Autowired
 	private RandomAttributeSource randomSource;
+	
+	@Autowired
+	private Converter<String, GeoInformation> converter;
+
+	private final RandomUKShortPostcode randomPostcodes = new RandomUKShortPostcode();
 	
 	private Map<String, FuzzyItem> people = new HashMap<String, FuzzyItem>();
 	
@@ -29,6 +41,7 @@ public class DataGenerator implements InitializingBean {
 		randomSource.configureFloatAttr("salary", 5000f, 1e6f, 0.05f);
 		randomSource.configureEnumAttr("smoke", 0.05f);
 		randomSource.configureMultiEnumAttr("newspapers", 0.01f);
+		randomSource.addRandomGenerator("postcode", randomPostcodes);
 	}
 
 	
@@ -44,6 +57,13 @@ public class DataGenerator implements InitializingBean {
 		addRandomAttr(item, "salary");
 		addRandomAttr(item, "newspapers");
 		addRandomAttr(item, "smoke");
+//		Attribute<String> randomAttr = addRandomAttr(item, "postcode"); // TODO Could leave out
+		NonIndexStringAttribute randomAttr = randomPostcodes.next("not used");
+		if (randomAttr != null) {
+			GeoInformation location = converter.convert(randomAttr.getValueAsObject());
+			Point3DAttribute vector = new Point3DAttribute("location", EcefVector.fromDegs(0, location.getLatitude(), location.getLongitude()));
+			item.setAttr("location", vector);
+		}
 		
 		return item;
 	}
@@ -60,11 +80,13 @@ public class DataGenerator implements InitializingBean {
 		people.put("Matt", matt);
 	}
 
-	private void addRandomAttr(FuzzyItem item, String attr) {
+	@SuppressWarnings("unchecked")
+	private <T> Attribute<T> addRandomAttr(FuzzyItem item, String attr) {
 		Attribute<?> random = randomSource.getRandom(attr);
 		if (random != null) {
 			item.setAttr(attr, random.getValueAsObject());
 		}
+		return (Attribute<T>) random;
 	}
 
 }
