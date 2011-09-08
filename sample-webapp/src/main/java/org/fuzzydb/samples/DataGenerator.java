@@ -31,7 +31,6 @@ public class DataGenerator implements InitializingBean {
 	private Map<String, FuzzyItem> people = new HashMap<String, FuzzyItem>();
 	
 	public DataGenerator() {
-		addHardcodedPeople();
 	}
 
 	
@@ -42,6 +41,8 @@ public class DataGenerator implements InitializingBean {
 		randomSource.configureEnumAttr("smoke", 0.05f);
 		randomSource.configureMultiEnumAttr("newspapers", 0.01f);
 		randomSource.addRandomGenerator("postcode", randomPostcodes);
+
+		addHardcodedPeople();
 	}
 
 	
@@ -77,6 +78,10 @@ public class DataGenerator implements InitializingBean {
 		matt.setAttr("salary", 500000f);
 		matt.setAttr("smoke", "Cigar-smoker");
 		matt.setAttr("newspapers", new String[]{"LA Times", "New York Times"});
+		GeoInformation location = converter.convert("CB1");
+		Point3DAttribute vector = new Point3DAttribute("location", EcefVector.fromDegs(0, location.getLatitude(), location.getLongitude()));
+		matt.setAttr("location", vector);
+
 		people.put("Matt", matt);
 	}
 

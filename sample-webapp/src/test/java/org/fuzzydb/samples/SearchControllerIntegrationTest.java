@@ -26,13 +26,16 @@ public class SearchControllerIntegrationTest {
 	private ItemRepository itemRepo;
 	
 	@Test
-	public void generateRandomItemShouldSucceed() {
+	public void generateRandomItemShouldSaveAndRetrieve() {
 		
 		FuzzyItem person = gen.createRandomPerson();
 		assertNotNull(person);
 		
 		FuzzyItem saved = itemRepo.save(person);
 		assertNotNull(saved);
+		
+		FuzzyItem retrieved = itemRepo.findOne(saved.getRef());
+		assertNotNull(retrieved.getAttr("location"));
 	}
 
 }

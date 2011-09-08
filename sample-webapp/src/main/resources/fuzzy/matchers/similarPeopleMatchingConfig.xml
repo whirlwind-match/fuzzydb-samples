@@ -15,6 +15,22 @@
         <weight>0.7</weight>
     </MultiEnumScorer>        
 
+    <VectorDistanceScorer>
+        <name>Within 100 miles</name>
+        <scorerAttrId>location</scorerAttrId>
+        <otherAttrId>location</otherAttrId>
+        <range>100</range>
+        <preferClose>true</preferClose>
+        <!-- Asymptotic scorer tends to zero at infinity -->
+        <scoreMapper class="AsymptoticScoreMapper">
+            <squareness>3</squareness> 
+            <!-- Will become valueAtBoundary once migrated away from XStream for reading this -->
+            <inverseValueAtBoundary>2.5</inverseValueAtBoundary> 
+            <!-- i.e. score is 40% at boundary  -->
+        </scoreMapper>
+        <weight>0.7</weight>
+    </VectorDistanceScorer>
+
     <SimilarFloatValueScorer>
         <name>Salary Within 50,000</name>
         <scorerAttrId>salary</scorerAttrId>
