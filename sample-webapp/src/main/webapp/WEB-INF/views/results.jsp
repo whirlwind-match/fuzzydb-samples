@@ -33,15 +33,15 @@
 	</p>
 	
     <c:forEach items="${results}" var="result">
-	    <div style="float:left; border: solid gray 1px; width:250px; margin: 2px; padding: 5px; min-height: 440px;">
+	    <div style="float:left; border: solid gray 1px; width:270px; margin: 2px; padding: 5px; min-height: 410px;">
 	    	<span style="display: block;float: right; padding-right: 10px"> 
 	    		<a href="?ref=${result.item.ref}&style=${style}">matches</a>
 	    	</span>
 	    	<span style="text-decoration: underline; font-weight: bold; font-size: larger">${result.item}</span>&nbsp;
 		    <div style="margin: 2px; padding: 11 2 2 2"><b>Overall Score:</b>
-		    	<div style="width: 100px; text-align:center; background-color: ${f:toCssRGBColor(result.score)}">
+		    	<span style="float:right; width: 100px; text-align:center; background-color: ${f:toCssRGBColor(result.score)}">
 		    	${f:toPercent(result.score)}%</div>
-		    	</div>
+		    	</span>
 		    	<div style="padding: 11px 2px"><b>Scores:</b>
 				    <c:forEach items="${result.score.scorerAttrNames}" var="match">
 				    	<c:set var="fwd" value="${f:forwardsScore(result,match)}"/>
@@ -62,7 +62,7 @@
 				    </c:forEach> 
 		    	<div style="padding: 11px 2px 0px 2px"><b>Attributes:</b>
 				    <c:forEach items="${result.item.attributes}" var="item">
-				    	<div  style="padding-left: 10px">${item.key}: ${f:toString(item.value)}</div>
+				    	<div  style="font-size: 80%; padding-left: 10px">${item.key}: <b>${f:toString(item.value)}</b></div>
 				    </c:forEach> 
 		    	</div>
 		    </div>
