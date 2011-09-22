@@ -43,6 +43,18 @@
 		    	${f:toPercent(result.score)}%</div>
 		    	</span>
 		    	<div style="padding: 11px 2px"><b>Scores:</b>
+		    	</div>
+		    	<c:set var="fwd" value="${f:forwardsTotal(result)}"/>
+		    	<div style="padding-left: 10px">
+		    		<span style="float:right; width: 50px; text-align:center; background-color: ${f:floatToCssRGBColor(fwd)}">${f:round(fwd * 100.1)}%</span>
+		    		Forwards: 
+		    	</div>
+		    	<c:set var="fwd" value="${f:reverseTotal(result)}"/>
+		    	<div style="padding-left: 10px">
+		    		<span style="float:right; width: 50px; text-align:center; background-color: ${f:floatToCssRGBColor(fwd)}">${f:round(fwd * 100.1)}%</span>
+		    		Reverse: 
+		    	</div>
+		    	<div style="padding: 11px 2px"><b>Scores (fwd):</b>
 				    <c:forEach items="${result.score.scorerAttrNames}" var="match">
 				    	<c:set var="fwd" value="${f:forwardsScore(result,match)}"/>
 				    	<c:choose>

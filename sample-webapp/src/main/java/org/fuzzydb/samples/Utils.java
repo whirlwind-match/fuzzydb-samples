@@ -58,14 +58,22 @@ public abstract class Utils {
 	}
 
 	
-	public static <T> float forwardsScore(Result<T> result, String matcher) {
+	public static <T> Float forwardsScore(Result<T> result, String matcher) {
 		return result.getScore().getForwardsScore(matcher);
 	}
 
-	public static <T> float reverseScore(Result<T> result, String matcher) {
+	public static <T> Float reverseScore(Result<T> result, String matcher) {
 		return result.getScore().getReverseScore(matcher);
 	}
-	
+
+	public static <T> Float forwardsTotal(Result<T> result) {
+		return result.getScore().forwardsTotal();
+	}
+
+	public static <T> Float reverseTotal(Result<T> result) {
+		return result.getScore().reverseTotal();
+	}
+
 	/**
 	 * A little help for things like Arrays
 	 * @param object

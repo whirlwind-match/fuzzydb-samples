@@ -34,7 +34,13 @@
       </float-array>
     </entry>
   </attributes>
-</org.fuzzydb.samples.FuzzyItem><org.fuzzydb.samples.FuzzyItem>
+</org.fuzzydb.samples.FuzzyItem>
+<org.fuzzydb.samples.FuzzyItem>
+  <description>Null</description>
+  <attributes>
+  </attributes>
+</org.fuzzydb.samples.FuzzyItem>
+<org.fuzzydb.samples.FuzzyItem>
   <description>Angelina</description>
   <attributes>
     <entry>
