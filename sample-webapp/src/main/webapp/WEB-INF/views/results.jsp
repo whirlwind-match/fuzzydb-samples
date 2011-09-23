@@ -1,13 +1,9 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="f" uri="/functions" %>
+<jsp:directive.include file="/WEB-INF/includes/includes.jsp"/>
+<c:set var="title" scope="page" value="Matches for ${subject}" />
+<jsp:directive.include file="/WEB-INF/includes/header.jsp"/>
+<script type="text/javascript">dojo.require("dijit.TitlePane");</script>
 
-<html>
-<head>
-	<title>Matches for ${subject}:</title>
-</head>
-<body>
+<div dojoType="dijit.TitlePane" style="width: 100%" title="Options">
 
 	<div style="float:left; width: 30%">
 	<h3>Add more people:</h3>
@@ -25,9 +21,9 @@
 	    <li><a href="?ref=${ref}&style=similarPeopleStrict">similar people - strict</a></li>
 	</ul>
 	</div>
-	
-	<hr style="clear: left"/>
-	<h3>Matches for ${subject} using match style: ${style}</h3>
+	<div style="clear:left; float:none" />
+</div>
+<div dojoType="dijit.TitlePane" style="width: 100%" title="Matches for ${subject} using match style: ${style}">
 	<p>
 	<em>Click on 'matches' link to change to find matches for that person</em>
 	</p>
@@ -80,5 +76,6 @@
 		    </div>
 	    </div>
     </c:forEach> 
-</body>
-</html>
+	<div style="clear:left; float:none" />
+</div>
+<jsp:directive.include file="/WEB-INF/includes/footer.jsp"/>

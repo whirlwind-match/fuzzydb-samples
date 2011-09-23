@@ -1,18 +1,10 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ page session="false" %>
-<html>
-<head>
-	<title>Home</title>
-</head>
-<body>
-<h1>
-	Hello world!
-</h1>
+<jsp:directive.include file="/WEB-INF/includes/includes.jsp"/>
+<jsp:directive.include file="/WEB-INF/includes/header.jsp"/>
+<script type="text/javascript">dojo.require("dijit.TitlePane");</script>
+
+<div dojoType="dijit.TitlePane" style="width: 100%" title="Home">
 
 We've had ${count} page views.
-
 
 	<ul>
 		<li><a href="createPeople">create a few characters</a></li>
@@ -26,5 +18,6 @@ We've had ${count} page views.
 		</sec:authorize>
 		
 	</ul>
-</body>
-</html>
+
+</div>
+<jsp:directive.include file="/WEB-INF/includes/footer.jsp"/>

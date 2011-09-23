@@ -21,6 +21,8 @@
         </beans:property>
     </beans:bean>
 
+    <!-- Resources for spring-js usage (incl dojo) -->
+    <resources mapping="/resources/**" location="classpath:/META-INF/web-resources/" />
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 
