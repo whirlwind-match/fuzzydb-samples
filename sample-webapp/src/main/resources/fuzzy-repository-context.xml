@@ -20,19 +20,28 @@
     <fuzzy:embedded-database persistent="false" />
     <fuzzy:initialize />
 
-    <bean class="com.wwm.db.spring.transaction.WhirlwindExceptionTranslator" />
+<!--     <bean class="com.wwm.db.spring.transaction.WhirlwindExceptionTranslator" /> -->
 
     <fuzzy:repositories base-package="org.fuzzydb.samples.repositories" />
 
+    <bean id="marshaller" class="org.springframework.oxm.xstream.XStreamMarshaller">
+        <property name="aliases">
+            <map>
+                <entry key="objects" value="java.util.ArrayList"/>
+            </map>
+        </property>
+    </bean>
+
     
-    <bean id="userInitialiser" class="com.wwm.db.spring.repository.XStreamRepositoryInitializer">
+    <bean id="userInitialiser" class="com.wwm.db.spring.repository.RepositoryInitializer">
         <constructor-arg name="repo" ref="userRepository"/>
-        <property name="transactionManager" ref="transactionManager"/>
+        <constructor-arg name="unmarshaller" ref="marshaller"/>
         <property name="resources" value="classpath:/data/initialUsers.xml"/>
     </bean>
-    <bean id="peopleInitialiser" class="com.wwm.db.spring.repository.XStreamRepositoryInitializer">
+    
+    <bean id="peopleInitialiser" class="com.wwm.db.spring.repository.RepositoryInitializer">
         <constructor-arg name="repo" ref="itemRepository"/>
-        <property name="transactionManager" ref="transactionManager"/>
+        <constructor-arg name="unmarshaller" ref="marshaller"/>
         <property name="resources" value="classpath:/data/initialPeople.xml"/>
     </bean>
 
