@@ -51,6 +51,12 @@ public class SearchController {
 		return "redirect:/matches";
 	}
 
+	@Transactional
+	@RequestMapping(value="/search", method=RequestMethod.GET) 
+	public String search(Model model) {
+		model.addAttribute("command", new FuzzyItem("search"));
+		return "search";
+	}
 	
 	/**
 	 * 
