@@ -5,12 +5,16 @@ import java.io.OutputStream;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.fuzzydb.samples.repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -51,13 +55,26 @@ public class SearchController {
 		return "redirect:/matches";
 	}
 
-	@Transactional
 	@RequestMapping(value="/search", method=RequestMethod.GET) 
-	public String search(Model model) {
-		model.addAttribute("command", new FuzzyItem("search"));
+	public String getSearchForm(Model model) {
+		model.addAttribute("command", new FuzzyItem("Entered search"));
 		return "search";
 	}
 	
+	@Transactional(readOnly=true)
+	@RequestMapping(value="/search", method=RequestMethod.POST) 
+	public String search(
+			@RequestParam(defaultValue="similarPeople") String style,
+			@RequestParam(defaultValue="10") Integer maxResults,
+			Model model, 
+			@ModelAttribute("command") @Valid FuzzyItem form, 
+			Errors result) {
+		
+		doSearch(model, style, null, maxResults, form);
+		
+		return "results";
+	}
+
 	/**
 	 * 
 	 * @param style The name of the matching configuration or 'style'
@@ -77,12 +94,17 @@ public class SearchController {
 		// We need some attributes to search against.  This doesn't have to be something already in the 
 		// database.  For the default, we'll just grab a named sample from our dataGenerator.
 		// If we have a key (ref), then we'll use that to grab an item.
-		FuzzyItem subject = StringUtils.hasText(ref) ? itemRepo.findOne(ref) : dataGenerator.createPerson("Matt");
+		FuzzyItem idealMatch = StringUtils.hasText(ref) ? itemRepo.findOne(ref) : dataGenerator.createPerson("Matt");
 
-		                    
+		doSearch(model, style, ref, maxResults, idealMatch);
+		return "results";
+	}
+
+	protected void doSearch(Model model, String style, String ref,
+			Integer maxResults, FuzzyItem idealMatch) {
 		// A SubjectMatchQuery looks for the best matches for a provided subject, according to the
 		// requested match style
-		AttributeMatchQuery<FuzzyItem> query = new SubjectMatchQuery<FuzzyItem>(subject, style, maxResults);
+		AttributeMatchQuery<FuzzyItem> query = new SubjectMatchQuery<FuzzyItem>(idealMatch, style, maxResults);
 		
 		// Do the actual query
 		Iterator<Result<FuzzyItem>> resultIterator = itemRepo.findMatchesFor(query);
@@ -91,11 +113,10 @@ public class SearchController {
 		List<Result<FuzzyItem>> results = Utils.toList(resultIterator);
 		
 		// Stick 'em in our model for our view to render
-		model.addAttribute("subject", subject);
+		model.addAttribute("subject", idealMatch);
 		model.addAttribute("ref", ref);
 		model.addAttribute("results", results);
 		model.addAttribute("style", style);
-		return "results";
 	}
 
 
