@@ -52,15 +52,9 @@ public class SearchController {
 		for (int i = 0; i < numPeople; i++) {
 			itemRepo.save(dataGenerator.createRandomPerson());
 		}
-		return "redirect:/matches";
+		return "redirect:/search";
 	}
 
-	@RequestMapping(value="/search", method=RequestMethod.GET) 
-	public String getSearchForm(Model model) {
-		model.addAttribute("command", new FuzzyItem("Entered search"));
-		return "search";
-	}
-	
 	@Transactional(readOnly=true)
 	@RequestMapping(value="/search", method=RequestMethod.POST) 
 	public String search(
@@ -84,7 +78,7 @@ public class SearchController {
 	 *			transaction held open... hmmm. I feel some Ajax coming on ;)
 	 */
 	@Transactional(readOnly=true)
-	@RequestMapping(value="/matches", method=RequestMethod.GET)
+	@RequestMapping(value="/search", method=RequestMethod.GET)
 	public String findMatches(
 			Model model, 
 			@RequestParam(defaultValue="similarPeople") String style,
@@ -97,6 +91,7 @@ public class SearchController {
 		FuzzyItem idealMatch = StringUtils.hasText(ref) ? itemRepo.findOne(ref) : dataGenerator.createPerson("Matt");
 
 		doSearch(model, style, ref, maxResults, idealMatch);
+		model.addAttribute("command", new FuzzyItem("Entered search"));
 		return "results";
 	}
 

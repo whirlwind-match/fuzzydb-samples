@@ -3,6 +3,8 @@
 <jsp:directive.include file="/WEB-INF/includes/header.jsp"/>
 <script type="text/javascript">dojo.require("dijit.TitlePane");</script>
 
+<jsp:directive.include file="/WEB-INF/includes/searchForm.jsp"/>
+
 <div dojoType="dijit.TitlePane" style="width: 100%" title="Options">
 
 	<div style="float:left; width: 30%">
