@@ -29,7 +29,11 @@
 	<p>
 	<em>Click on 'matches' link to change to find matches for that person</em>
 	</p>
-	
+		<c:if test="${startNextPage > 0}">
+	   		<a href="?ref=${result.item.ref}&style=${style}&start=${startNextPage}&pageSize=${pageSize}">next page</a>
+		</c:if>
+
+	<p>
     <c:forEach items="${results}" var="result">
 	    <div style="float:left; border: solid gray 1px; width:270px; margin: 2px; padding: 5px; min-height: 410px;">
 	    	<span style="display: block;float: right; padding-right: 10px"> 

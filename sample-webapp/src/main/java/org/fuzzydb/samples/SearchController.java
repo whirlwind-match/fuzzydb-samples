@@ -2,6 +2,8 @@ package org.fuzzydb.samples;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -9,6 +11,10 @@ import javax.validation.Valid;
 
 import org.fuzzydb.samples.repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -59,12 +65,14 @@ public class SearchController {
 	@RequestMapping(value="/search", method=RequestMethod.POST) 
 	public String search(
 			@RequestParam(defaultValue="similarPeople") String style,
-			@RequestParam(defaultValue="10") Integer maxResults,
+			@RequestParam(defaultValue="0") int start,
+			@RequestParam(defaultValue="10") int pageSize,
 			Model model, 
 			@ModelAttribute("command") @Valid FuzzyItem form, 
 			Errors result) {
 		
-		doSearch(model, style, null, maxResults, form);
+		Pageable pageable = new PageRequest(start, pageSize);
+		doSearch(model, style, null, pageable, form);
 		
 		return "results";
 	}
@@ -83,35 +91,40 @@ public class SearchController {
 			Model model, 
 			@RequestParam(defaultValue="similarPeople") String style,
 			@RequestParam(required=false) String ref,
-			@RequestParam(defaultValue="10") Integer maxResults) {
+			@RequestParam(defaultValue="0") int start,
+			@RequestParam(defaultValue="10") int pageSize) {
 	
 		// We need some attributes to search against.  This doesn't have to be something already in the 
 		// database.  For the default, we'll just grab a named sample from our dataGenerator.
 		// If we have a key (ref), then we'll use that to grab an item.
 		FuzzyItem idealMatch = StringUtils.hasText(ref) ? itemRepo.findOne(ref) : dataGenerator.createPerson("Matt");
 
-		doSearch(model, style, ref, maxResults, idealMatch);
+		Pageable pageable = new PageRequest(start/pageSize, pageSize);
+		doSearch(model, style, ref, pageable, idealMatch);
 		model.addAttribute("command", new FuzzyItem("Entered search"));
 		return "results";
 	}
 
 	protected void doSearch(Model model, String style, String ref,
-			Integer maxResults, FuzzyItem idealMatch) {
+			Pageable pageable, FuzzyItem idealMatch) {
 		// A SubjectMatchQuery looks for the best matches for a provided subject, according to the
 		// requested match style
+		int maxResults = pageable.getOffset() + pageable.getPageSize(); 
 		AttributeMatchQuery<FuzzyItem> query = new SubjectMatchQuery<FuzzyItem>(idealMatch, style, maxResults);
 		
 		// Do the actual query
 		Iterator<Result<FuzzyItem>> resultIterator = itemRepo.findMatchesFor(query);
 		
 		// Extract the results
-		List<Result<FuzzyItem>> results = Utils.toList(resultIterator);
+		Page<Result<FuzzyItem>> results = getPage(resultIterator, pageable);
 		
 		// Stick 'em in our model for our view to render
 		model.addAttribute("subject", idealMatch);
 		model.addAttribute("ref", ref);
-		model.addAttribute("results", results);
+		model.addAttribute("results", results.getContent());
 		model.addAttribute("style", style);
+		model.addAttribute("startNextPage", results.hasNextPage() ? maxResults : -1);
+		model.addAttribute("pageSize", results.getSize());
 	}
 
 
@@ -138,7 +151,7 @@ public class SearchController {
 	
 		FuzzyItem subject = dataGenerator.createPerson(name);
 		int maxResults = 10; 
-		AttributeMatchQuery<FuzzyItem> query = new SubjectMatchQuery<FuzzyItem>(subject, style, maxResults);
+		AttributeMatchQuery<FuzzyItem> query = new SubjectMatchQuery<FuzzyItem>(subject, style, maxResults + 1); // + 1 so we can check if there are more results
 		Iterator<Result<FuzzyItem>> resultIterator = itemRepo.findMatchesFor(query);
 		
 		XStream xs = new XStream();
@@ -148,6 +161,28 @@ public class SearchController {
 			
 			xs.toXML(item.getItem(), response);
 		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	protected <T> Page<T> getPage(Iterator<T> iterator, Pageable pageable) {
+		// See if we have the requested page by skipping past those we don't need
+		int i = 0;
+		int pageStartCount = pageable.getPageNumber() * pageable.getPageSize();
+		for ( ; i < pageStartCount; i++) {
+			if (!iterator.hasNext()) {
+				return new PageImpl<T>((List<T>)Collections.emptyList(), pageable, i);
+			}
+			iterator.next();
+		}
+		
+		ArrayList<T> resultsPage = new ArrayList<T>(pageable.getPageSize());
+		for ( ; i < pageStartCount + pageable.getPageSize(); i++) {
+			if (!iterator.hasNext()) {
+				return new PageImpl<T>(resultsPage, pageable, i);
+			}
+			resultsPage.add(iterator.next());
+		}
+		return new PageImpl<T>(resultsPage, pageable, iterator.hasNext() ? Long.MAX_VALUE : i + 1); // Don't know total size unless this was last item
 	}
 }
 
