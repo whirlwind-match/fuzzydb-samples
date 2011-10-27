@@ -28,6 +28,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.thoughtworks.xstream.XStream;
 import com.wwm.db.query.Result;
 import com.wwm.db.spring.repository.AttributeMatchQuery;
+import com.wwm.db.spring.repository.PageUtils;
 import com.wwm.db.spring.repository.SubjectMatchQuery;
 
 /**
@@ -116,7 +117,7 @@ public class SearchController {
 		Iterator<Result<FuzzyItem>> resultIterator = itemRepo.findMatchesFor(query);
 		
 		// Extract the results
-		Page<Result<FuzzyItem>> results = getPage(resultIterator, pageable);
+		Page<Result<FuzzyItem>> results = PageUtils.getPage(resultIterator, pageable);
 		
 		// Stick 'em in our model for our view to render
 		model.addAttribute("subject", idealMatch);
@@ -161,28 +162,6 @@ public class SearchController {
 			
 			xs.toXML(item.getItem(), response);
 		}
-	}
-	
-	@SuppressWarnings("unchecked")
-	protected <T> Page<T> getPage(Iterator<T> iterator, Pageable pageable) {
-		// See if we have the requested page by skipping past those we don't need
-		int i = 0;
-		int pageStartCount = pageable.getPageNumber() * pageable.getPageSize();
-		for ( ; i < pageStartCount; i++) {
-			if (!iterator.hasNext()) {
-				return new PageImpl<T>((List<T>)Collections.emptyList(), pageable, i);
-			}
-			iterator.next();
-		}
-		
-		ArrayList<T> resultsPage = new ArrayList<T>(pageable.getPageSize());
-		for ( ; i < pageStartCount + pageable.getPageSize(); i++) {
-			if (!iterator.hasNext()) {
-				return new PageImpl<T>(resultsPage, pageable, i);
-			}
-			resultsPage.add(iterator.next());
-		}
-		return new PageImpl<T>(resultsPage, pageable, iterator.hasNext() ? Long.MAX_VALUE : i + 1); // Don't know total size unless this was last item
 	}
 }
 
