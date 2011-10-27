@@ -114,11 +114,8 @@ public class SearchController {
 		AttributeMatchQuery<FuzzyItem> query = new SubjectMatchQuery<FuzzyItem>(idealMatch, style, maxResults);
 		
 		// Do the actual query
-		Iterator<Result<FuzzyItem>> resultIterator = itemRepo.findMatchesFor(query);
-		
-		// Extract the results
-		Page<Result<FuzzyItem>> results = PageUtils.getPage(resultIterator, pageable);
-		
+		Page<Result<FuzzyItem>> results = itemRepo.findMatchesFor(query, pageable);
+				
 		// Stick 'em in our model for our view to render
 		model.addAttribute("subject", idealMatch);
 		model.addAttribute("ref", ref);
