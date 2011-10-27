@@ -35,25 +35,25 @@
 
 	<p>
     <c:forEach items="${results}" var="result">
-	    <div style="float:left; border: solid gray 1px; width:270px; margin: 2px; padding: 5px; min-height: 410px;">
+	    <div style="float:left; border: solid gray 1px; border-radius: 10px; width:270px; margin: 2px; padding: 5px; min-height: 410px;">
 	    	<span style="display: block;float: right; padding-right: 10px"> 
 	    		<a href="?ref=${result.item.ref}&style=${style}">matches</a>
 	    	</span>
 	    	<span style="text-decoration: underline; font-weight: bold; font-size: larger">${result.item}</span>&nbsp;
 		    <div style="margin: 2px; padding: 11 2 2 2"><b>Overall Score:</b>
-		    	<span style="float:right; width: 100px; text-align:center; background-color: ${f:toCssRGBColor(result.score)}">
+		    	<span style="float:right; width: 100px; border-radius: 5px; text-align:center; background-color: ${f:toCssRGBColor(result.score)}">
 		    	${f:toPercent(result.score)}%</div>
 		    	</span>
 		    	<div style="padding: 11px 2px"><b>Scores:</b>
 		    	</div>
 		    	<c:set var="fwd" value="${f:forwardsTotal(result)}"/>
 		    	<div style="padding-left: 10px">
-		    		<span style="float:right; width: 50px; text-align:center; background-color: ${f:floatToCssRGBColor(fwd)}">${f:round(fwd * 100.1)}%</span>
+		    		<span style="float:right; width: 50px; border-radius: 5px; text-align:center; background-color: ${f:floatToCssRGBColor(fwd)}">${f:round(fwd * 100.1)}%</span>
 		    		Forwards: 
 		    	</div>
 		    	<c:set var="fwd" value="${f:reverseTotal(result)}"/>
-		    	<div style="padding-left: 10px">
-		    		<span style="float:right; width: 50px; text-align:center; background-color: ${f:floatToCssRGBColor(fwd)}">${f:round(fwd * 100.1)}%</span>
+		    	<div style="padding-left: 10px; padding-top: 1px">
+		    		<span style="float:right; width: 50px; border-radius: 5px; text-align:center; background-color: ${f:floatToCssRGBColor(fwd)}">${f:round(fwd * 100.1)}%</span>
 		    		Reverse: 
 		    	</div>
 		    	<div style="padding: 11px 2px"><b>Scores (fwd):</b>
@@ -67,8 +67,8 @@
 	    				</div>
 					    	</c:when>
 					    	<c:otherwise>
-				    	<div style="padding-left: 10px">
-				    		<span style="float:right; width: 50px; text-align:center; background-color: ${f:floatToCssRGBColor(fwd)}">${f:round(fwd * 100.1)}%</span>
+				    	<div style="padding-left: 10px; padding-top: 1px;">
+				    		<span style="float:right; width: 50px; border-radius: 5px; text-align:center; background-color: ${f:floatToCssRGBColor(fwd)}">${f:round(fwd * 100.1)}%</span>
 				    		${match}: 
 				    	</div>
 					    	</c:otherwise>
