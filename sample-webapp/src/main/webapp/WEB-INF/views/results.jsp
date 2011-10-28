@@ -35,11 +35,11 @@
 
 	<p>
     <c:forEach items="${results}" var="result">
-	    <div style="float:left; border: solid gray 1px; border-radius: 10px; width:270px; margin: 2px; padding: 5px; min-height: 410px;">
+	    <div style="background-color:#F8F8F8; float:left; border: solid #EEE 0px; border-radius: 10px; width:270px; margin: 5px; padding: 9px; min-height: 410px; box-shadow: 4px 4px 8px 0px #AAA;">
 	    	<span style="display: block;float: right; padding-right: 10px"> 
 	    		<a href="?ref=${result.item.ref}&style=${style}">matches</a>
 	    	</span>
-	    	<span style="text-decoration: underline; font-weight: bold; font-size: larger">${result.item}</span>&nbsp;
+	    	<span style="font-weight: bold; font-size: larger">${result.item}</span>&nbsp;
 		    <div style="margin: 2px; padding: 11 2 2 2"><b>Overall Score:</b>
 		    	<span style="float:right; width: 100px; border-radius: 5px; text-align:center; background-color: ${f:toCssRGBColor(result.score)}">
 		    	${f:toPercent(result.score)}%</div>
