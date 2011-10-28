@@ -19,6 +19,12 @@
             <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "salary", 
             	widgetType : "dijit.form.ValidationTextBox", widgetAttrs : {promptMessage: "Are they raking it in?", required : false}})); </script>
 	</tr>
+	<tr>
+		<td>Location:</td>
+		<td><form:input id="location" path="attributes['location']" /> <form:errors path="attributes['location']"/></td>
+            <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "location", 
+            	widgetType : "dijit.form.ValidationTextBox", widgetAttrs : {promptMessage: "Any clue where? (Try the first part of a UK postcode e.g. SE1)", required : false}})); </script>
+	</tr>
 	</table>
 	<input type="submit" value="Search"/>
 </form:form>
