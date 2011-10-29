@@ -35,7 +35,7 @@
 
 	<p>
     <c:forEach items="${results}" var="result">
-	    <div style="background-color:#F8F8F8; float:left; border: solid #EEE 0px; border-radius: 10px; width:270px; margin: 5px; padding: 9px; min-height: 410px; box-shadow: 4px 4px 8px 0px #AAA;">
+	    <div style="background-color:#F8F8F8; float:left; border: solid #EEE 0px; border-radius: 10px; width:270px; margin: 5px; padding: 9px; min-height: 320px; box-shadow: 4px 4px 8px 0px #AAA;">
 	    	<span style="display: block;float: right; padding-right: 10px"> 
 	    		<a href="?ref=${result.item.ref}&style=${style}">matches</a>
 	    	</span>
@@ -44,19 +44,19 @@
 		    	<span style="float:right; width: 100px; border-radius: 5px; text-align:center; background-color: ${f:toCssRGBColor(result.score)}">
 		    	${f:toPercent(result.score)}%</div>
 		    	</span>
+<!-- 		    	<div style="padding: 11px 2px"><b>Scores:</b></div> -->
+<%-- 		    	<c:set var="fwd" value="${f:forwardsTotal(result)}"/> --%>
+<!-- 		    	<div style="padding-left: 10px"> -->
+<%-- 		    		<span style="float:right; width: 50px; border-radius: 5px; text-align:center; background-color: ${f:floatToCssRGBColor(fwd)}">${f:round(fwd * 100.1)}%</span> --%>
+<!-- 		    		Forwards:  -->
+<!-- 		    	</div> -->
+<%-- 		    	<c:set var="fwd" value="${f:reverseTotal(result)}"/> --%>
+<!-- 		    	<div style="padding-left: 10px; padding-top: 1px"> -->
+<%-- 		    		<span style="float:right; width: 50px; border-radius: 5px; text-align:center; background-color: ${f:floatToCssRGBColor(fwd)}">${f:round(fwd * 100.1)}%</span> --%>
+<!-- 		    		Reverse:  -->
+<!-- 		    	</div> -->
+				<!-- Forward scores -->
 		    	<div style="padding: 11px 2px"><b>Scores:</b>
-		    	</div>
-		    	<c:set var="fwd" value="${f:forwardsTotal(result)}"/>
-		    	<div style="padding-left: 10px">
-		    		<span style="float:right; width: 50px; border-radius: 5px; text-align:center; background-color: ${f:floatToCssRGBColor(fwd)}">${f:round(fwd * 100.1)}%</span>
-		    		Forwards: 
-		    	</div>
-		    	<c:set var="fwd" value="${f:reverseTotal(result)}"/>
-		    	<div style="padding-left: 10px; padding-top: 1px">
-		    		<span style="float:right; width: 50px; border-radius: 5px; text-align:center; background-color: ${f:floatToCssRGBColor(fwd)}">${f:round(fwd * 100.1)}%</span>
-		    		Reverse: 
-		    	</div>
-		    	<div style="padding: 11px 2px"><b>Scores (fwd):</b>
 				    <c:forEach items="${result.score.scorerAttrNames}" var="match">
 				    	<c:set var="fwd" value="${f:forwardsScore(result,match)}"/>
 				    	<c:choose>
