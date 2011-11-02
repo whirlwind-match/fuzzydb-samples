@@ -30,7 +30,7 @@
 	<em>Click on 'matches' link to change to find matches for that person</em>
 	</p>
 		<c:if test="${startNextPage > 0}">
-	   		<a href="?ref=${result.item.ref}&style=${style}&start=${startNextPage}&pageSize=${pageSize}">next page</a>
+	   		<a accesskey="n" href="?ref=${result.item.ref}&style=${style}&start=${startNextPage}&pageSize=${pageSize}">next page</a>
 		</c:if>
 
 	<p>
@@ -42,8 +42,8 @@
 	    	<span style="font-weight: bold; font-size: larger">${result.item}</span>&nbsp;
 		    <div style="margin: 2px; padding: 11 2 2 2"><b>Overall Score:</b>
 		    	<span style="float:right; width: 100px; border-radius: 5px; text-align:center; background-color: ${f:toCssRGBColor(result.score)}">
-		    	${f:toPercent(result.score)}%</div>
-		    	</span>
+		    	${f:toPercent(result.score)}%</span>
+		   	</div>
 <!-- 		    	<div style="padding: 11px 2px"><b>Scores:</b></div> -->
 <%-- 		    	<c:set var="fwd" value="${f:forwardsTotal(result)}"/> --%>
 <!-- 		    	<div style="padding-left: 10px"> -->
@@ -56,30 +56,32 @@
 <!-- 		    		Reverse:  -->
 <!-- 		    	</div> -->
 				<!-- Forward scores -->
-		    	<div style="padding: 11px 2px"><b>Scores:</b>
-				    <c:forEach items="${result.score.scorerAttrNames}" var="match">
-				    	<c:set var="fwd" value="${f:forwardsScore(result,match)}"/>
-				    	<c:choose>
-					    	<c:when test="${match eq 'Distance'}">
-				    	<div style="padding-left: 10px">
-		    				<span style="float:right; width: 50px; text-align:center">${f:round(fwd)}</span>
-	    					${match} (miles): 
-	    				</div>
-					    	</c:when>
-					    	<c:otherwise>
-				    	<div style="padding-left: 10px; padding-top: 1px;">
-				    		<span style="float:right; width: 50px; border-radius: 5px; text-align:center; background-color: ${f:floatToCssRGBColor(fwd)}">${f:round(fwd * 100.1)}%</span>
-				    		${match}: 
-				    	</div>
-					    	</c:otherwise>
-				    	</c:choose>
-				    </c:forEach> 
-		    	<div style="padding: 11px 2px 0px 2px"><b>Attributes:</b>
-				    <c:forEach items="${result.item.attributes}" var="item">
-				    	<div  style="font-size: 80%; padding-left: 10px">${item.key}: <b>${f:toString(item.value)}</b></div>
-				    </c:forEach> 
-		    	</div>
+	    	<div style="padding: 11px 2px"><b>Scores:</b>
+			    <c:forEach items="${result.score.scorerAttrNames}" var="match">
+			    	<c:set var="fwd" value="${f:forwardsScore(result,match)}"/>
+			    	<c:choose>
+				    	<c:when test="${match eq 'Distance'}">
+			    	<div style="padding-left: 10px">
+	    				<span style="float:right; width: 50px; text-align:center">${f:round(fwd)}</span>
+    					${match} (miles): 
+    				</div>
+				    	</c:when>
+				    	<c:otherwise>
+			    	<div style="padding-left: 10px; padding-top: 1px;">
+			    		<span style="float:right; width: 50px; border-radius: 5px; text-align:center; background-color: ${f:floatToCssRGBColor(fwd)}">${f:round(fwd * 100.1)}%</span>
+			    		${match}: 
+			    	</div>
+				    	</c:otherwise>
+			    	</c:choose>
+			    </c:forEach> 
 		    </div>
+	    	<div style="padding: 11px 2px 0px 2px"><b>Attributes:</b>
+		    	<div  style="font-size: 80%; padding-left: 10px">age: <b>${result.item.age}</b></div>
+		    	<div  style="font-size: 80%; padding-left: 10px">newspapers: <b>${f:toString(result.item.newspapers)}</b></div>
+			    <c:forEach items="${result.item.attributes}" var="item">
+			    	<div  style="font-size: 80%; padding-left: 10px">${item.key}: <b>${f:toString(item.value)}</b></div>
+			    </c:forEach> 
+	    	</div>
 	    </div>
     </c:forEach> 
 	<div style="clear:left; float:none" />

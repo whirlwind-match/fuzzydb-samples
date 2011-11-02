@@ -2,17 +2,12 @@ package org.fuzzydb.samples;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
-import java.util.List;
-
 import javax.validation.Valid;
 
 import org.fuzzydb.samples.repositories.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
@@ -24,11 +19,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.thoughtworks.xstream.XStream;
 import com.wwm.db.query.Result;
 import com.wwm.db.spring.repository.AttributeMatchQuery;
-import com.wwm.db.spring.repository.PageUtils;
 import com.wwm.db.spring.repository.SubjectMatchQuery;
 
 /**
@@ -54,12 +50,12 @@ public class SearchController {
 	
 	@Transactional
 	@RequestMapping(value="/createPeople", method=RequestMethod.GET) 
-	public String createPeople(@RequestParam(defaultValue="5") int numPeople) {
+	public ModelAndView createPeople(@RequestParam(defaultValue="5") int numPeople) {
 		
 		for (int i = 0; i < numPeople; i++) {
 			itemRepo.save(dataGenerator.createRandomPerson());
 		}
-		return "redirect:/search";
+		return new ModelAndView(new RedirectView("search", false, true, false)); //"redirect:/search";
 	}
 
 	@Transactional(readOnly=true)
@@ -106,12 +102,21 @@ public class SearchController {
 		return "results";
 	}
 
+	private static final String newspapers[] = {"Daily Mail", "Sun", "Guardian", "New York Times", "Independent", "LA Times", "Times"};
+
+	@ModelAttribute("newspapers")
+	public String[] getNewspaperChoices() {
+		return newspapers;
+	}
+	
+	
 	protected void doSearch(Model model, String style, String ref,
 			Pageable pageable, FuzzyItem idealMatch) {
-		// A SubjectMatchQuery looks for the best matches for a provided subject, according to the
 		// requested match style
 		int maxResults = pageable.getOffset() + pageable.getPageSize(); 
 		AttributeMatchQuery<FuzzyItem> query = new SubjectMatchQuery<FuzzyItem>(idealMatch, style, maxResults);
+		
+		System.out.println(query.getQueryTarget().getAttr("newspapers"));
 		
 		// Do the actual query
 		Page<Result<FuzzyItem>> results = itemRepo.findMatchesFor(query, pageable);

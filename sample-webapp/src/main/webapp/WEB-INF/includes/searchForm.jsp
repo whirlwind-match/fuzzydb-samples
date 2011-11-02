@@ -9,7 +9,7 @@
 	<table>
 	<tr>
 		<td>Age:</td>
-		<td><form:input id="age" path="attributes['age']" /> <form:errors path="attributes['age']"/></td>
+		<td><form:input id="age" path="age" /> <form:errors path="age"/></td>
             <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "age", 
             	widgetType : "dijit.form.ValidationTextBox", widgetAttrs : {promptMessage: "Enter their rough age...", required : false}})); </script>
 	</tr>
@@ -24,6 +24,12 @@
 		<td><form:input id="location" path="attributes['location']" /> <form:errors path="attributes['location']"/></td>
             <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "location", 
             	widgetType : "dijit.form.ValidationTextBox", widgetAttrs : {promptMessage: "Any clue where? (Try the first part of a UK postcode e.g. SE1)", required : false}})); </script>
+	</tr>
+	<tr>
+		<td>Newspapers:</td>
+		<td><form:checkboxes id="newspapers" path="newspapers" items="${newspapers}"/> <form:errors path="newspapers"/></td>
+            <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "location", 
+            	widgetType : "dijit.form.ValidationTextBox", widgetAttrs : {promptMessage: "Gets their news from... Rupert Murdoch?", required : false}})); </script>
 	</tr>
 	</table>
 	<input type="submit" value="Search"/>

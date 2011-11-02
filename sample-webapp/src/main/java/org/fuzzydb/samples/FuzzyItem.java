@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.validation.constraints.Digits;
+
 import org.springframework.data.annotation.Id;
 
 public class FuzzyItem implements Serializable {
@@ -12,8 +14,14 @@ public class FuzzyItem implements Serializable {
 
 	private String description;
 	
-	private Map<String, Object> attributes = new HashMap<String,Object>();
 	
+	private final Map<String, Object> attributes = new HashMap<String,Object>();
+	
+	@Digits(integer=2, fraction=1)
+	private Float age;
+	
+	private String[] newspapers;
+
 	@Id
 	private String ref;
 
@@ -48,6 +56,22 @@ public class FuzzyItem implements Serializable {
 		return ref;
 	}
 	
+	public Float getAge() {
+		return age;
+	}
+
+	public void setAge(Float age) {
+		this.age = age;
+	}
+	
+	public String[] getNewspapers() {
+		return newspapers;
+	}
+	
+	public void setNewspapers(String[] newspapers) {
+		this.newspapers = newspapers;
+	}
+
 	@Override
 	public String toString() {
 		return description;
