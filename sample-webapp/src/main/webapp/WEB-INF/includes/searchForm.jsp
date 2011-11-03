@@ -15,7 +15,7 @@
 	</tr>
 	<tr>
 		<td>Salary:</td>
-		<td><form:input id="salary" path="attributes['salary']" /> <form:errors path="attributes['salary']"/></td>
+		<td><form:input id="salary" path="salary" /> <form:errors path="salary"/></td>
             <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "salary", 
             	widgetType : "dijit.form.ValidationTextBox", widgetAttrs : {promptMessage: "Are they raking it in?", required : false}})); </script>
 	</tr>
@@ -28,7 +28,7 @@
 	<tr>
 		<td>Newspapers:</td>
 		<td><form:checkboxes id="newspapers" path="newspapers" items="${newspapers}"/> <form:errors path="newspapers"/></td>
-            <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "location", 
+            <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "newspapers", 
             	widgetType : "dijit.form.ValidationTextBox", widgetAttrs : {promptMessage: "Gets their news from... Rupert Murdoch?", required : false}})); </script>
 	</tr>
 	</table>

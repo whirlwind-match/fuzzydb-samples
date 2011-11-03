@@ -75,11 +75,16 @@
 			    	</c:choose>
 			    </c:forEach> 
 		    </div>
-	    	<div style="padding: 11px 2px 0px 2px"><b>Attributes:</b>
+	    	<div style="padding: 2px 2px 0px 2px"><b>Attributes:</b>
 		    	<div  style="font-size: 80%; padding-left: 10px">age: <b>${result.item.age}</b></div>
+		    	<div  style="font-size: 80%; padding-left: 10px">ageRange: <b>${f:toString(result.item.ageRange)}</b></div>
+		    	<div  style="font-size: 80%; padding-left: 10px">isMale: <b>${result.item.isMale}</b></div>
+		    	<div  style="font-size: 80%; padding-left: 10px">salary: <b>${result.item.salary}</b></div>
 		    	<div  style="font-size: 80%; padding-left: 10px">newspapers: <b>${f:toString(result.item.newspapers)}</b></div>
+		    	<div  style="font-size: 80%; padding-left: 10px">smoke: <b>${f:toString(result.item.smoke)}</b></div>
+		    	<div  style="font-size: 80%; padding-left: 10px">location: <b>${f:toString(result.item.location)}</b></div>
 			    <c:forEach items="${result.item.attributes}" var="item">
-			    	<div  style="font-size: 80%; padding-left: 10px">${item.key}: <b>${f:toString(item.value)}</b></div>
+			    	<div  style="font-size: 60%; padding-left: 10px">${item.key}: <b>${f:toString(item.value)}</b></div>
 			    </c:forEach> 
 	    	</div>
 	    </div>

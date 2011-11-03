@@ -80,6 +80,10 @@ public abstract class Utils {
 	 * @return formatted string representation
 	 */
 	public static String toString(Object object) {
+		if (object == null) {
+			return "";
+		}
+		
 		if (object instanceof Object[]) {
 			Object[] array = (Object[]) object;
 			StringBuilder sb = new StringBuilder();

@@ -116,7 +116,7 @@ public class SearchController {
 		int maxResults = pageable.getOffset() + pageable.getPageSize(); 
 		AttributeMatchQuery<FuzzyItem> query = new SubjectMatchQuery<FuzzyItem>(idealMatch, style, maxResults);
 		
-		System.out.println(query.getQueryTarget().getAttr("newspapers"));
+		System.out.println(query.getQueryTarget().getNewspapers());
 		
 		// Do the actual query
 		Page<Result<FuzzyItem>> results = itemRepo.findMatchesFor(query, pageable);

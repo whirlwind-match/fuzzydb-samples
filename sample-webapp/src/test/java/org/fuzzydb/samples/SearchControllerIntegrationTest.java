@@ -35,7 +35,7 @@ public class SearchControllerIntegrationTest {
 		assertNotNull(saved);
 		
 		FuzzyItem retrieved = itemRepo.findOne(saved.getRef());
-		assertNotNull(retrieved.getAttr("location"));
+		assertNotNull(retrieved.getLocation());
 	}
 
 }

@@ -15,7 +15,7 @@ import com.wwm.db.spring.random.RandomAttributeSource;
 import com.wwm.geo.GeoInformation;
 import com.wwm.model.attributes.Attribute;
 import com.wwm.model.attributes.NonIndexStringAttribute;
-import com.wwm.model.attributes.Point3DAttribute;
+import com.wwm.model.dimensions.IPoint3D;
 import com.wwm.postcode.RandomUKShortPostcode;
 
 @Component
@@ -29,7 +29,7 @@ public class DataGenerator implements InitializingBean {
 
 	private final RandomUKShortPostcode randomPostcodes = new RandomUKShortPostcode();
 	
-	private Map<String, FuzzyItem> people = new HashMap<String, FuzzyItem>();
+	private final Map<String, FuzzyItem> people = new HashMap<String, FuzzyItem>();
 	
 	public DataGenerator() {
 	}
@@ -65,8 +65,8 @@ public class DataGenerator implements InitializingBean {
 		NonIndexStringAttribute randomAttr = randomPostcodes.next("not used");
 		if (randomAttr != null) {
 			GeoInformation location = converter.convert(randomAttr.getValueAsObject());
-			Point3DAttribute vector = new Point3DAttribute("location", EcefVector.fromDegs(0, location.getLatitude(), location.getLongitude()));
-			item.setAttr("location", vector);
+			IPoint3D vector = EcefVector.fromDegs(0, location.getLatitude(), location.getLongitude());
+			item.setLocation(vector);
 		}
 		
 		return item;
@@ -75,15 +75,15 @@ public class DataGenerator implements InitializingBean {
 
 	private void addHardcodedPeople() {
 		FuzzyItem matt = new FuzzyItem("Matt");
-		matt.setAttr("isMale", Boolean.TRUE);
-		matt.setAttr("age", 32f);
-		matt.setAttr("ageRange", new float[]{25f, 32f, 38f}); // A perfect match for own age
-		matt.setAttr("salary", 500000f);
-		matt.setAttr("smoke", "Cigar-smoker");
-		matt.setAttr("newspapers", new String[]{"LA Times", "New York Times"});
+		matt.setIsMale(Boolean.TRUE);
+//		matt.setAttr("age", 32f);
+//		matt.setAttr("ageRange", new float[]{25f, 32f, 38f}); // A perfect match for own age
+//		matt.setAttr("salary", 500000f);
+//		matt.setAttr("smoke", "Cigar-smoker");
+//		matt.setAttr("newspapers", new String[]{"LA Times", "New York Times"});
 		GeoInformation location = converter.convert("CB1");
-		Point3DAttribute vector = new Point3DAttribute("location", EcefVector.fromDegs(0, location.getLatitude(), location.getLongitude()));
-		matt.setAttr("location", vector);
+		IPoint3D vector = EcefVector.fromDegs(0, location.getLatitude(), location.getLongitude());
+		matt.setLocation(vector);
 
 		people.put("Matt", matt);
 	}
