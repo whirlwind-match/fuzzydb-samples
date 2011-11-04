@@ -19,6 +19,15 @@
             <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "salary", 
             	widgetType : "dijit.form.ValidationTextBox", widgetAttrs : {promptMessage: "Are they raking it in?", required : false}})); </script>
 	</tr>
+
+<!-- NEED TO MAKE String behave as does in attributes - conversion should prefer known attrs as enums over nonIndexString -->
+	<tr>
+		<td>Smoke: </td>  
+		<td><form:radiobuttons path="attributes['smoke']" items="${smokeOptions}" />
+<%-- 		<form:input id="smoke" path="smoke" /> <form:errors path="smoke"/></td> --%>
+<!--             <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "smoke",  -->
+<!--             	widgetType : "dijit.form.ValidationTextBox", widgetAttrs : {promptMessage: "Guess the enum ;-)", required : false}})); </script> -->
+	</tr>
 	<tr>
 		<td>Location:</td>
 		<td><form:input id="location" path="attributes['location']" /> <form:errors path="attributes['location']"/></td>

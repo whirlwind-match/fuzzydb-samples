@@ -2,6 +2,7 @@ package org.fuzzydb.samples;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.Iterator;
 import javax.validation.Valid;
 
@@ -23,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.thoughtworks.xstream.XStream;
+import com.wwm.attrs.AttributeDefinitionService;
 import com.wwm.db.query.Result;
 import com.wwm.db.spring.repository.AttributeMatchQuery;
 import com.wwm.db.spring.repository.SubjectMatchQuery;
@@ -37,6 +39,8 @@ public class SearchController {
 	@Autowired
 	private DataGenerator dataGenerator;
 	
+	@Autowired
+	private AttributeDefinitionService attrDefs;
 	
 	/**
 	 * A repository provided the line
@@ -102,11 +106,18 @@ public class SearchController {
 		return "results";
 	}
 
-	private static final String newspapers[] = {"Daily Mail", "Sun", "Guardian", "New York Times", "Independent", "LA Times", "Times"};
-
 	@ModelAttribute("newspapers")
-	public String[] getNewspaperChoices() {
-		return newspapers;
+	@Transactional(readOnly=true) // TODO: Add transactions to attrDefs impl
+	public ArrayList<String> getNewspaperOptions() {
+		// TODO: push this in as getOptionsForField(String)
+		return attrDefs.getEnumDefForAttrId(attrDefs.getAttrId("newspapers")).getValues();
+	}
+	
+	@ModelAttribute("smokeOptions")
+	@Transactional(readOnly=true) // TODO: Add transactions to attrDefs impl
+	public ArrayList<String> getSmokeOptions() {
+		// TODO: push this in as getOptionsForField(String)
+		return attrDefs.getEnumDefForAttrId(attrDefs.getAttrId("smoke")).getValues();
 	}
 	
 	
