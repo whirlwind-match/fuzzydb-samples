@@ -1,4 +1,4 @@
-<EnumDefinition name="EstablishmentType">
+<EnumDefinition name="establishmentType">
     <string>Cafe</string>
     <string>Restaurant</string>
     <string>Pub</string>

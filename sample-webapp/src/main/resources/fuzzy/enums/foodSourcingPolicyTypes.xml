@@ -1,4 +1,4 @@
-<EnumDefinition name="FoodSourcing">
+<EnumDefinition name="foodSourcingPolicyTypes">
     <string>Organic</string>
     <string>Fairtrade</string>
     <string>Local</string>

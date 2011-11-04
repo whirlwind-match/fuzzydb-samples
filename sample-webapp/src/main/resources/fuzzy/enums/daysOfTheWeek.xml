@@ -1,4 +1,4 @@
-<EnumDefinition name="DaysOfTheWeek">
+<EnumDefinition name="daysOfTheWeek">
     <string>Mon</string>
     <string>Tue</string>
     <string>Wed</string>

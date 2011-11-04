@@ -1,4 +1,4 @@
-<EnumDefinition name="DietsSupported">
+<EnumDefinition name="dietaryRequirementTypes">
     <string>Vegan</string>
     <string>Vegetarian</string>
     <string>Pescatarian</string>

@@ -1,0 +1,7 @@
+<EnumDefinition name="mealTypes">
+    <string>Cold Snack</string>
+    <string>Hot Snacks</string>
+    <string>Hot Counter Meals</string>          <!-- e.g. hot trays of food as in Clowns, Cambridge -->
+    <string>Prepared Meals</string>             <!-- Might be pre-made and reheated (cheap pub grub) -->
+    <string>Freshly Prepared Meals</string>     <!-- proper fresh stuff (gastro pubs, etc) -->
+</EnumDefinition>

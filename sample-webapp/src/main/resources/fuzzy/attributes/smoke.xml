@@ -1,4 +1,4 @@
 <EnumAttributeSpec>
 	<clazz>com.wwm.attrs.enums.EnumValue</clazz>
-	<enumdef>NumberOfPeople</enumdef>
+	<enumdef>smokingPreferenceTypes</enumdef>
 </EnumAttributeSpec>
