@@ -40,6 +40,10 @@
 		<level value="debug" />
 	</logger>
 
+    <logger name="org.springframework.security">
+        <level value="info" />
+    </logger>
+
 	<!-- Root Logger -->
 	<root>
 		<priority value="debug" />

@@ -24,7 +24,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.thoughtworks.xstream.XStream;
-import com.wwm.attrs.AttributeDefinitionService;
 import com.wwm.db.query.Result;
 import com.wwm.db.spring.repository.AttributeMatchQuery;
 import com.wwm.db.spring.repository.SubjectMatchQuery;
@@ -33,20 +32,9 @@ import com.wwm.db.spring.repository.SubjectMatchQuery;
  * Example controller for creating fuzzy items and querying them
  */
 @Controller
-public class SearchController {
+public class PeopleController extends AbstractDataController {
 
 
-	@Autowired
-	private DataGenerator dataGenerator;
-	
-	@Autowired
-	private AttributeDefinitionService attrDefs;
-	
-	/**
-	 * A repository provided the line
-	 * <code>&lt;fuzzy:repository id="itemRepository" class="org.fuzzydb.samples.FuzzyItem" useDefaultNamespace="true" /></code>
-	 * in the application context.
-	 */
 	@Autowired
 	private ItemRepository itemRepo;
 
@@ -107,27 +95,20 @@ public class SearchController {
 	}
 
 	@ModelAttribute("newspapers")
-	@Transactional(readOnly=true) // TODO: Add transactions to attrDefs impl
 	public ArrayList<String> getNewspaperOptions() {
-		// TODO: push this in as getOptionsForField(String)
-		return attrDefs.getEnumDefForAttrId(attrDefs.getAttrId("newspapers")).getValues();
+		return getOptionsForField("newspapers");
 	}
 	
 	@ModelAttribute("smokeOptions")
-	@Transactional(readOnly=true) // TODO: Add transactions to attrDefs impl
 	public ArrayList<String> getSmokeOptions() {
-		// TODO: push this in as getOptionsForField(String)
-		return attrDefs.getEnumDefForAttrId(attrDefs.getAttrId("smoke")).getValues();
+		return getOptionsForField("smoke");
 	}
-	
-	
+
 	protected void doSearch(Model model, String style, String ref,
 			Pageable pageable, FuzzyItem idealMatch) {
 		// requested match style
 		int maxResults = pageable.getOffset() + pageable.getPageSize(); 
 		AttributeMatchQuery<FuzzyItem> query = new SubjectMatchQuery<FuzzyItem>(idealMatch, style, maxResults);
-		
-		System.out.println(query.getQueryTarget().getNewspapers());
 		
 		// Do the actual query
 		Page<Result<FuzzyItem>> results = itemRepo.findMatchesFor(query, pageable);

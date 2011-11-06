@@ -1,4 +1,5 @@
 <jsp:directive.include file="/WEB-INF/includes/includes.jsp"/>
+<%@ taglib prefix="sample" tagdir="/WEB-INF/tags" %>
 
 <script type="text/javascript">dojo.require("dijit.TitlePane");</script>
 <div dojoType="dijit.TitlePane" style="width: 100%" title="How about searching for someone...">
@@ -9,36 +10,24 @@
 	<table>
 	<tr>
 		<td>Age:</td>
-		<td><form:input id="age" path="age" /> <form:errors path="age"/></td>
-            <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "age", 
-            	widgetType : "dijit.form.ValidationTextBox", widgetAttrs : {promptMessage: "Enter their rough age...", required : false}})); </script>
+		<td><sample:edit-input attrName="age" popupHelp="Enter their rough age..." /></td>
 	</tr>
 	<tr>
 		<td>Salary:</td>
-		<td><form:input id="salary" path="salary" /> <form:errors path="salary"/></td>
-            <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "salary", 
-            	widgetType : "dijit.form.ValidationTextBox", widgetAttrs : {promptMessage: "Are they raking it in?", required : false}})); </script>
+		<td><sample:edit-input attrName="salary" popupHelp="Are they raking it in?" /></td>
 	</tr>
 
-<!-- NEED TO MAKE String behave as does in attributes - conversion should prefer known attrs as enums over nonIndexString -->
 	<tr>
 		<td>Smoke: </td>  
-		<td><form:radiobuttons path="attributes['smoke']" items="${smokeOptions}" />
-<%-- 		<form:input id="smoke" path="smoke" /> <form:errors path="smoke"/></td> --%>
-<!--             <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "smoke",  -->
-<!--             	widgetType : "dijit.form.ValidationTextBox", widgetAttrs : {promptMessage: "Guess the enum ;-)", required : false}})); </script> -->
+		<td><form:radiobuttons path="smoke" items="${smokeOptions}" /></td>
 	</tr>
 	<tr>
 		<td>Location:</td>
-		<td><form:input id="location" path="attributes['location']" /> <form:errors path="attributes['location']"/></td>
-            <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "location", 
-            	widgetType : "dijit.form.ValidationTextBox", widgetAttrs : {promptMessage: "Any clue where? (Try the first part of a UK postcode e.g. SE1)", required : false}})); </script>
+		<td><sample:edit-input attrName="attributes['location']" popupHelp="Any clue where? (Try the first part of a UK postcode e.g. SE1)" /></td>
 	</tr>
 	<tr>
 		<td>Newspapers:</td>
 		<td><form:checkboxes id="newspapers" path="newspapers" items="${newspapers}"/> <form:errors path="newspapers"/></td>
-            <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "newspapers", 
-            	widgetType : "dijit.form.ValidationTextBox", widgetAttrs : {promptMessage: "Gets their news from... Rupert Murdoch?", required : false}})); </script>
 	</tr>
 	</table>
 	<input type="submit" value="Search"/>

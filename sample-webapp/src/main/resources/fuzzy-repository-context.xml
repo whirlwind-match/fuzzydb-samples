@@ -20,8 +20,6 @@
     <fuzzy:embedded-database persistent="false" />
     <fuzzy:initialize />
 
-<!--     <bean class="com.wwm.db.spring.transaction.WhirlwindExceptionTranslator" /> -->
-
     <fuzzy:repositories base-package="org.fuzzydb.samples.repositories" />
 
     <bean id="marshaller" class="org.springframework.oxm.xstream.XStreamMarshaller">

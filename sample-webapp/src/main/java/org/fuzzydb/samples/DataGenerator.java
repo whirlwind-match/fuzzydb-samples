@@ -76,11 +76,11 @@ public class DataGenerator implements InitializingBean {
 	private void addHardcodedPeople() {
 		FuzzyItem matt = new FuzzyItem("Matt");
 		matt.setIsMale(Boolean.TRUE);
-//		matt.setAttr("age", 32f);
-//		matt.setAttr("ageRange", new float[]{25f, 32f, 38f}); // A perfect match for own age
-//		matt.setAttr("salary", 500000f);
-//		matt.setAttr("smoke", "Cigar-smoker");
-//		matt.setAttr("newspapers", new String[]{"LA Times", "New York Times"});
+		matt.setAge(32f);
+		matt.setAgeRange(new float[]{25f, 32f, 38f}); // A perfect match for own age
+		matt.setSalary(500000f);
+		matt.setSmoke("Cigar-smoker");
+		matt.setNewspapers(new String[]{"LA Times", "New York Times"});
 		GeoInformation location = converter.convert("CB1");
 		IPoint3D vector = EcefVector.fromDegs(0, location.getLatitude(), location.getLongitude());
 		matt.setLocation(vector);
@@ -103,5 +103,11 @@ public class DataGenerator implements InitializingBean {
 		}
 			
 		return (Attribute<T>) random;
+	}
+
+
+	public Cafe createRandomCafe() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
