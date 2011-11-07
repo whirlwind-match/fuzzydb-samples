@@ -23,7 +23,7 @@
 	</tr>
 	<tr>
 		<td>Location:</td>
-		<td><sample:edit-input attrName="attributes['location']" popupHelp="Any clue where? (Try the first part of a UK postcode e.g. SE1)" /></td>
+		<td><sample:edit-input attrName="postcode" popupHelp="Any clue where? (Try the first part of a UK postcode e.g. SE1)" /></td>
 	</tr>
 	<tr>
 		<td>Newspapers:</td>

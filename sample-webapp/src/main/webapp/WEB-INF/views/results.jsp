@@ -39,7 +39,7 @@
 	    	<span style="display: block;float: right; padding-right: 10px"> 
 	    		<a href="?ref=${result.item.ref}&style=${style}">matches</a>
 	    	</span>
-	    	<span style="font-weight: bold; font-size: larger">${result.item}</span>&nbsp;
+	    	<span style="font-weight: bold; font-size: larger">${result.item}</span>&nbsp;${result.item.postcode}
 		    <div style="margin: 2px; padding: 11 2 2 2"><b>Overall Score:</b>
 		    	<span style="float:right; width: 100px; border-radius: 5px; text-align:center; background-color: ${f:toCssRGBColor(result.score)}">
 		    	${f:toPercent(result.score)}%</span>
@@ -83,9 +83,11 @@
 		    	<div  style="font-size: 80%; padding-left: 10px">newspapers: <b>${f:toString(result.item.newspapers)}</b></div>
 		    	<div  style="font-size: 80%; padding-left: 10px">smoke: <b>${f:toString(result.item.smoke)}</b></div>
 		    	<div  style="font-size: 80%; padding-left: 10px">location: <b>${f:toString(result.item.location)}</b></div>
-			    <c:forEach items="${result.item.attributes}" var="item">
-			    	<div  style="font-size: 60%; padding-left: 10px">${item.key}: <b>${f:toString(item.value)}</b></div>
-			    </c:forEach> 
+<!-- 		    	<div  style="font-size: 80%; padding-left: 10px">work postcode: <b>${result.item.workPostcode}</b></div>
+		    	<div  style="font-size: 80%; padding-left: 10px">location: <b>${f:toString(result.item.workLocation)}</b></div> -->
+<%-- 			    <c:forEach items="${result.item.attributes}" var="item"> --%>
+<%-- 			    	<div  style="font-size: 60%; padding-left: 10px">${item.key}: <b>${f:toString(item.value)}</b></div> --%>
+<%-- 			    </c:forEach>  --%>
 	    	</div>
 	    </div>
     </c:forEach> 

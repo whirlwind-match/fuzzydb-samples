@@ -10,12 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
-import com.wwm.attrs.location.EcefVector;
 import com.wwm.db.spring.random.RandomAttributeSource;
 import com.wwm.geo.GeoInformation;
 import com.wwm.model.attributes.Attribute;
-import com.wwm.model.attributes.NonIndexStringAttribute;
-import com.wwm.model.dimensions.IPoint3D;
 import com.wwm.postcode.RandomUKShortPostcode;
 
 @Component
@@ -42,6 +39,7 @@ public class DataGenerator implements InitializingBean {
 		randomSource.configureEnumAttr("smoke", 0.05f);
 		randomSource.configureMultiEnumAttr("newspapers", 0.01f);
 		randomSource.addRandomGenerator("postcode", randomPostcodes);
+		randomSource.addRandomGenerator("workPostcode", randomPostcodes);
 
 		addHardcodedPeople();
 	}
@@ -61,14 +59,9 @@ public class DataGenerator implements InitializingBean {
 		addRandomAttr(wrapper, "salary");
 		addRandomAttr(wrapper, "newspapers");
 		addRandomAttr(wrapper, "smoke");
-//		Attribute<String> randomAttr = addRandomAttr(item, "postcode"); // TODO Could leave out
-		NonIndexStringAttribute randomAttr = randomPostcodes.next("not used");
-		if (randomAttr != null) {
-			GeoInformation location = converter.convert(randomAttr.getValueAsObject());
-			IPoint3D vector = EcefVector.fromDegs(0, location.getLatitude(), location.getLongitude());
-			item.setLocation(vector);
-		}
-		
+		addRandomAttr(wrapper, "postcode");
+		addRandomAttr(wrapper, "workPostcode");
+				
 		return item;
 	}
 
@@ -81,9 +74,7 @@ public class DataGenerator implements InitializingBean {
 		matt.setSalary(500000f);
 		matt.setSmoke("Cigar-smoker");
 		matt.setNewspapers(new String[]{"LA Times", "New York Times"});
-		GeoInformation location = converter.convert("CB1");
-		IPoint3D vector = EcefVector.fromDegs(0, location.getLatitude(), location.getLongitude());
-		matt.setLocation(vector);
+		matt.setPostcode("CB1");
 
 		people.put("Matt", matt);
 	}
