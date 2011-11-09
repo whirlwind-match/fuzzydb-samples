@@ -1,0 +1,10 @@
+<objects>
+	<org.fuzzydb.samples.Cafe>
+		<description>Clowns - Cambridge</description>
+		<postcode>CB1</postcode>
+	</org.fuzzydb.samples.Cafe>
+	<org.fuzzydb.samples.Cafe>
+		<description>The Golden Hind - Cambridge</description>
+		<postcode>CB4</postcode>
+	</org.fuzzydb.samples.Cafe>
+</objects>

@@ -2,6 +2,7 @@ package org.fuzzydb.samples;
 
 import org.springframework.data.annotation.Id;
 
+import com.wwm.db.spring.annotation.DerivedField;
 import com.wwm.model.dimensions.IPoint3D;
 
 public class Cafe {
@@ -22,6 +23,7 @@ public class Cafe {
 
 	private String description;
 	
+	@DerivedField("postcode")
 	private IPoint3D location;
 
 	private String postcode;
