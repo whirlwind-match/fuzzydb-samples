@@ -2,6 +2,9 @@
 	<org.fuzzydb.samples.Cafe>
 		<description>Clowns - Cambridge</description>
 		<postcode>CB1</postcode>
+		<mealTypes>
+			<string>Hot Counter Meals</string>
+		</mealTypes>
 	</org.fuzzydb.samples.Cafe>
 	<org.fuzzydb.samples.Cafe>
 		<description>The Golden Hind - Cambridge</description>

@@ -26,7 +26,7 @@ public class DataGenerator implements InitializingBean {
 
 	private final RandomUKShortPostcode randomPostcodes = new RandomUKShortPostcode();
 	
-	private final Map<String, FuzzyItem> people = new HashMap<String, FuzzyItem>();
+	private final Map<String, Person> people = new HashMap<String, Person>();
 	
 	public DataGenerator() {
 	}
@@ -45,13 +45,13 @@ public class DataGenerator implements InitializingBean {
 	}
 
 	
-	public FuzzyItem createPerson(String key) {
+	public Person createPerson(String key) {
 		return people.get(key);
 	}
 	
-	public FuzzyItem createRandomPerson() {
+	public Person createRandomPerson() {
 		String name = "Anon"; // TODO randomise
-		FuzzyItem item = new FuzzyItem(name);
+		Person item = new Person(name);
 		BeanWrapper wrapper = new BeanWrapperImpl(item);
 
 		addRandomAttr(wrapper, "isMale");
@@ -67,7 +67,7 @@ public class DataGenerator implements InitializingBean {
 
 
 	private void addHardcodedPeople() {
-		FuzzyItem matt = new FuzzyItem("Matt");
+		Person matt = new Person("Matt");
 		matt.setIsMale(Boolean.TRUE);
 		matt.setAge(32f);
 		matt.setAgeRange(new float[]{25f, 32f, 38f}); // A perfect match for own age

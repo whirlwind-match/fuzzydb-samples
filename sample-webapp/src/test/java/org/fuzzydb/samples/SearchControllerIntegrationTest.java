@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import org.fuzzydb.samples.repositories.ItemRepository;
+import org.fuzzydb.samples.repositories.PersonRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -23,18 +23,18 @@ public class SearchControllerIntegrationTest {
 	private DataGenerator gen;
 	
 	@Autowired
-	private ItemRepository itemRepo;
+	private PersonRepository personRepo;
 	
 	@Test
 	public void generateRandomItemShouldSaveAndRetrieve() {
 		
-		FuzzyItem person = gen.createRandomPerson();
+		Person person = gen.createRandomPerson();
 		assertNotNull(person);
 		
-		FuzzyItem saved = itemRepo.save(person);
+		Person saved = personRepo.save(person);
 		assertNotNull(saved);
 		
-		FuzzyItem retrieved = itemRepo.findOne(saved.getRef());
+		Person retrieved = personRepo.findOne(saved.getRef());
 		assertNotNull(retrieved.getLocation());
 	}
 

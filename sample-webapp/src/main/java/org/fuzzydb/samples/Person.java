@@ -9,7 +9,7 @@ import org.springframework.data.annotation.Transient;
 import com.wwm.db.spring.annotation.DerivedField;
 import com.wwm.model.dimensions.IPoint3D;
 
-public class FuzzyItem implements Serializable {
+public class Person implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -47,10 +47,10 @@ public class FuzzyItem implements Serializable {
 	/**
 	 * Public constructor needed by some frameworks
 	 */
-	public FuzzyItem() {
+	public Person() {
 	}
 	
-	public FuzzyItem(String desc) {
+	public Person(String desc) {
 		this.description = desc;
 	}
 

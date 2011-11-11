@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import javax.validation.Valid;
 
-import org.fuzzydb.samples.repositories.ItemRepository;
+import org.fuzzydb.samples.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -36,7 +36,7 @@ public class PeopleController extends AbstractDataController {
 
 
 	@Autowired
-	private ItemRepository itemRepo;
+	private PersonRepository personRepo;
 
 
 	
@@ -45,7 +45,7 @@ public class PeopleController extends AbstractDataController {
 	public ModelAndView createPeople(@RequestParam(defaultValue="5") int numPeople) {
 		
 		for (int i = 0; i < numPeople; i++) {
-			itemRepo.save(dataGenerator.createRandomPerson());
+			personRepo.save(dataGenerator.createRandomPerson());
 		}
 		return new ModelAndView(new RedirectView("search", false, true, false)); //"redirect:/search";
 	}
@@ -57,7 +57,7 @@ public class PeopleController extends AbstractDataController {
 			@RequestParam(defaultValue="0") int start,
 			@RequestParam(defaultValue="10") int pageSize,
 			Model model, 
-			@ModelAttribute("command") @Valid FuzzyItem form, 
+			@ModelAttribute("command") @Valid Person form, 
 			Errors result) {
 		
 		Pageable pageable = new PageRequest(start, pageSize);
@@ -86,11 +86,11 @@ public class PeopleController extends AbstractDataController {
 		// We need some attributes to search against.  This doesn't have to be something already in the 
 		// database.  For the default, we'll just grab a named sample from our dataGenerator.
 		// If we have a key (ref), then we'll use that to grab an item.
-		FuzzyItem idealMatch = StringUtils.hasText(ref) ? itemRepo.findOne(ref) : dataGenerator.createPerson("Matt");
+		Person idealMatch = StringUtils.hasText(ref) ? personRepo.findOne(ref) : dataGenerator.createPerson("Matt");
 
 		Pageable pageable = new PageRequest(start/pageSize, pageSize);
 		doSearch(model, style, ref, pageable, idealMatch);
-		model.addAttribute("command", new FuzzyItem("Entered search"));
+		model.addAttribute("command", new Person("Entered search"));
 		return "results";
 	}
 
@@ -105,13 +105,13 @@ public class PeopleController extends AbstractDataController {
 	}
 
 	protected void doSearch(Model model, String style, String ref,
-			Pageable pageable, FuzzyItem idealMatch) {
+			Pageable pageable, Person idealMatch) {
 		// requested match style
 		int maxResults = pageable.getOffset() + pageable.getPageSize(); 
-		AttributeMatchQuery<FuzzyItem> query = new SubjectMatchQuery<FuzzyItem>(idealMatch, style, maxResults);
+		AttributeMatchQuery<Person> query = new SubjectMatchQuery<Person>(idealMatch, style, maxResults);
 		
 		// Do the actual query
-		Page<Result<FuzzyItem>> results = itemRepo.findMatchesFor(query, pageable);
+		Page<Result<Person>> results = personRepo.findMatchesFor(query, pageable);
 				
 		// Stick 'em in our model for our view to render
 		model.addAttribute("subject", idealMatch);
@@ -127,11 +127,11 @@ public class PeopleController extends AbstractDataController {
 	@RequestMapping(value="/dump", method=RequestMethod.GET)
 	public void dump(OutputStream response) throws IOException {
 
-		Iterable<FuzzyItem> people = itemRepo.findAll();
+		Iterable<Person> people = personRepo.findAll();
 		
 		XStream xs = new XStream();
 		
-		for (FuzzyItem item : people) {
+		for (Person item : people) {
 			xs.toXML(item, response);
 		}
 	}
@@ -144,15 +144,15 @@ public class PeopleController extends AbstractDataController {
 			@RequestParam(defaultValue="similarPeople") String style,
 			OutputStream response) {
 	
-		FuzzyItem subject = dataGenerator.createPerson(name);
+		Person subject = dataGenerator.createPerson(name);
 		int maxResults = 10; 
-		AttributeMatchQuery<FuzzyItem> query = new SubjectMatchQuery<FuzzyItem>(subject, style, maxResults + 1); // + 1 so we can check if there are more results
-		Iterator<Result<FuzzyItem>> resultIterator = itemRepo.findMatchesFor(query);
+		AttributeMatchQuery<Person> query = new SubjectMatchQuery<Person>(subject, style, maxResults + 1); // + 1 so we can check if there are more results
+		Iterator<Result<Person>> resultIterator = personRepo.findMatchesFor(query);
 		
 		XStream xs = new XStream();
 		
-		for (Iterator<Result<FuzzyItem>> iterator = resultIterator; iterator.hasNext();) {
-			Result<FuzzyItem> item = iterator.next();
+		for (Iterator<Result<Person>> iterator = resultIterator; iterator.hasNext();) {
+			Result<Person> item = iterator.next();
 			
 			xs.toXML(item.getItem(), response);
 		}

@@ -38,7 +38,7 @@
     </bean>
     
     <bean id="peopleInitialiser" class="com.wwm.db.spring.repository.RepositoryInitializer">
-        <constructor-arg name="repo" ref="itemRepository"/>
+        <constructor-arg name="repo" ref="personRepository"/>
         <constructor-arg name="unmarshaller" ref="marshaller"/>
         <property name="resources" value="classpath:/data/initialPeople.xml"/>
     </bean>
