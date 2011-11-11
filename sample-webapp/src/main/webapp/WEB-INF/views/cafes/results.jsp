@@ -27,7 +27,7 @@
 <!-- </div> -->
 <div dojoType="dijit.TitlePane" style="width: 100%" title="Matches for ${subject} using match style: ${style}">
 	<p>
-	<em>Click on 'matches' link to change to find matches for that person</em>
+	<em>Click on 'matches' link to change to find matches for that establishment</em>
 	</p>
 		<c:if test="${startNextPage > 0}">
 	   		<a accesskey="n" href="?ref=${result.item.ref}&style=${style}&start=${startNextPage}&pageSize=${pageSize}">next page</a>
@@ -65,11 +65,11 @@
 			    </c:forEach> 
 		    </div>
 	    	<div style="padding: 2px 2px 0px 2px"><b>Attributes:</b>
+		    	<div  style="font-size: 80%; padding-left: 10px">Postcode: <b>${f:toString(result.item.postcode)}</b></div>
+		    	<div  style="font-size: 80%; padding-left: 10px">Type: <b>${f:toString(result.item.establishmentType)}</b></div>
 		    	<div  style="font-size: 80%; padding-left: 10px">Meal Types: <b>${f:toString(result.item.mealTypes)}</b></div>
+		    	<div  style="font-size: 80%; padding-left: 10px">Sourcing: <b>${f:toString(result.item.foodSourcingPolicy)}</b></div>
 		    	<div  style="font-size: 80%; padding-left: 10px">location: <b>${f:toString(result.item.location)}</b></div>
-<%-- 			    <c:forEach items="${result.item.attributes}" var="item"> --%>
-<%-- 			    	<div  style="font-size: 60%; padding-left: 10px">${item.key}: <b>${f:toString(item.value)}</b></div> --%>
-<%-- 			    </c:forEach>  --%>
 	    	</div>
 	    </div>
     </c:forEach> 

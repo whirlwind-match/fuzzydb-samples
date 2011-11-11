@@ -41,7 +41,7 @@ public class CafeController extends AbstractDataController {
 	@Transactional(readOnly=true)
 	@RequestMapping(value="/cafes/search", method=RequestMethod.POST) 
 	public String search(
-			@RequestParam(defaultValue="similarPeople") String style,
+			@RequestParam(defaultValue="foodEstablishments") String style,
 			@RequestParam(defaultValue="0") int start,
 			@RequestParam(defaultValue="10") int pageSize,
 			Model model, 
@@ -59,7 +59,7 @@ public class CafeController extends AbstractDataController {
 	@RequestMapping(value="/cafes/search", method=RequestMethod.GET)
 	public String findMatches(
 			Model model, 
-			@RequestParam(defaultValue="similarPeople") String style,
+			@RequestParam(defaultValue="foodEstablishments") String style,
 			@RequestParam(required=false) String ref,
 			@RequestParam(defaultValue="0") int start,
 			@RequestParam(defaultValue="10") int pageSize) {
@@ -81,5 +81,9 @@ public class CafeController extends AbstractDataController {
 		return getOptionsForField("mealTypes");
 	}
 
+	@ModelAttribute("establishmentTypes")
+	public ArrayList<String> getEstablishmentTypes() {
+		return getOptionsForField("establishmentType");
+	}
 }
 

@@ -2,6 +2,7 @@
 	<org.fuzzydb.samples.Cafe>
 		<description>Clowns - Cambridge</description>
 		<postcode>CB1</postcode>
+		<establishmentType>Cafe</establishmentType>
 		<mealTypes>
 			<string>Hot Counter Meals</string>
 		</mealTypes>
@@ -9,5 +10,50 @@
 	<org.fuzzydb.samples.Cafe>
 		<description>The Golden Hind - Cambridge</description>
 		<postcode>CB4</postcode>
+		<establishmentType>Pub</establishmentType>
+		<mealTypes>
+		    <string>Prepared Meals</string>
+		</mealTypes>
+	</org.fuzzydb.samples.Cafe>
+	<org.fuzzydb.samples.Cafe>
+		<description>The Banker - London</description>
+		<postcode>EC4</postcode>
+		<establishmentType>Pub</establishmentType>
+		<mealTypes>
+		    <string>Prepared Meals</string>
+		</mealTypes>
+	</org.fuzzydb.samples.Cafe>
+	<org.fuzzydb.samples.Cafe>
+		<description>The Golden Hinde - London</description>
+		<postcode>SE1</postcode>
+		<establishmentType>Pub</establishmentType>
+		<mealTypes>
+		    <string>Prepared Meals</string>
+		</mealTypes>
+	</org.fuzzydb.samples.Cafe>
+	<org.fuzzydb.samples.Cafe>
+		<description>The Market Porter - London</description>
+		<postcode>SE1</postcode>
+		<establishmentType>Pub</establishmentType>
+		<mealTypes>
+		    <string>Prepared Meals</string>
+		</mealTypes>
+	</org.fuzzydb.samples.Cafe>
+	<org.fuzzydb.samples.Cafe>
+		<description>Borough Market - London</description>
+		<postcode>SE1</postcode>
+		<establishmentType>On-street</establishmentType>
+		<mealTypes>
+		    <string>Cold Snack</string>
+		    <string>Hot Snacks</string>
+		    <string>Hot Counter Meals</string>     
+		    <string>Freshly Prepared Meals</string>
+		</mealTypes>
+		<foodSourcingPolicy>
+		    <string>Local</string>
+		    <string>Fairtrade</string>
+		    <string>Organic</string>
+		    <string>Rainforest Alliance</string>             
+		</foodSourcingPolicy>
 	</org.fuzzydb.samples.Cafe>
 </objects>

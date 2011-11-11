@@ -23,12 +23,17 @@ public class Cafe {
 
 	private String description;
 	
+	private String establishmentType;
+
+	private String[] foodSourcingPolicy;
+	
 	@DerivedField("postcode")
 	private IPoint3D location;
 
+	private String[] mealTypes;
+
 	private String postcode;
 	
-	private String[] mealTypes;
 
 	
 	public String getRef() {
@@ -45,6 +50,22 @@ public class Cafe {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getEstablishmentType() {
+		return establishmentType;
+	}
+
+	public void setEstablishmentType(String establishmentType) {
+		this.establishmentType = establishmentType;
+	}
+
+	public String[] getFoodSourcingPolicy() {
+		return foodSourcingPolicy;
+	}
+
+	public void setFoodSourcingPolicyTypes(String[] foodSourcingPolicyTypes) {
+		this.foodSourcingPolicy = foodSourcingPolicyTypes;
 	}
 
 	public IPoint3D getLocation() {
