@@ -20,16 +20,16 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
+@RequestMapping("/cafes") 
 public class CafeController extends AbstractDataController {
 
 
 	@Autowired
 	private CafeRepository cafeRepo;
 
-
 	
 	@Transactional
-	@RequestMapping(value="/cafes/create", method=RequestMethod.GET) 
+	@RequestMapping(value="/create", method=RequestMethod.GET) 
 	public ModelAndView createPeople(@RequestParam(defaultValue="5") int numPeople) {
 		
 		for (int i = 0; i < numPeople; i++) {
@@ -39,13 +39,13 @@ public class CafeController extends AbstractDataController {
 	}
 
 	@Transactional(readOnly=true)
-	@RequestMapping(value="/cafes/search", method=RequestMethod.POST) 
+	@RequestMapping(value="/search", method=RequestMethod.POST) 
 	public String search(
 			@RequestParam(defaultValue="foodEstablishments") String style,
 			@RequestParam(defaultValue="0") int start,
 			@RequestParam(defaultValue="10") int pageSize,
 			Model model, 
-			@ModelAttribute("command") @Valid Cafe form, 
+			@ModelAttribute("command") @Valid BaseEntity form, 
 			Errors result) {
 		
 		Pageable pageable = new PageRequest(start, pageSize);
@@ -56,7 +56,7 @@ public class CafeController extends AbstractDataController {
 
 	
 	@Transactional(readOnly=true)
-	@RequestMapping(value="/cafes/search", method=RequestMethod.GET)
+	@RequestMapping(value="/search", method=RequestMethod.GET)
 	public String findMatches(
 			Model model, 
 			@RequestParam(defaultValue="foodEstablishments") String style,
@@ -67,7 +67,7 @@ public class CafeController extends AbstractDataController {
 		// We need some attributes to search against.  This doesn't have to be something already in the 
 		// database.  For the default, we'll just grab a named sample from our dataGenerator.
 		// If we have a key (ref), then we'll use that to grab an item.
-		Cafe idealMatch = StringUtils.hasText(ref) ? cafeRepo.findOne(ref) : cafeRepo.findFirst();
+		BaseEntity idealMatch = StringUtils.hasText(ref) ? cafeRepo.findOne(ref) : cafeRepo.findFirst();
 
 		Pageable pageable = new PageRequest(start/pageSize, pageSize);
 		doSearch(cafeRepo, model, style, ref, pageable, idealMatch);

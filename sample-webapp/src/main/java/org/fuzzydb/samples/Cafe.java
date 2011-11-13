@@ -1,11 +1,8 @@
 package org.fuzzydb.samples;
 
-import org.springframework.data.annotation.Id;
 
-import com.wwm.db.spring.annotation.DerivedField;
-import com.wwm.model.dimensions.IPoint3D;
 
-public class Cafe {
+public class Cafe extends BaseEntity {
 
 	/**
 	 * Public constructor needed by some frameworks
@@ -18,39 +15,11 @@ public class Cafe {
 	}
 
 
-	@Id
-	private String ref;
-
-	private String description;
-	
 	private String establishmentType;
 
 	private String[] foodSourcingPolicy;
 	
-	@DerivedField("postcode")
-	private IPoint3D location;
-
 	private String[] mealTypes;
-
-	private String postcode;
-	
-
-	
-	public String getRef() {
-		return ref;
-	}
-
-	public void setRef(String ref) {
-		this.ref = ref;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
 
 	public String getEstablishmentType() {
 		return establishmentType;
@@ -68,14 +37,6 @@ public class Cafe {
 		this.foodSourcingPolicy = foodSourcingPolicyTypes;
 	}
 
-	public IPoint3D getLocation() {
-		return location;
-	}
-
-	public void setLocation(IPoint3D location) {
-		this.location = location;
-	}
-	
 	public String[] getMealTypes() {
 		return mealTypes;
 	}
@@ -84,14 +45,6 @@ public class Cafe {
 		this.mealTypes = mealTypes;
 	}
 
-	public String getPostcode() {
-		return postcode;
-	}
-	
-	public void setPostcode(String postcode) {
-		this.postcode = postcode;
-	}
-	
 	@Override
 	public String toString() {
 		return description;

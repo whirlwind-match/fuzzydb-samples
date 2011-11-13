@@ -1,23 +1,13 @@
 package org.fuzzydb.samples;
 
-import java.io.Serializable;
 import javax.validation.constraints.Digits;
 
-import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 
 import com.wwm.db.spring.annotation.DerivedField;
 import com.wwm.model.dimensions.IPoint3D;
 
-public class Person implements Serializable {
-	
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	private String ref;
-
-	private String description;
-	
+public class Person extends BaseEntity {
 	
 	private Boolean isMale;
 	
@@ -26,13 +16,8 @@ public class Person implements Serializable {
 	
 	private float[] ageRange;
 	
-	@DerivedField(value="postcode")
-	private IPoint3D location;
-	
 	private String[] newspapers;
 
-	private String postcode; 
-	
 	private Float salary;
 	
 	private String smoke;
@@ -54,14 +39,6 @@ public class Person implements Serializable {
 		this.description = desc;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-	
-	public String getRef() {
-		return ref;
-	}
-	
 	public Float getAge() {
 		return age;
 	}
@@ -86,28 +63,12 @@ public class Person implements Serializable {
 		this.isMale = isMale;
 	}
 	
-	public IPoint3D getLocation() {
-		return location;
-	}
-
-	public void setLocation(IPoint3D location) {
-		this.location = location;
-	}
-
 	public String[] getNewspapers() {
 		return newspapers;
 	}
 	
 	public void setNewspapers(String[] newspapers) {
 		this.newspapers = newspapers;
-	}
-
-	public String getPostcode() {
-		return postcode;
-	}
-
-	public void setPostcode(String postcode) {
-		this.postcode = postcode;
 	}
 
 	public Float getSalary() {

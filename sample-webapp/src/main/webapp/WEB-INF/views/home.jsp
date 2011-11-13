@@ -7,8 +7,8 @@
 We've had ${count} page views.
 
 	<ul>
-		<li><a href="createPeople">create a few characters</a></li>
-		<li><a href="search">Do a fuzzy query</a></li>
+		<li><a href="people/search">Person matching</a></li>
+		<li><a href="cafes/search">Food establishments</a></li>
 		
 		<sec:authorize access="isAuthenticated()">
 		<li><a href="<spring:url value="/j_spring_security_logout" htmlEscape="true" />">Logout</a></li>
