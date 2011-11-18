@@ -20,33 +20,32 @@
 </div>
 <div dojoType="dijit.TitlePane" style="width: 100%" title="Matches for ${subject}"> <!--  using match style: ${style} -->
 	<p>
-		<em>Click on 'matches' link to change to find matches for that vehicle</em>
+		<em>Click on 'matches' link to find matches for that vehicle</em>
 	</p>
 	<c:if test="${startNextPage > 0}">
    		<a accesskey="n" href="?ref=${result.item.ref}&style=${style}&start=${startNextPage}&pageSize=${pageSize}">next page</a>
 	</c:if>
 
 	<p/>
-    <c:forEach items="${results}" var="result">
-	    <div style="background-color:#F8F8F8; float:left; border: solid #EEE 0px; border-radius: 10px; width:270px; margin: 5px; padding: 9px; min-height: 320px; box-shadow: 4px 4px 8px 0px #AAA;">
-	    	<span style="display: block;float: right; padding-right: 10px"> 
-	    		<a href="?ref=${result.item.ref}&style=${style}">matches</a>
-	    	</span>
-	    	<span style="font-weight: bold; font-size: larger">${result.item}</span>&nbsp;${result.item.postcode}
-		    <div style="margin: 2px; padding: 11 2 2 2"><b>Overall Score:</b>
-		    	<span style="float:right; width: 100px; border-radius: 5px; text-align:center; background-color: ${f:toCssRGBColor(result.score)}">
-		    	${f:toPercent(result.score)}%</span>
-		   	</div>
+    <c:forEach var="result" items="${results}">
+	    <div style="background-color:#F8F8F8; float:left; border: solid #EEE 0px; border-radius: 10px; width:340px; margin: 5px; padding: 9px; min-height: 300px; box-shadow: 4px 4px 8px 0px #AAA;">
+	    	<span style="font-weight: bold; font-size: larger">${result.item}</span>
+	    	<span style="font-size: 100%; padding-left: 10px"> <b>£${f:toString(result.item.price)}</b></span>
+	    	<span style="float:right; width: 100px; border-radius: 5px; text-align:center; background-color: ${f:toCssRGBColor(result.score)}">
+	    	${f:toPercent(result.score)}%</span>
+	    	<br/><b>${result.item.postcode}</b> ${f:toString(f:forwardsScore(result,'Distance'))} miles
+	    	<div  style="font-size: 100%; padding-left: 10px"><br/><b>${f:toString(result.item.options)}</b></div>
+
 				<!-- Forward scores -->
 	    	<div style="padding: 11px 2px"><b>Scores:</b>
 			    <c:forEach items="${result.score.scorerAttrNames}" var="match">
 			    	<c:set var="fwd" value="${f:forwardsScore(result,match)}"/>
 			    	<c:choose>
 				    	<c:when test="${match eq 'Distance'}">
-			    	<div style="padding-left: 10px">
-	    				<span style="float:right; width: 50px; text-align:center">${f:round(fwd)}</span>
-    					${match} (miles): 
-    				</div>
+<!-- 			    	<div style="padding-left: 10px"> -->
+<%-- 	    				<span style="float:right; width: 50px; text-align:center">${f:round(fwd)}</span> --%>
+<%--     					${match} (miles):  --%>
+<!--     				</div> -->
 				    	</c:when>
 				    	<c:otherwise>
 			    	<div style="padding-left: 10px; padding-top: 1px;">
@@ -57,14 +56,15 @@
 			    	</c:choose>
 			    </c:forEach> 
 		    </div>
-	    	<div style="padding: 2px 2px 0px 2px"><b>Attributes:</b>
-		    	<div  style="font-size: 100%; padding-left: 10px">Price: <b>${f:toString(result.item.price)}</b></div>
-		    	<div  style="font-size: 100%; padding-left: 10px">Options: <br/> <b>${f:toString(result.item.options)}</b></div>
+	    	<div style="padding: 2px 2px 0px 2px">
 		    	<div  style="font-size: 80%; padding-left: 10px">Combined (mpg): <b>${f:toString(result.item.mpgCombined)}</b></div>
 		    	<div  style="font-size: 80%; padding-left: 10px">Emissions (gCO2/km): <b>${f:toString(result.item.co2emissions)}</b></div>
 		    	<div  style="font-size: 80%; padding-left: 10px">Power (bhp): <b>${f:toString(result.item.horsePower)}</b></div>
 		    	<div  style="font-size: 80%; padding-left: 10px">Location: <b>${f:toString(result.item.postcode)}</b></div>
 	    	</div>
+	    	<span style="display: block;float: right; padding-right: 10px"> 
+	    		<a href="?ref=${result.item.ref}&style=${style}">matches</a>
+	    	</span>
 	    </div>
     </c:forEach> 
 	<div style="clear:left; float:none" />
