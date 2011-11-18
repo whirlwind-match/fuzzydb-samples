@@ -1,0 +1,101 @@
+<objects>
+    <org.fuzzydb.samples.Vehicle>
+        <description>Impreza STi</description>
+        <postcode>CB4</postcode>
+        <horsePower>300</horsePower>
+        <mpgCombined>28</mpgCombined>
+        <co2emissions>199</co2emissions>
+        <price>10995</price>
+        <options>
+            <string>ABS</string>
+            <string>Air-con</string>
+            <string>Remote locking</string>
+            <string>Power steering</string>
+        </options>
+    </org.fuzzydb.samples.Vehicle>
+    <org.fuzzydb.samples.Vehicle>
+        <description>Reliant Robin</description>
+        <postcode>NE17</postcode>
+        <horsePower>35</horsePower>
+        <mpgCombined>42</mpgCombined>
+        <co2emissions>144</co2emissions>
+        <price>300</price>
+        <options>
+            <string>Air-con</string>
+            <string>Traction control</string>
+        </options>
+    </org.fuzzydb.samples.Vehicle>
+    <org.fuzzydb.samples.Vehicle>
+        <description>Mercedes SLK</description>
+        <postcode>SE1</postcode>
+        <horsePower>254</horsePower>
+        <mpgCombined>25.0</mpgCombined>
+        <co2emissions>211</co2emissions>
+        <price>37499</price>
+        <options>
+            <string>ABS</string>
+            <string>Air-con</string>
+            <string>Cruise control</string>
+            <string>Heated seats</string>
+            <string>Remote locking</string>
+            <string>Power steering</string>
+            <string>Traction control</string>
+        </options>
+    </org.fuzzydb.samples.Vehicle>
+    <org.fuzzydb.samples.Vehicle>
+        <description>Wreck</description>
+        <postcode>LL30</postcode>
+        <horsePower>217.09291</horsePower>
+        <mpgCombined>53.161674</mpgCombined>
+        <co2emissions>248.93402</co2emissions>
+        <price>93100.086</price>
+    </org.fuzzydb.samples.Vehicle>
+    <org.fuzzydb.samples.Vehicle>
+        <description>Wreck</description>
+        <postcode>CB9</postcode>
+        <horsePower>51.66498</horsePower>
+        <mpgCombined>0.0</mpgCombined>
+        <co2emissions>335.7641</co2emissions>
+        <price>88241.984</price>
+    </org.fuzzydb.samples.Vehicle>
+    <org.fuzzydb.samples.Vehicle>
+        <description>Wreck</description>
+        <postcode>TN2</postcode>
+        <horsePower>380.505</horsePower>
+        <mpgCombined>74.79506</mpgCombined>
+        <co2emissions>418.7903</co2emissions>
+        <price>22467.13</price>
+    </org.fuzzydb.samples.Vehicle>
+    <org.fuzzydb.samples.Vehicle>
+        <description>Wreck</description>
+        <postcode>EC2</postcode>
+        <horsePower>694.635</horsePower>
+        <mpgCombined>39.449562</mpgCombined>
+        <co2emissions>103.37641</co2emissions>
+        <price>55905.89</price>
+    </org.fuzzydb.samples.Vehicle>
+    <org.fuzzydb.samples.Vehicle>
+        <description>Wreck</description>
+        <postcode>SP3</postcode>
+        <horsePower>107.84158</horsePower>
+        <mpgCombined>58.380272</mpgCombined>
+        <co2emissions>416.5233</co2emissions>
+        <price>87869.96</price>
+    </org.fuzzydb.samples.Vehicle>
+    <org.fuzzydb.samples.Vehicle>
+        <description>Wreck</description>
+        <postcode>LA5</postcode>
+        <horsePower>605.8836</horsePower>
+        <mpgCombined>74.97544</mpgCombined>
+        <co2emissions>367.6247</co2emissions>
+        <price>59410.562</price>
+    </org.fuzzydb.samples.Vehicle>
+    <org.fuzzydb.samples.Vehicle>
+        <description>Wreck</description>
+        <postcode>WN6</postcode>
+        <horsePower>162.9333</horsePower>
+        <mpgCombined>68.5578</mpgCombined>
+        <co2emissions>96.88587</co2emissions>
+        <price>5521.8896</price>
+    </org.fuzzydb.samples.Vehicle>
+</objects>

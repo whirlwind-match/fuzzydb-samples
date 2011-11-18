@@ -44,7 +44,7 @@ public class CafeController extends AbstractDataController<Cafe> {
 
 	
 	@ModelAttribute("mealTypes")
-	public ArrayList<String> getSmokeOptions() {
+	public ArrayList<String> getMealTypes() {
 		return getOptionsForField("mealTypes");
 	}
 

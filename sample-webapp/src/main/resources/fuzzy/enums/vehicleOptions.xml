@@ -1,0 +1,14 @@
+<EnumDefinition name="vehicleOptions">
+    <string>ABS</string>
+    <string>Air-con</string>
+    <string>Alloy wheels</string>
+    <string>CD Player</string>
+    <string>Cruise control</string>
+    <string>Heated seats</string>
+    <string>Sat-nav</string>
+    <string>Sun roof</string>
+    <string>Immobiliser</string>
+    <string>Remote locking</string>
+    <string>Power steering</string>
+    <string>Traction control</string> 
+</EnumDefinition>

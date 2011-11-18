@@ -49,6 +49,12 @@
         <property name="resources" value="classpath:/data/initialCafes.xml"/>
     </bean>
 
+    <bean id="vehicleInitialiser" class="com.wwm.db.spring.repository.RepositoryInitializer">
+        <constructor-arg name="repo" ref="vehicleRepository"/>
+        <constructor-arg name="unmarshaller" ref="marshaller"/>
+        <property name="resources" value="classpath:/data/initialAutos.xml"/>
+    </bean>
+
     <bean id="randomGenerator" class="com.wwm.db.spring.random.RandomAttributeSource"/>
     <bean id="postcodeConverter" class="com.wwm.postcode.PostcodeConvertor" />
 

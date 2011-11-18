@@ -3,6 +3,21 @@ package org.fuzzydb.samples;
 
 public class Vehicle extends BaseEntity {
 
+	/** gCO2/km */
+	private Float co2emissions;
+	
+	private Float horsePower;
+	
+	private String make;
+
+	private String model;
+
+	private Float mpgCombined;
+	
+	private String[] options;
+	
+	private Float price;
+
 	/**
 	 * Public constructor needed by some frameworks
 	 */
@@ -13,67 +28,60 @@ public class Vehicle extends BaseEntity {
 		this.description = desc;
 	}
 
+	public Float getCo2emissions() {
+		return co2emissions;
+	}
+
 	
-	private String make;
-
-	private String model;
-
-	private float horsePower;
+	public Float getHorsePower() {
+		return horsePower;
+	}
 	
-	private float mpgCombined;
-	
-	/** gCO2/km */
-	private float co2emissions;
-
-	private float price;
-	
-
-
 	public String getMake() {
 		return make;
 	}
-
-	public void setMake(String make) {
-		this.make = make;
-	}
-
+	
 	public String getModel() {
 		return model;
+	}
+
+	public Float getMpgCombined() {
+		return mpgCombined;
+	}
+
+	public String[] getOptions() {
+		return options;
+	}
+
+	public Float getPrice() {
+		return price;
+	}
+
+	public void setCo2emissions(Float co2emissions) {
+		this.co2emissions = co2emissions;
+	}
+
+	public void setHorsePower(Float horsePower) {
+		this.horsePower = horsePower;
+	}
+	
+	public void setMake(String make) {
+		this.make = make;
 	}
 
 	public void setModel(String model) {
 		this.model = model;
 	}
 
-	public float getHorsePower() {
-		return horsePower;
-	}
-
-	public void setHorsePower(float horsePower) {
-		this.horsePower = horsePower;
-	}
-
-	public float getMpgCombined() {
-		return mpgCombined;
-	}
-
-	public void setMpgCombined(float mpgCombined) {
+	public void setMpgCombined(Float mpgCombined) {
 		this.mpgCombined = mpgCombined;
 	}
 
-	public float getCo2emissions() {
-		return co2emissions;
+	public void setOptions(String[] options) {
+		this.options = options;
 	}
 
-	public void setCo2emissions(float co2emissions) {
-		this.co2emissions = co2emissions;
-	}
-
-	public float getPrice() {
-		return price;
-	}
-
-	public void setPrice(float price) {
+	public void setPrice(Float price) {
 		this.price = price;
 	}
 

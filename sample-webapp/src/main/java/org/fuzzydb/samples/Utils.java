@@ -1,6 +1,7 @@
 package org.fuzzydb.samples;
 
 import java.awt.Color;
+import java.util.Formatter;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -98,13 +99,17 @@ public abstract class Utils {
 		else if (object instanceof float[]) {
 			float[] array = (float[]) object;
 			StringBuilder sb = new StringBuilder();
+			Formatter f = new Formatter(sb);
 			for (int i = 0; i < array.length; i++) {
-				sb.append(array[i]);
+				f.format("%.2f", array[i]);
 				if (i < array.length - 1) {
 					sb.append(", ");
 				}
 			}
 			return sb.toString();
+		}
+		else if (object instanceof Float) {
+			return String.format("%.2f", object);
 		}
 
 		return object.toString();

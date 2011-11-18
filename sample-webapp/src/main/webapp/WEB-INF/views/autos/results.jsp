@@ -8,32 +8,25 @@
 <div dojoType="dijit.TitlePane" style="width: 100%" title="Options">
 
 	<div style="float:left; width: 30%">
-	<h3>Add more places:</h3>
-	<ul>
-	    <li><a href="createItems?numItems=10">Add 10</a></li>
-	    <li><a href="createItems?numItems=100">Add 100</a></li>
-	    <li><a href="createItems?numItems=1000">Add 1000</a></li>
-	</ul>
+		<h3>Add more vehicles:</h3>
+		<ul>
+		    <li><a href="createItems?numItems=10">Add 10</a></li>
+		    <li><a href="createItems?numItems=100">Add 100</a></li>
+		    <li><a href="createItems?numItems=1000">Add 1000</a></li>
+		</ul>
 	</div>
 
-<!-- 	<div style="float:left; margin-left:10px"> -->
-<!-- 	<h3>Click match styles here to experiment with strict vs soft matches in determining overall score:</h3> -->
-<!-- 	<ul> -->
-<%-- 	    <li><a href="?ref=${ref}">similar TODO- soft</a></li> --%>
-<%-- 	    <li><a href="?ref=${ref}&style=similarTODO">similar TODO- strict</a></li> --%>
-<!-- 	</ul> -->
-<!-- 	</div> -->
 	<div style="clear:left; float:none" />
 </div>
-<div dojoType="dijit.TitlePane" style="width: 100%" title="Matches for ${subject} using match style: ${style}">
+<div dojoType="dijit.TitlePane" style="width: 100%" title="Matches for ${subject}"> <!--  using match style: ${style} -->
 	<p>
-	<em>Click on 'matches' link to change to find matches for that establishment</em>
+		<em>Click on 'matches' link to change to find matches for that vehicle</em>
 	</p>
-		<c:if test="${startNextPage > 0}">
-	   		<a accesskey="n" href="?ref=${result.item.ref}&style=${style}&start=${startNextPage}&pageSize=${pageSize}">next page</a>
-		</c:if>
+	<c:if test="${startNextPage > 0}">
+   		<a accesskey="n" href="?ref=${result.item.ref}&style=${style}&start=${startNextPage}&pageSize=${pageSize}">next page</a>
+	</c:if>
 
-	<p>
+	<p/>
     <c:forEach items="${results}" var="result">
 	    <div style="background-color:#F8F8F8; float:left; border: solid #EEE 0px; border-radius: 10px; width:270px; margin: 5px; padding: 9px; min-height: 320px; box-shadow: 4px 4px 8px 0px #AAA;">
 	    	<span style="display: block;float: right; padding-right: 10px"> 
@@ -65,11 +58,12 @@
 			    </c:forEach> 
 		    </div>
 	    	<div style="padding: 2px 2px 0px 2px"><b>Attributes:</b>
-		    	<div  style="font-size: 80%; padding-left: 10px">Postcode: <b>${f:toString(result.item.postcode)}</b></div>
-		    	<div  style="font-size: 80%; padding-left: 10px">Type: <b>${f:toString(result.item.establishmentType)}</b></div>
-		    	<div  style="font-size: 80%; padding-left: 10px">Meal Types: <b>${f:toString(result.item.mealTypes)}</b></div>
-		    	<div  style="font-size: 80%; padding-left: 10px">Sourcing: <b>${f:toString(result.item.foodSourcingPolicy)}</b></div>
-		    	<div  style="font-size: 80%; padding-left: 10px">location: <b>${f:toString(result.item.location)}</b></div>
+		    	<div  style="font-size: 100%; padding-left: 10px">Price: <b>${f:toString(result.item.price)}</b></div>
+		    	<div  style="font-size: 100%; padding-left: 10px">Options: <br/> <b>${f:toString(result.item.options)}</b></div>
+		    	<div  style="font-size: 80%; padding-left: 10px">Combined (mpg): <b>${f:toString(result.item.mpgCombined)}</b></div>
+		    	<div  style="font-size: 80%; padding-left: 10px">Emissions (gCO2/km): <b>${f:toString(result.item.co2emissions)}</b></div>
+		    	<div  style="font-size: 80%; padding-left: 10px">Power (bhp): <b>${f:toString(result.item.horsePower)}</b></div>
+		    	<div  style="font-size: 80%; padding-left: 10px">Location: <b>${f:toString(result.item.postcode)}</b></div>
 	    	</div>
 	    </div>
     </c:forEach> 

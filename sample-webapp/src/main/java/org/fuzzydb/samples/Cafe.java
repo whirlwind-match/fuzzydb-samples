@@ -20,6 +20,7 @@ public class Cafe extends BaseEntity {
 	private String[] foodSourcingPolicy;
 	
 	private String[] mealTypes;
+	
 
 	public String getEstablishmentType() {
 		return establishmentType;
@@ -33,8 +34,8 @@ public class Cafe extends BaseEntity {
 		return foodSourcingPolicy;
 	}
 
-	public void setFoodSourcingPolicyTypes(String[] foodSourcingPolicyTypes) {
-		this.foodSourcingPolicy = foodSourcingPolicyTypes;
+	public void setFoodSourcingPolicy(String[] foodSourcingPolicy) {
+		this.foodSourcingPolicy = foodSourcingPolicy;
 	}
 
 	public String[] getMealTypes() {
@@ -49,5 +50,4 @@ public class Cafe extends BaseEntity {
 	public String toString() {
 		return description;
 	}
-
 }

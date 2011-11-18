@@ -7,11 +7,9 @@ import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 import com.wwm.db.spring.random.RandomAttributeSource;
-import com.wwm.geo.GeoInformation;
 import com.wwm.model.attributes.Attribute;
 import com.wwm.postcode.RandomUKShortPostcode;
 
@@ -21,9 +19,6 @@ public class DataGenerator implements InitializingBean {
 	@Autowired
 	private RandomAttributeSource randomSource;
 	
-	@Autowired
-	private Converter<String, GeoInformation> converter;
-
 	private final RandomUKShortPostcode randomPostcodes = new RandomUKShortPostcode();
 	
 	private final Map<String, Person> people = new HashMap<String, Person>();
@@ -41,9 +36,51 @@ public class DataGenerator implements InitializingBean {
 		randomSource.addRandomGenerator("postcode", randomPostcodes);
 		randomSource.addRandomGenerator("workPostcode", randomPostcodes);
 
+		// Cafes
+		randomSource.configureEnumAttr("establishmentType", 0.05f);
+		randomSource.configureMultiEnumAttr("foodSourcingPolicy", 0.01f);
+		randomSource.configureMultiEnumAttr("mealTypes", 0.01f);
+
+		// Autos
+		randomSource.configureFloatAttr("price", 50f, 100000f, 0f);
+		randomSource.configureFloatAttr("horsePower", 50f, 700f, 0f);
+		randomSource.configureFloatAttr("mpgCombined", 10f, 80f, 0.1f);
+		randomSource.configureFloatAttr("co2emissions", 80f, 450f, 0.15f);
+		randomSource.configureMultiEnumAttr("options", 0.01f);
+		
 		addHardcodedPeople();
 	}
 
+	public Cafe createRandomCafe() {
+		String name = "Generics";
+		Cafe item = new Cafe(name);
+		BeanWrapper wrapper = new BeanWrapperImpl(item);
+
+		addRandomAttr(wrapper, "establishmentType");
+		addRandomAttr(wrapper, "foodSourcingPolicy");
+		addRandomAttr(wrapper, "mealTypes");
+		addRandomAttr(wrapper, "postcode");
+				
+		return item;
+	}
+
+
+	public Vehicle createRandomVehicle() {
+		String name = "Wreck";
+		Vehicle item = new Vehicle(name);
+		BeanWrapper wrapper = new BeanWrapperImpl(item);
+
+		addRandomAttr(wrapper, "postcode");
+		addRandomAttr(wrapper, "price");
+		addRandomAttr(wrapper, "horsePower");
+		addRandomAttr(wrapper, "mpgCombined");
+		addRandomAttr(wrapper, "co2emissions");
+		addRandomAttr(wrapper, "options");
+				
+		return item;
+	}
+
+	
 	
 	public Person createPerson(String key) {
 		return people.get(key);
@@ -96,9 +133,4 @@ public class DataGenerator implements InitializingBean {
 		return (Attribute<T>) random;
 	}
 
-
-	public Cafe createRandomCafe() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
