@@ -10,9 +10,9 @@
 	<div style="float:left; width: 30%">
 	<h3>Add more people:</h3>
 	<ul>
-	    <li><a href="createPeople?numPeople=10">Add 10</a></li>
-	    <li><a href="createPeople?numPeople=100">Add 100</a></li>
-	    <li><a href="createPeople?numPeople=1000">Add 1000</a></li>
+	    <li><a href="createItems?numItems=10">Add 10</a></li>
+	    <li><a href="createItems?numItems=100">Add 100</a></li>
+	    <li><a href="createItems?numItems=1000">Add 1000</a></li>
 	</ul>
 	</div>
 
