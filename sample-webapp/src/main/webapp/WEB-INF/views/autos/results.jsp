@@ -16,8 +16,17 @@
 		</ul>
 	</div>
 
+	<div style="float:left; margin-left:10px">
+	<h3>Click match styles here to experiment with strict vs soft matches in determining overall score:</h3>
+	<ul>
+	    <li><a href="?ref=${ref}&style=autosMatchEverything">Match on all characteristics</a></li>
+	    <li><a href="?ref=${ref}&style=matchPriceAndLocation">Match price and location only</a></li>
+	</ul>
+	</div>
+
 	<div style="clear:left; float:none" />
 </div>
+
 <div dojoType="dijit.TitlePane" style="width: 100%" title="Matches for ${subject}"> <!--  using match style: ${style} -->
 	<p>
 		<em>Click on 'matches' link to find matches for that vehicle</em>

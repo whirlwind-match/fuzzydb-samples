@@ -2,15 +2,6 @@
 <ScoreConfiguration name="matchPriceAndLocation">
 
 
-    <MultiEnumScorer>
-        <name>Options</name>
-        <scorerAttrId>options</scorerAttrId>
-        <otherAttrId>options</otherAttrId>
-        <weight>0.7</weight>
-        <scoreNull>true</scoreNull>
-        <scoreOnNull>0.2</scoreOnNull>
-    </MultiEnumScorer>        
-
     <VectorDistanceScorer>
         <name>Within 100 miles</name>
         <scorerAttrId>location</scorerAttrId>
@@ -39,40 +30,5 @@
         <weight>0.7</weight>
     </SimilarFloatValueScorer>
 
-    <SimilarFloatValueScorer>
-        <name>Power</name>
-        <scorerAttrId>horsePower</scorerAttrId>
-        <otherAttrId>horsePower</otherAttrId>
-        <expectedRange>40</expectedRange> 
-<!--         <scoreMapper class="AsymptoticScoreMapper"> -->
-<!--             <squareness>2</squareness>  -->
-<!--             <inverseValueAtBoundary>2</inverseValueAtBoundary>  -->
-<!--         </scoreMapper> -->
-        <weight>0.7</weight>
-    </SimilarFloatValueScorer>
-
-    <SimilarFloatValueScorer>
-        <name>Emissions</name>
-        <scorerAttrId>co2emissions</scorerAttrId>
-        <otherAttrId>co2emissions</otherAttrId>
-        <expectedRange>40</expectedRange> 
-<!--         <scoreMapper class="AsymptoticScoreMapper"> -->
-<!--             <squareness>2</squareness>  -->
-<!--             <inverseValueAtBoundary>2</inverseValueAtBoundary>  -->
-<!--         </scoreMapper> -->
-        <weight>0.7</weight>
-    </SimilarFloatValueScorer>
-    
-    <SimilarFloatValueScorer>
-        <name>MPG</name>
-        <scorerAttrId>mpgCombined</scorerAttrId>
-        <otherAttrId>mpgCombined</otherAttrId>
-        <expectedRange>10</expectedRange> 
-<!--         <scoreMapper class="AsymptoticScoreMapper"> -->
-<!--             <squareness>2</squareness>  -->
-<!--             <inverseValueAtBoundary>2</inverseValueAtBoundary>  -->
-<!--         </scoreMapper> -->
-        <weight>0.7</weight>
-    </SimilarFloatValueScorer>
 
 </ScoreConfiguration>
