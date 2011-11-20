@@ -1,0 +1,8 @@
+<EnumDefinition name="smokingPreferenceTypes">
+    <string>Non-smoker</string>
+    <string>Tolerates-smoker</string>
+    <string>Non-smoker-in-cars</string>
+    <string>Cigarette-smoker</string>
+    <string>Pipe-smoker</string>
+    <string>Cigar-smoker</string>
+</EnumDefinition>
