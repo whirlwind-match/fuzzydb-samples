@@ -1,6 +1,7 @@
 <objects>
     <org.fuzzydb.samples.Vehicle>
         <description>Impreza STi</description>
+        <colour>Silver</colour>
         <postcode>CB4</postcode>
         <horsePower>300</horsePower>
         <mpgCombined>28</mpgCombined>
@@ -15,6 +16,7 @@
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
         <description>Reliant Robin</description>
+        <colour>Yellow</colour>
         <postcode>NE17</postcode>
         <horsePower>35</horsePower>
         <mpgCombined>42</mpgCombined>
@@ -27,6 +29,7 @@
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
         <description>Mercedes SLK</description>
+        <colour>Silver</colour>
         <postcode>SE1</postcode>
         <horsePower>254</horsePower>
         <mpgCombined>25.0</mpgCombined>
@@ -44,6 +47,7 @@
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
         <description>Wreck</description>
+        <colour>Blue</colour>
         <postcode>LL30</postcode>
         <horsePower>217.09291</horsePower>
         <mpgCombined>53.161674</mpgCombined>
@@ -52,6 +56,7 @@
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
         <description>Wreck</description>
+        <colour>Green</colour>
         <postcode>CB9</postcode>
         <horsePower>51.66498</horsePower>
         <mpgCombined>0.0</mpgCombined>
@@ -60,6 +65,7 @@
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
         <description>Wreck</description>
+        <colour>Purple</colour>
         <postcode>TN2</postcode>
         <horsePower>380.505</horsePower>
         <mpgCombined>74.79506</mpgCombined>
@@ -68,6 +74,7 @@
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
         <description>Wreck</description>
+        <colour>Orange</colour>
         <postcode>EC2</postcode>
         <horsePower>694.635</horsePower>
         <mpgCombined>39.449562</mpgCombined>
@@ -76,6 +83,7 @@
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
         <description>Wreck</description>
+        <colour>Red</colour>
         <postcode>SP3</postcode>
         <horsePower>107.84158</horsePower>
         <mpgCombined>58.380272</mpgCombined>
@@ -84,6 +92,7 @@
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
         <description>Wreck</description>
+        <colour>Black</colour>
         <postcode>LA5</postcode>
         <horsePower>605.8836</horsePower>
         <mpgCombined>74.97544</mpgCombined>
@@ -92,6 +101,7 @@
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
         <description>Wreck</description>
+        <colour>Grey</colour>
         <postcode>WN6</postcode>
         <horsePower>162.9333</horsePower>
         <mpgCombined>68.5578</mpgCombined>

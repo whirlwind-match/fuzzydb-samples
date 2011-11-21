@@ -17,9 +17,21 @@
     </function>
 
     <function>
+        <name>floatToCssRGBColorSat</name>
+        <function-class>org.fuzzydb.samples.Utils</function-class>
+        <function-signature>java.lang.String toCssRGBColor(float, float)</function-signature>
+    </function>
+
+    <function>
         <name>toCssRGBColor</name>
         <function-class>org.fuzzydb.samples.Utils</function-class>
         <function-signature>java.lang.String toCssRGBColor(com.wwm.model.attributes.Score)</function-signature>
+    </function>
+
+    <function>
+        <name>toCssRGBColorSat</name>
+        <function-class>org.fuzzydb.samples.Utils</function-class>
+        <function-signature>java.lang.String toCssRGBColor(com.wwm.model.attributes.Score, float)</function-signature>
     </function>
 
     <function>

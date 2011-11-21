@@ -16,13 +16,17 @@
 		<td>Price: </td>  
 		<td><sample:edit-input attrName="price" popupHelp="Enter the *lowest* price you think will work..." /></td>
 	</tr>
-	<tr>
-		<td>CO2 Emissions:</td>
-		<td><sample:edit-input attrName="co2emissions" popupHelp="Planet friendly?  (80 - 440 gCO2/km)" /></td>	
-	</tr>
+<!-- 	<tr> -->
+<!-- 		<td>CO2 Emissions:</td> -->
+<%-- 		<td><sample:edit-input attrName="co2emissions" popupHelp="Planet friendly?  (80 - 440 gCO2/km)" /></td>	 --%>
+<!-- 	</tr> -->
 	<tr>
 		<td>Options:</td>
 		<td><form:checkboxes id="options" path="options" items="${options}"/> <form:errors path="options"/></td>
+	</tr>
+	<tr>
+		<td>Colour:</td>
+		<td><form:radiobuttons id="colour" path="colour" items="${colours}"/> <form:errors path="colour"/></td>
 	</tr>
 	</table>
 	<div>

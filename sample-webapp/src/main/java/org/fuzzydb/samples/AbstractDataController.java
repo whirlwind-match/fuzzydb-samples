@@ -145,7 +145,7 @@ public abstract class AbstractDataController<ENTITY> {
 		Page<Result<ENTITY>> results = repo.findMatchesFor(query, pageable);
 				
 		// Stick 'em in our model for our view to render
-		model.addAttribute("subject", idealMatch);
+		model.addAttribute("subject", idealMatch.toString() == null ? "search" : idealMatch.toString());
 		model.addAttribute("ref", ref);
 		model.addAttribute("results", results.getContent());
 		model.addAttribute("style", style);

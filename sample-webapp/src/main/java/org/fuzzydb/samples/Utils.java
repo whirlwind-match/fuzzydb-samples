@@ -24,8 +24,23 @@ public abstract class Utils {
 	 *   @param value 0 - 1.0f
 	 */
 	public static String toCssRGBColor(float value) {
+	    return toCssRGBColor(value, 0.85f);
+	}
+
+	/**
+	 * Returns a string of the form rgb(100,200,0) to be used
+	 * to indicate the percentage.  100% is green, 0% is red.
+	 * HSV model:
+	 *   Hue 0 -> 120 (red -> green)
+	 *   Sat -> fixed @ 85
+	 *   Brightness -> fixed @ 90
+	 *   
+	 *   @param value 0 - 1.0f
+	 *   @param saturation 0 - 1.0f - lower for paler
+	 */
+	public static String toCssRGBColor(float value, float saturation) {
 	    int intVal = Math.round(value * 100);
-	    Color color = new Color(Color.HSBtoRGB(intVal * 1.2f / 360f, 0.85f, 0.90f));
+	    Color color = new Color(Color.HSBtoRGB(intVal * 1.2f / 360f, saturation, 0.90f));
 	    return "rgb(" + color.getRed() + "," + color.getGreen() + ","+ color.getBlue() +")";
 	}
 
@@ -42,7 +57,11 @@ public abstract class Utils {
 	public static String toCssRGBColor(Score score) {
 		return toCssRGBColor(score.total());
 	}
-	
+
+	public static String toCssRGBColor(Score score, float sat) {
+		return toCssRGBColor(score.total(), sat);
+	}
+
 	public static int toPercent(Score score) {
 		return Math.round(score.total() * 100f);
 	}

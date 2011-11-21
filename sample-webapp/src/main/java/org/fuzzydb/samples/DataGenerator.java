@@ -46,6 +46,7 @@ public class DataGenerator implements InitializingBean {
 		randomSource.configureFloatAttr("horsePower", 50f, 700f, 0f);
 		randomSource.configureFloatAttr("mpgCombined", 10f, 80f, 0.1f);
 		randomSource.configureFloatAttr("co2emissions", 80f, 450f, 0.15f);
+		randomSource.configureEnumAttr("colour", 0f);
 		randomSource.configureMultiEnumAttr("options", 0.01f);
 		
 		addHardcodedPeople();
@@ -75,6 +76,7 @@ public class DataGenerator implements InitializingBean {
 		addRandomAttr(wrapper, "horsePower");
 		addRandomAttr(wrapper, "mpgCombined");
 		addRandomAttr(wrapper, "co2emissions");
+		addRandomAttr(wrapper, "colour");
 		addRandomAttr(wrapper, "options");
 				
 		return item;

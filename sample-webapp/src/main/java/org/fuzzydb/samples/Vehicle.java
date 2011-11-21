@@ -6,6 +6,8 @@ public class Vehicle extends BaseEntity {
 	/** gCO2/km */
 	private Float co2emissions;
 	
+	private String colour;
+	
 	private Float horsePower;
 	
 	private String make;
@@ -33,6 +35,10 @@ public class Vehicle extends BaseEntity {
 	}
 
 	
+	public String getColour() {
+		return colour;
+	}
+
 	public Float getHorsePower() {
 		return horsePower;
 	}
@@ -61,6 +67,10 @@ public class Vehicle extends BaseEntity {
 		this.co2emissions = co2emissions;
 	}
 
+	public void setColour(String colour) {
+		this.colour = colour;
+	}
+	
 	public void setHorsePower(Float horsePower) {
 		this.horsePower = horsePower;
 	}

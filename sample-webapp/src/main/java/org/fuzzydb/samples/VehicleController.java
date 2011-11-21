@@ -24,7 +24,7 @@ public class VehicleController extends AbstractDataController<Vehicle> {
 	
 	@Override
 	protected String getDefaultSearchStyle() {
-		return "matchPriceAndLocation";
+		return "autosMatchEverything";
 	}
 
 	@Override
@@ -46,6 +46,11 @@ public class VehicleController extends AbstractDataController<Vehicle> {
 	@ModelAttribute("options")
 	public ArrayList<String> getOptions() {
 		return getOptionsForField("options");
+	}
+
+	@ModelAttribute("colours")
+	public ArrayList<String> getColours() {
+		return getOptionsForField("colour");
 	}
 }
 
