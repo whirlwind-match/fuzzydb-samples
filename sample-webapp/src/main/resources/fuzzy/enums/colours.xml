@@ -1,8 +1,12 @@
-<EnumDefinition name="smokingPreferenceTypes">
-    <string>Non-smoker</string>
-    <string>Tolerates-smoker</string>
-    <string>Non-smoker-in-cars</string>
-    <string>Cigarette-smoker</string>
-    <string>Pipe-smoker</string>
-    <string>Cigar-smoker</string>
+<EnumDefinition name="colours">
+    <string>White</string>
+    <string>Silver</string>
+    <string>Grey</string>
+    <string>Black</string>
+    <string>Blue</string>
+    <string>Purple</string>
+    <string>Red</string>
+    <string>Orange</string>
+    <string>Yellow</string>
+    <string>Green</string>
 </EnumDefinition>

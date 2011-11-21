@@ -39,6 +39,15 @@
         <weight>0.7</weight>
     </SimilarFloatValueScorer>
 
+    <EnumScoresMapScorer>
+        <name>Similar Colour</name>
+        <scorerAttrId>colour</scorerAttrId>
+        <otherAttrId>colour</otherAttrId>
+        <filter>false</filter>
+        <weight>0.7</weight>
+        <map scorerEnumDefinition="colours" otherEnumDefinition="colours" url="classpath:/fuzzy/matchers/similarColourEnumMap.html"/>
+    </EnumScoresMapScorer>
+
     <SimilarFloatValueScorer>
         <name>Power</name>
         <scorerAttrId>horsePower</scorerAttrId>
