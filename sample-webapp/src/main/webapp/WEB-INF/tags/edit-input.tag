@@ -4,6 +4,6 @@
 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<form:input id="${attrName}" path="${attrName}" /><form:errors path="${attrName}"/></td>
-            <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "${attrName}", 
-            	widgetType : "dijit.form.ValidationTextBox", widgetAttrs : {promptMessage: "${popupHelp}", required : false}})); </script>
+<form:input id="${attrName}" path="${attrName}" /><form:errors path="${attrName}"/>
+<script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "${attrName}", 
+	widgetType : "dijit.form.ValidationTextBox", widgetAttrs : {promptMessage: "${popupHelp}", required : false}}));</script>

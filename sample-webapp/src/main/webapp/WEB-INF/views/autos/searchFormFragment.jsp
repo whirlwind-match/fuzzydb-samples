@@ -25,7 +25,9 @@
 		<td><form:checkboxes id="options" path="options" items="${options}"/> <form:errors path="options"/></td>
 	</tr>
 	</table>
+	<div>
 	<input type="submit" value="Search"/>
+	</div>
 </form:form>
 
 </div>

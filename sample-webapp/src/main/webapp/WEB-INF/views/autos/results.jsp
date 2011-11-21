@@ -5,6 +5,7 @@
 
 <jsp:directive.include file="searchFormFragment.jsp"/>
 
+
 <div dojoType="dijit.TitlePane" style="width: 100%" title="Options">
 
 	<div style="float:left; width: 30%">
@@ -19,20 +20,19 @@
 	<div style="float:left; margin-left:10px">
 	<h3>Click match styles here to experiment with strict vs soft matches in determining overall score:</h3>
 	<ul>
-	    <li><a href="?ref=${ref}&style=autosMatchEverything">Match on all characteristics</a></li>
-	    <li><a href="?ref=${ref}&style=matchPriceAndLocation">Match price and location only</a></li>
+	    <li><a href="?ref=${ref}&amp;style=autosMatchEverything">Match on all characteristics</a></li>
+	    <li><a href="?ref=${ref}&amp;style=matchPriceAndLocation">Match price and location only</a></li>
 	</ul>
 	</div>
 
-	<div style="clear:left; float:none" />
+	<div style="clear:left; float:none"></div> <!-- Strangely FF isn't accepting /> ending for empty -->
 </div>
-
-<div dojoType="dijit.TitlePane" style="width: 100%" title="Matches for ${subject}"> <!--  using match style: ${style} -->
+<div dojoType="dijit.TitlePane" style="width: 100%; clear:left; float:none; display:block" title="Matches for ${subject}"> <!--  using match style: ${style} -->
 	<p>
 		<em>Click on 'matches' link to find matches for that vehicle</em>
 	</p>
 	<c:if test="${startNextPage > 0}">
-   		<a accesskey="n" href="?ref=${result.item.ref}&style=${style}&start=${startNextPage}&pageSize=${pageSize}">next page</a>
+   		<a accesskey="n" href="?ref=${result.item.ref}&amp;style=${style}&amp;start=${startNextPage}&amp;pageSize=${pageSize}">next page</a>
 	</c:if>
 
 	<p/>
@@ -72,7 +72,7 @@
 		    	<div  style="font-size: 80%; padding-left: 10px">Location: <b>${f:toString(result.item.postcode)}</b></div>
 	    	</div>
 	    	<span style="display: block;float: right; padding-right: 10px"> 
-	    		<a href="?ref=${result.item.ref}&style=${style}">matches</a>
+	    		<a href="?ref=${result.item.ref}&amp;style=${style}">matches</a>
 	    	</span>
 	    </div>
     </c:forEach> 

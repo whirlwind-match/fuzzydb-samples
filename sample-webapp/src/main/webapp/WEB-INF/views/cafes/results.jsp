@@ -20,24 +20,24 @@
 <!-- 	<h3>Click match styles here to experiment with strict vs soft matches in determining overall score:</h3> -->
 <!-- 	<ul> -->
 <%-- 	    <li><a href="?ref=${ref}">similar TODO- soft</a></li> --%>
-<%-- 	    <li><a href="?ref=${ref}&style=similarTODO">similar TODO- strict</a></li> --%>
+<%-- 	    <li><a href="?ref=${ref}&amp;style=similarTODO">similar TODO- strict</a></li> --%>
 <!-- 	</ul> -->
 <!-- 	</div> -->
-	<div style="clear:left; float:none" />
+	<div style="clear:left; float:none"></div>
 </div>
 <div dojoType="dijit.TitlePane" style="width: 100%" title="Matches for ${subject} using match style: ${style}">
 	<p>
 	<em>Click on 'matches' link to change to find matches for that establishment</em>
 	</p>
 		<c:if test="${startNextPage > 0}">
-	   		<a accesskey="n" href="?ref=${result.item.ref}&style=${style}&start=${startNextPage}&pageSize=${pageSize}">next page</a>
+	   		<a accesskey="n" href="?ref=${result.item.ref}&amp;style=${style}&amp;start=${startNextPage}&amp;pageSize=${pageSize}">next page</a>
 		</c:if>
 
 	<p>
     <c:forEach items="${results}" var="result">
 	    <div style="background-color:#F8F8F8; float:left; border: solid #EEE 0px; border-radius: 10px; width:270px; margin: 5px; padding: 9px; min-height: 320px; box-shadow: 4px 4px 8px 0px #AAA;">
 	    	<span style="display: block;float: right; padding-right: 10px"> 
-	    		<a href="?ref=${result.item.ref}&style=${style}">matches</a>
+	    		<a href="?ref=${result.item.ref}&amp;style=${style}">matches</a>
 	    	</span>
 	    	<span style="font-weight: bold; font-size: larger">${result.item}</span>&nbsp;${result.item.postcode}
 		    <div style="margin: 2px; padding: 11 2 2 2"><b>Overall Score:</b>
