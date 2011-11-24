@@ -97,6 +97,7 @@
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
+			<scope>provided</scope>
 		</dependency>	
 		
 		<!-- Logging -->
@@ -267,6 +268,33 @@
 						<exclude>**/*_Roo_*</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.encodedknowledge.maven</groupId>
+				<artifactId>maven-dependency-sanity-plugin</artifactId>
+				<version>0.2</version>
+				<configuration>
+					<warnOnly>true</warnOnly>
+					<scopes>
+						<scope>compile</scope>
+						<scope>test</scope>
+					</scopes>
+<!-- 					<exclusions> -->
+<!-- 						<exclusion> -->
+<!-- 							<artifacts> -->
+<!-- 								<artifact>foo:foo:2.1</artifact> -->
+<!-- 								<artifact>bar:bar:1.0</artifact> -->
+<!-- 							</artifacts> -->
+<!-- 						</exclusion> -->
+<!-- 					</exclusions> -->
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
