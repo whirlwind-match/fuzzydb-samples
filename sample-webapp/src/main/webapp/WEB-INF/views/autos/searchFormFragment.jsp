@@ -26,7 +26,11 @@
 	</tr>
 	<tr>
 		<td>Colour:</td>
-		<td><form:radiobuttons id="colour" path="colour" items="${colours}"/> <form:errors path="colour"/></td>
+		<td><form:select path="colour">
+			<form:option value="" />
+			<form:options items="${colours}"/> 
+		</form:select><form:errors path="colour"/>
+		</td>
 	</tr>
 	</table>
 	<div>

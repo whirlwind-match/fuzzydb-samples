@@ -18,10 +18,11 @@
 	</div>
 
 	<div style="float:left; margin-left:10px">
-	<h3>Click match styles here to experiment with strict vs soft matches in determining overall score:</h3>
+	<h3>Click below to focus through a different lens:</h3>
 	<ul>
 	    <li><a href="?ref=${ref}&amp;style=autosMatchEverything">Match on all characteristics</a></li>
 	    <li><a href="?ref=${ref}&amp;style=matchPriceAndLocation">Match price and location only</a></li>
+	    <li><a href="?ref=${ref}&amp;style=matchPriceAndLocation30miles">Match price and location (30 miles)</a></li>
 	</ul>
 	</div>
 
@@ -37,12 +38,20 @@
 
 	<p/>
     <c:forEach var="result" items="${results}">
-	    <div style="background-color:#F8F8F8; float:left; border: solid #EEE 0px; border-radius: 10px; width:340px; margin: 5px; padding: 9px; min-height: 300px; box-shadow: 4px 4px 8px 0px #AAA;">
+    	<c:set var="borderwidth" value=" solid #EEE 2px;"></c:set>
+    	<c:if test="${f:toPercent(result.score) eq 100}">
+	    	<c:set var="borderwidth" value="solid #1E1 2px;"></c:set>
+    	</c:if>
+    	
+	    <div style="background-color:#F8F8F8; float:left; border: ${borderwidth}; border-radius: 10px; width:340px; margin: 5px; padding: 9px; min-height: 300px; box-shadow: 4px 4px 8px 0px #AAA;">
 	    	<span style="font-weight: bold; font-size: larger">${f:toString(result.item.colour)} ${result.item}</span>
 	    	<span style="font-size: larger; padding-left: 10px"> £${f:toString(result.item.price)}</span>
 	    	<span style="float:right; width: 55px; height:22px; padding-top: 5px; border-radius: 5px; text-align:center; font-weight: bold; background-color: ${f:toCssRGBColor(result.score)}">
 	    	${f:toPercent(result.score)}%</span>
-	    	<br/><b>${result.item.postcode}</b> ${f:toString(f:forwardsScore(result,'Distance'))} miles
+	    	<br/><b>${result.item.postcode}</b>
+	    	<c:if test="${!empty f:toString(f:forwardsScore(result,'Distance'))}">
+	    	 ${f:toString(f:forwardsScore(result,'Distance'))} miles
+	    	</c:if>
 	    	<div  style="font-size: 100%; padding-left: 10px"><br/><b>${f:toString(result.item.options)}</b></div>
 
 				<!-- Forward scores -->

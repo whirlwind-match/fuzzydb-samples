@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ScoreConfiguration name="matchPriceAndLocation">
+<ScoreConfiguration name="matchPriceAndLocation30miles">
 
 
     <VectorDistanceScorer>
-        <name>Within 100 miles</name>
+        <name>Within 30 miles</name>
         <scorerAttrId>location</scorerAttrId>
         <otherAttrId>location</otherAttrId>
-        <range>100</range>
+        <range>30</range>
         <preferClose>true</preferClose>
         <!-- Asymptotic scorer tends to zero at infinity -->
         <scoreMapper class="AsymptoticScoreMapper">

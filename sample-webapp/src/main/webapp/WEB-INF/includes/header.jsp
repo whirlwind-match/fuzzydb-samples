@@ -7,7 +7,11 @@
 
   <style type="text/css" media="screen">   
   	@import url("<c:url value="/resources/dojo/resources/dojo.css"/>");
-  	@import url("<c:url value="/resources/dijit/themes/tundra/tundra.css"/>");
+/*   	@import url("<c:url value="/resources/dijit/themes/a11y/a11y.css"/>"); */
+/*   	@import url("<c:url value="/resources/dijit/themes/claro/claro.css"/>"); */
+/*    	@import url("<c:url value="/resources/dijit/themes/nihilo/nihilo.css"/>");  */
+   	@import url("<c:url value="/resources/dijit/themes/soria/soria.css"/>"); 
+/*    	@import url("<c:url value="/resources/dijit/themes/tundra/tundra.css"/>");  */
 <%--     @import url("<c:url value="/resources/styles/ours.css"/>"); --%>
   </style>     
   
@@ -19,7 +23,7 @@
  
 </head>
 
-<body class="tundra spring">	
+<body class="soria spring">	
 
   <div id="wrap">
   

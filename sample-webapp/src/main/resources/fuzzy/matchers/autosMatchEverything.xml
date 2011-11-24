@@ -21,8 +21,8 @@
         <scoreMapper class="AsymptoticScoreMapper">
             <squareness>3</squareness> 
             <!-- Will become valueAtBoundary once migrated away from XStream for reading this -->
-            <inverseValueAtBoundary>2.5</inverseValueAtBoundary> 
-            <!-- i.e. score is 40% at boundary  -->
+            <inverseValueAtBoundary>1.25</inverseValueAtBoundary> 
+            <!-- i.e. score is 80% at boundary  -->
         </scoreMapper>
         <weight>0.7</weight>
     </VectorDistanceScorer>

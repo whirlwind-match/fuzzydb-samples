@@ -120,7 +120,7 @@ public abstract class Utils {
 			StringBuilder sb = new StringBuilder();
 			Formatter f = new Formatter(sb);
 			for (int i = 0; i < array.length; i++) {
-				f.format("%.2f", array[i]);
+				f.format("%.1f", array[i]);
 				if (i < array.length - 1) {
 					sb.append(", ");
 				}
@@ -128,7 +128,7 @@ public abstract class Utils {
 			return sb.toString();
 		}
 		else if (object instanceof Float) {
-			return String.format("%.2f", object);
+			return String.format("%.1f", object);
 		}
 
 		return object.toString();
