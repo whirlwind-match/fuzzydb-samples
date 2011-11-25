@@ -6,8 +6,7 @@
         <scorerAttrId>isMale</scorerAttrId>
         <otherAttrId>isMale</otherAttrId>
         <weight>0.7</weight>
-        <scoreNull>true</scoreNull>
-        <scoreOnNull>0.5</scoreOnNull>
+        <scoreNull>false</scoreNull>
     </BooleanScorer>
 
     <MultiEnumScorer>
@@ -15,8 +14,8 @@
         <scorerAttrId>newspapers</scorerAttrId>
         <otherAttrId>newspapers</otherAttrId>
         <weight>0.7</weight>
-        <scoreNull>true</scoreNull>
-        <scoreOnNull>0.2</scoreOnNull>
+<!--         <scoreNull>true</scoreNull> -->
+<!--         <scoreOnNull>0.2</scoreOnNull> -->
     </MultiEnumScorer>        
 
     <VectorDistanceScorer>

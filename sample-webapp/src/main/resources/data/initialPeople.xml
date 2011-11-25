@@ -1,66 +1,76 @@
 <objects>
-<org.fuzzydb.samples.Person>
-  <description>Matt</description>
-  <isMale>true</isMale>
-  <age>32.0</age>
-  <ageRange>
-    <float>25.0</float>
-    <float>32.0</float>
-    <float>38.0</float>
-  </ageRange>
-  <salary>500000.0</salary>
-  <smoke>Cigar-smoker</smoke>
-  <newspapers>
-    <string>New York Times</string>
-    <string>LA Times</string>
-  </newspapers>
-</org.fuzzydb.samples.Person><org.fuzzydb.samples.Person>
-  <description>Null</description>
-</org.fuzzydb.samples.Person><org.fuzzydb.samples.Person>
-  <description>Angelina</description>
-  <isMale>false</isMale>
-  <age>35.0</age>
-  <ageRange>
-    <float>30.0</float>
-    <float>37.0</float>
-    <float>50.0</float>
-  </ageRange>
-  <salary>500000.0</salary>
-  <smoke>Cigarette-smoker</smoke>
-  <newspapers>
-    <string>Guardian</string>
-    <string>New York Times</string>
-  </newspapers>
-</org.fuzzydb.samples.Person><org.fuzzydb.samples.Person>
-  <description>Brad</description>
-  <isMale>true</isMale>
-  <age>37.0</age>
-  <ageRange>
-    <float>22.0</float>
-    <float>30.0</float>
-    <float>40.0</float>
-  </ageRange>
-  <salary>547000.0</salary>
-  <newspapers>
-    <string>LA Times</string>
-  </newspapers>
-</org.fuzzydb.samples.Person><org.fuzzydb.samples.Person>
-  <description>Wayne</description>
-  <isMale>true</isMale>
-  <age>33.0</age>
-  <salary>2500000.0</salary>
-  <smoke>Non-smoker</smoke>
-  <newspapers>
-    <string>Sun</string>
-  </newspapers>
-</org.fuzzydb.samples.Person><org.fuzzydb.samples.Person>
-  <description>Neale</description>
-  <isMale>true</isMale>
-  <age>21.0</age>
-  <salary>25000.0</salary>
-  <smoke>Non-smoker</smoke>
-  <newspapers>
-    <string>Guardian</string>
-  </newspapers>
-</org.fuzzydb.samples.Person>
+	<org.fuzzydb.samples.Person>
+		<description>Matt</description>
+		<isMale>true</isMale>
+		<age>32.0</age>
+		<ageRange>
+			<float>25.0</float>
+			<float>32.0</float>
+			<float>38.0</float>
+		</ageRange>
+		<salary>500000.0</salary>
+		<smoke>Cigar-smoker</smoke>
+		<newspapers>
+			<string>New York Times</string>
+			<string>LA Times</string>
+		</newspapers>
+		<postcode>SE1</postcode>
+	</org.fuzzydb.samples.Person>
+<!-- 	<org.fuzzydb.samples.Person> -->
+<!-- 		<description>Null</description> -->
+<!-- 	</org.fuzzydb.samples.Person> -->
+	<org.fuzzydb.samples.Person>
+		<description>Angelina</description>
+		<isMale>false</isMale>
+		<age>35.0</age>
+		<ageRange>
+			<float>30.0</float>
+			<float>37.0</float>
+			<float>50.0</float>
+		</ageRange>
+		<salary>500000.0</salary>
+		<smoke>Cigarette-smoker</smoke>
+		<newspapers>
+			<string>Guardian</string>
+			<string>New York Times</string>
+		</newspapers>
+		<postcode>W1</postcode>
+	</org.fuzzydb.samples.Person>
+	<org.fuzzydb.samples.Person>
+		<description>Brad</description>
+		<isMale>true</isMale>
+		<age>37.0</age>
+		<ageRange>
+			<float>22.0</float>
+			<float>30.0</float>
+			<float>40.0</float>
+		</ageRange>
+		<salary>547000.0</salary>
+		<newspapers>
+			<string>LA Times</string>
+		</newspapers>
+		<postcode>W1</postcode>
+	</org.fuzzydb.samples.Person>
+	<org.fuzzydb.samples.Person>
+		<description>Wayne</description>
+		<isMale>true</isMale>
+		<age>33.0</age>
+		<salary>2500000.0</salary>
+		<smoke>Non-smoker</smoke>
+		<newspapers>
+			<string>Sun</string>
+		</newspapers>
+		<postcode>L1</postcode>
+	</org.fuzzydb.samples.Person>
+	<org.fuzzydb.samples.Person>
+		<description>Neale</description>
+		<isMale>true</isMale>
+		<age>21.0</age>
+		<salary>25000.0</salary>
+		<smoke>Non-smoker</smoke>
+		<newspapers>
+			<string>Guardian</string>
+		</newspapers>
+		<postcode>CB4</postcode>
+	</org.fuzzydb.samples.Person>
 </objects>

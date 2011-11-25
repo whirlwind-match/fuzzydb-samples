@@ -48,6 +48,7 @@
 	    	<span style="font-size: larger; padding-left: 10px"> £${f:toString(result.item.price)}</span>
 	    	<span style="float:right; width: 55px; height:22px; padding-top: 5px; border-radius: 5px; text-align:center; font-weight: bold; background-color: ${f:toCssRGBColor(result.score)}">
 	    	${f:toPercent(result.score)}%</span>
+
 	    	<br/><b>${result.item.postcode}</b>
 	    	<c:if test="${!empty f:toString(f:forwardsScore(result,'Distance'))}">
 	    	 ${f:toString(f:forwardsScore(result,'Distance'))} miles
