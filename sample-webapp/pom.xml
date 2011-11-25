@@ -269,16 +269,16 @@
 					</excludes>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>com.encodedknowledge.maven</groupId>
-				<artifactId>maven-dependency-sanity-plugin</artifactId>
-				<version>0.2</version>
-				<configuration>
-					<warnOnly>true</warnOnly>
-					<scopes>
-						<scope>compile</scope>
-						<scope>test</scope>
-					</scopes>
+<!-- 			<plugin> -->
+<!-- 				<groupId>com.encodedknowledge.maven</groupId> -->
+<!-- 				<artifactId>maven-dependency-sanity-plugin</artifactId> -->
+<!-- 				<version>0.2</version> -->
+<!-- 				<configuration> -->
+<!-- 					<warnOnly>true</warnOnly> -->
+<!-- 					<scopes> -->
+<!-- 						<scope>compile</scope> -->
+<!-- 						<scope>test</scope> -->
+<!-- 					</scopes> -->
 <!-- 					<exclusions> -->
 <!-- 						<exclusion> -->
 <!-- 							<artifacts> -->
@@ -287,15 +287,15 @@
 <!-- 							</artifacts> -->
 <!-- 						</exclusion> -->
 <!-- 					</exclusions> -->
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>check</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+<!-- 				</configuration> -->
+<!-- 				<executions> -->
+<!-- 					<execution> -->
+<!-- 						<goals> -->
+<!-- 							<goal>check</goal> -->
+<!-- 						</goals> -->
+<!-- 					</execution> -->
+<!-- 				</executions> -->
+<!-- 			</plugin> -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>tomcat-maven-plugin</artifactId>
