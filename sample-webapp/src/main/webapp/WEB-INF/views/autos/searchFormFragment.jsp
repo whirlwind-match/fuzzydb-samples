@@ -32,6 +32,14 @@
 		</form:select><form:errors path="colour"/>
 		</td>
 	</tr>
+	<tr>
+		<td>Make:</td>
+		<td><form:select path="carMake">
+			<form:option value="" />
+			<form:options items="${carMakes}"/> 
+		</form:select><form:errors path="carMake"/>
+		</td>
+	</tr>
 	</table>
 	<div>
 	<input type="submit" value="Search"/>

@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ScoreConfiguration name="autosMatchEverything">
 
+    <EnumMatchScorer>
+        <name>Same Make</name>
+        <scorerAttrId>carMake</scorerAttrId>
+        <otherAttrId>carMake</otherAttrId>
+        <weight>0.99</weight>
+    </EnumMatchScorer>        
 
     <MultiEnumScorer>
         <name>Options</name>
         <scorerAttrId>options</scorerAttrId>
         <otherAttrId>options</otherAttrId>
-        <weight>0.7</weight>
+        <weight>0.99</weight>
         <scoreNull>true</scoreNull>
-        <scoreOnNull>0.2</scoreOnNull>
+        <scoreOnNull>0.0</scoreOnNull>
+		<noScoreDirection>reverse</noScoreDirection>
     </MultiEnumScorer>        
 
     <VectorDistanceScorer>

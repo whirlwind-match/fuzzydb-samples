@@ -43,8 +43,8 @@
 	    	<c:set var="borderwidth" value="solid #1E1 2px;"></c:set>
     	</c:if>
     	
-	    <div class="item-outer" style="border: ${borderwidth}; min-height: 300px;">
-	    	<span style="font-weight: bold; font-size: larger">${f:toString(result.item.colour)} ${result.item}</span>
+	    <div class="item-outer" style="border: ${borderwidth}; min-height: 320px;">
+	    	<span style="font-weight: bold; font-size: larger">${f:toString(result.item.colour)} ${result.item.carMake} ${result.item}</span>
 	    	<span style="font-size: larger; padding-left: 10px"> £${f:toString(result.item.price)}</span>
 	    	<span class="overall-score" style="background-color: ${f:toCssRGBColor(result.score)}">
 	    	${f:toPercent(result.score)}%</span>

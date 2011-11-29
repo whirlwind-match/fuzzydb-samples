@@ -1,0 +1,64 @@
+<EnumDefinition name="carMakes">
+	<string>Alfa Romeo</string>
+	<string>Aston Martin</string>
+	<string>Audi</string>
+	<string>Bentley</string>
+	<string>BMW</string>
+	<string>Bugatti</string>
+	<string>Cadillac</string>
+	<string>Caterham</string>
+	<string>Chevrolet</string>
+	<string>Chrysler</string>
+	<string>Citroen</string>
+	<string>Corvette</string>
+	<string>Daewoo</string>
+	<string>Daihatsu</string>
+	<string>Daimler</string>
+	<string>Dodge</string>
+	<string>Ferrari</string>
+	<string>Fiat</string>
+	<string>Ford</string>
+	<string>Honda</string>
+	<string>Hummer</string>
+	<string>Hyundai</string>
+	<string>Infiniti</string>
+	<string>Isuzu</string>
+	<string>Jaguar</string>
+	<string>Jeep</string>
+	<string>Kia</string>
+	<string>Lamborghini</string>
+	<string>Lancia</string>
+	<string>Land Rover</string>
+	<string>Lexus</string>
+	<string>Lincoln</string>
+	<string>Lotus</string>
+	<string>Maserati</string>
+	<string>Mazda</string>
+	<string>Mercedes-Benz</string>
+	<string>MG / Rover</string>
+	<string>Mini</string>
+	<string>Mitsubishi</string>
+	<string>Nissan</string>
+	<string>Noble</string>
+	<string>Opel</string>
+	<string>Peugeot</string>
+	<string>Pontiac</string>
+	<string>Porsche</string>
+	<string>Proton</string>
+	<string>Renault</string>
+	<string>Rolls-Royce</string>
+	<string>Saab</string>
+	<string>Seat</string>
+	<string>Skoda</string>
+	<string>Smart</string>
+	<string>Ssangyong</string>
+	<string>Subaru</string>
+	<string>Suzuki</string>
+	<string>Toyota</string>
+	<string>Triumph</string>
+	<string>TVR</string>
+	<string>Vauxhall</string>
+	<string>Volkswagen</string>
+	<string>Volvo</string>
+	<string>Westfield</string>
+</EnumDefinition>

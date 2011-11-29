@@ -3,6 +3,8 @@ package org.fuzzydb.samples;
 
 public class Vehicle extends BaseEntity {
 
+	private String carMake;
+	
 	/** gCO2/km */
 	private Float co2emissions;
 	
@@ -28,6 +30,10 @@ public class Vehicle extends BaseEntity {
 	
 	public Vehicle(String desc) {
 		this.description = desc;
+	}
+
+	public String getCarMake() {
+		return carMake;
 	}
 
 	public Float getCo2emissions() {
@@ -61,6 +67,10 @@ public class Vehicle extends BaseEntity {
 
 	public Float getPrice() {
 		return price;
+	}
+
+	public void setCarMake(String carMake) {
+		this.carMake = carMake;
 	}
 
 	public void setCo2emissions(Float co2emissions) {

@@ -52,5 +52,10 @@ public class VehicleController extends AbstractDataController<Vehicle> {
 	public ArrayList<String> getColours() {
 		return getOptionsForField("colour");
 	}
+
+	@ModelAttribute("carMakes")
+	public ArrayList<String> getCarMakes() {
+		return getOptionsForField("carMake");
+	}
 }
 
