@@ -6,7 +6,7 @@
 <jsp:directive.include file="searchFormFragment.jsp"/>
 
 
-<div dojoType="dijit.TitlePane" style="width: 100%" title="Options">
+<div dojoType="dijit.TitlePane" style="width: 100%" title="Options" open="false">
 
 	<div style="float:left; width: 30%">
 		<h3>Add more vehicles:</h3>
@@ -43,10 +43,10 @@
 	    	<c:set var="borderwidth" value="solid #1E1 2px;"></c:set>
     	</c:if>
     	
-	    <div style="background-color:#F8F8F8; float:left; border: ${borderwidth}; border-radius: 10px; width:340px; margin: 5px; padding: 9px; min-height: 300px; box-shadow: 4px 4px 8px 0px #AAA;">
+	    <div class="item-outer" style="border: ${borderwidth}; min-height: 300px;">
 	    	<span style="font-weight: bold; font-size: larger">${f:toString(result.item.colour)} ${result.item}</span>
 	    	<span style="font-size: larger; padding-left: 10px"> £${f:toString(result.item.price)}</span>
-	    	<span style="float:right; width: 55px; height:22px; padding-top: 5px; border-radius: 5px; text-align:center; font-weight: bold; background-color: ${f:toCssRGBColor(result.score)}">
+	    	<span class="overall-score" style="background-color: ${f:toCssRGBColor(result.score)}">
 	    	${f:toPercent(result.score)}%</span>
 
 	    	<br/><b>${result.item.postcode}</b>
@@ -68,7 +68,7 @@
 				    	</c:when>
 				    	<c:otherwise>
 			    	<div style="padding-left: 10px; padding-top: 1px;">
-			    		<span style="float:right; width: 50px; border-radius: 5px; text-align:center; background-color: ${f:floatToCssRGBColorSat(fwd,0.26)}">${f:round(fwd * 100.1)}%</span>
+			    		<span class="score" style="background-color: ${f:floatToCssRGBColorSat(fwd,0.26)}">${f:round(fwd * 100.1)}%</span>
 			    		${match}: 
 			    	</div>
 				    	</c:otherwise>
@@ -76,11 +76,11 @@
 			    </c:forEach> 
 		    </div>
 	    	<div style="padding: 2px 2px 0px 2px; float:left;">
-		    	<div  style="font-size: 80%; padding-left: 10px">Combined (mpg): <b>${f:toString(result.item.mpgCombined)}</b></div>
-		    	<div  style="font-size: 80%; padding-left: 10px">Emissions (gCO2/km): <b>${f:toString(result.item.co2emissions)}</b></div>
-		    	<div  style="font-size: 80%; padding-left: 10px">Power (bhp): <b>${f:toString(result.item.horsePower)}</b></div>
-<%-- 		    	<div  style="font-size: 80%; padding-left: 10px">Location: <b>${f:toString(result.item.postcode)}</b></div> --%>
-<%-- 		    	<div  style="font-size: 80%; padding-left: 10px">Colour: <b>${f:toString(result.item.colour)}</b></div> --%>
+		    	<div class="attribute">Combined (mpg): <b>${f:toString(result.item.mpgCombined)}</b></div>
+		    	<div class="attribute">Emissions (gCO2/km): <b>${f:toString(result.item.co2emissions)}</b></div>
+		    	<div class="attribute">Power (bhp): <b>${f:toString(result.item.horsePower)}</b></div>
+<%-- 		    	<div class="attribute">Location: <b>${f:toString(result.item.postcode)}</b></div> --%>
+<%-- 		    	<div class="attribute">Colour: <b>${f:toString(result.item.colour)}</b></div> --%>
 	    	</div>
 	    	<span style="display: block;float: right; padding-right: 10px; padding-top: 30px"> 
 	    		<a href="?ref=${result.item.ref}&amp;style=${style}">matches</a>

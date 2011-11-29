@@ -5,7 +5,7 @@
 
 <jsp:directive.include file="searchFormFragment.jsp"/>
 
-<div dojoType="dijit.TitlePane" style="width: 100%" title="Options">
+<div dojoType="dijit.TitlePane" style="width: 100%" title="Options" open="false">
 
 	<div style="float:left; width: 30%">
 		<h3>Add more people:</h3>
@@ -41,10 +41,10 @@
 	    	<c:set var="borderwidth" value="solid #1E1 2px;"></c:set>
     	</c:if>
     	
-	    <div style="background-color:#F8F8F8; float:left; border: ${borderwidth}; border-radius: 10px; width:340px; margin: 5px; padding: 9px; min-height: 300px; box-shadow: 4px 4px 8px 0px #AAA;">
+	    <div class="item-outer" style="border: ${borderwidth}; min-height: 300px;">
 	    	<span style="font-weight: bold; font-size: larger">${result.item}</span>
 	    	<span style="font-size: larger; padding-left: 10px"> ${f:toString(result.item.age)}</span>
-	    	<span style="float:right; width: 55px; height:22px; padding-top: 5px; border-radius: 5px; text-align:center; font-weight: bold; background-color: ${f:toCssRGBColor(result.score)}">
+	    	<span class="overall-score" style="background-color: ${f:toCssRGBColor(result.score)}">
 	    	${f:toPercent(result.score)}%</span>
 
 	    	<br/><b>${result.item.postcode}</b>
@@ -54,7 +54,7 @@
 	    	<div  style="font-size: 100%; padding-left: 10px"><br/><b>${f:toString(result.item.newspapers)}</b></div>
 
 				<!-- Forward scores -->
-	    	<div style="padding: 11px 2px"><b>Scores:</b>
+	    	<div style="padding: 11px 2px"><b>What matches?</b>
 			    <c:forEach items="${result.score.scorerAttrNames}" var="match">
 			    	<c:set var="fwd" value="${f:forwardsScore(result,match)}"/>
 			    	<c:choose>
@@ -66,7 +66,7 @@
 				    	</c:when>
 				    	<c:otherwise>
 			    	<div style="padding-left: 10px; padding-top: 1px;">
-			    		<span style="float:right; width: 50px; border-radius: 5px; text-align:center; background-color: ${f:floatToCssRGBColor(fwd)}">${f:round(fwd * 100.1)}%</span>
+			    		<span class="score" style="background-color: ${f:floatToCssRGBColorSat(fwd,0.26)}">${f:round(fwd * 100.1)}%</span>
 			    		${match}: 
 			    	</div>
 				    	</c:otherwise>
@@ -74,11 +74,11 @@
 			    </c:forEach> 
 		    </div>
 	    	<div style="padding: 2px 2px 0px 2px; float:left;">
-<!--		    	<div  style="font-size: 80%; padding-left: 10px">Ages wanted: <b>${f:toString(result.item.ageRange)}</b></div>
--->		    	<div  style="font-size: 80%; padding-left: 10px">Male: <b>${result.item.isMale}</b></div>
-		    	<div  style="font-size: 80%; padding-left: 10px">Salary: <b>${result.item.salary}</b></div>
-		    	<div  style="font-size: 80%; padding-left: 10px">Smoke: <b>${f:toString(result.item.smoke)}</b></div>
- 		    	<div  style="font-size: 80%; padding-left: 10px">Work Postcode: <b>${result.item.workPostcode}</b></div>
+<!--		    	<div class="attribute">Ages wanted: <b>${f:toString(result.item.ageRange)}</b></div>
+-->		    	<div class="attribute">Male: <b>${result.item.isMale}</b></div>
+		    	<div class="attribute">Salary: <b>${result.item.salary}</b></div>
+		    	<div class="attribute">Smoke: <b>${f:toString(result.item.smoke)}</b></div>
+ 		    	<div class="attribute">Work Postcode: <b>${result.item.workPostcode}</b></div>
 	    	</div>
 	    	<span style="display: block;float: right; padding-right: 10px; padding-top: 30px"> 
 	    		<a href="?ref=${result.item.ref}&amp;style=${style}">matches</a>
@@ -86,6 +86,6 @@
 			<div style="clear:left; float:none" ></div>
 	    </div>
     </c:forEach> 
-	<div style="clear:left; float:none" />
+	<div style="clear:left; float:none"></div>
 </div>
 <jsp:directive.include file="/WEB-INF/includes/footer.jsp"/>

@@ -13,6 +13,7 @@
    	@import url("<c:url value="/resources/dijit/themes/soria/soria.css"/>"); 
 /*    	@import url("<c:url value="/resources/dijit/themes/tundra/tundra.css"/>");  */
 <%--     @import url("<c:url value="/resources/styles/ours.css"/>"); --%>
+   	@import url("<c:url value="/static/css/site.css"/>"); 
   </style>     
   
   <script djconfig="parseOnLoad: true" src="<c:url value="/resources/dojo/dojo.js"/>" type="text/javascript"></script>

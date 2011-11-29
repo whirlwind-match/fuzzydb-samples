@@ -6,7 +6,7 @@
 <jsp:directive.include file="searchFormFragment.jsp"/>
 
 
-<div dojoType="dijit.TitlePane" style="width: 100%" title="Options">
+<div dojoType="dijit.TitlePane" style="width: 100%" title="Options" open="false">
 
 	<div style="float:left; width: 30%">
 		<h3>Add more places:</h3>
@@ -41,10 +41,10 @@
 	    	<c:set var="borderwidth" value="solid #1E1 2px;"></c:set>
     	</c:if>
     	
-	    <div style="background-color:#F8F8F8; float:left; border: ${borderwidth}; border-radius: 10px; width:340px; margin: 5px; padding: 9px; min-height: 300px; box-shadow: 4px 4px 8px 0px #AAA;">
+	    <div class="item-outer" style="border: ${borderwidth}; min-height: 300px;">
 	    	<span style="font-weight: bold; font-size: larger">${result.item}</span>
 	    	<span style="font-size: larger; padding-left: 10px"> ${result.item.establishmentType}</span>
-	    	<span style="float:right; width: 55px; height:22px; padding-top: 5px; border-radius: 5px; text-align:center; font-weight: bold; background-color: ${f:toCssRGBColor(result.score)}">
+	    	<span class="overall-score" style="background-color: ${f:toCssRGBColor(result.score)}">
 	    	${f:toPercent(result.score)}%</span>
 
 	    	<br/><b>${result.item.postcode}</b>
@@ -75,9 +75,8 @@
 		    </div>
 	    	<div style="padding: 2px 2px 0px 2px; float:left;">
 
-		    	<div  style="font-size: 80%; padding-left: 10px">Type: <b>${f:toString(result.item.establishmentType)}</b></div>
-		    	<div  style="font-size: 80%; padding-left: 10px">Meal Types: <b>${f:toString(result.item.mealTypes)}</b></div>
-		    	<div  style="font-size: 80%; padding-left: 10px">Sourcing: <b>${f:toString(result.item.foodSourcingPolicy)}</b></div>
+		    	<div class="attribute">Sourcing: <b>${f:toString(result.item.foodSourcingPolicy)}</b></div>
+		    	<div class="attribute">Type: <b>${f:toString(result.item.establishmentType)}</b></div>
 
 	    	</div>
 	    	<span style="display: block;float: right; padding-right: 10px; padding-top: 30px"> 

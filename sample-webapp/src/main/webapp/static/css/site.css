@@ -1,0 +1,28 @@
+
+div.attribute {
+	font-size: 80%; padding-left: 10px;
+}
+
+div.item-outer {
+	float:left; 
+	background-color:#F8F8F8; 
+	border-radius: 10px; 
+	width:340px; 
+	margin: 5px; padding: 9px; 
+	box-shadow: 4px 4px 8px 0px #AAA;
+}
+
+span.overall-score {
+	float:right; 
+	width: 55px; height:22px; padding-top: 5px; 
+	border-radius: 5px; 
+	text-align:center; 
+	font-weight: bold; 
+}
+
+span.score {
+	float:right; 
+	width: 50px; 
+	border-radius: 5px; 
+	text-align:center; 
+}
