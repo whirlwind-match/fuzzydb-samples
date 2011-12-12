@@ -34,10 +34,21 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	
+	<servlet>
+		<servlet-name>atomServlet</servlet-name>
+		<servlet-class>com.wwm.atom.impl.FuzzAbderaServlet</servlet-class>
+
+		<load-on-startup>1</load-on-startup>
+	</servlet>
 		
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
+	<servlet-mapping>
+		<servlet-name>atomServlet</servlet-name>
+		<url-pattern>/fuzz/*</url-pattern>
+	</servlet-mapping>
 </web-app>
