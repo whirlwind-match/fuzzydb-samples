@@ -10,7 +10,7 @@
 	<packaging>war</packaging>
 	<properties>
 		<java-version>1.6</java-version>
-		<org.springframework-version>3.0.5.RELEASE</org.springframework-version>
+		<org.springframework-version>3.1.0.RC2</org.springframework-version>
 		<org.springframework.security-version>3.1.0.RELEASE</org.springframework.security-version>
 		<org.springframework.roo-version>1.0.2.RELEASE</org.springframework.roo-version>
         <org.springframework.webflow-version>2.2.1.RELEASE</org.springframework.webflow-version>
@@ -105,7 +105,6 @@
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>${org.aspectj-version}</version>
-			<scope>provided</scope>
 		</dependency>	
 		
 		<!-- Logging -->
