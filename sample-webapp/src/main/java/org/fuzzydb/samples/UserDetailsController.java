@@ -9,7 +9,7 @@ import org.fuzzydb.samples.repositories.UserRepository;
 import org.fuzzydb.samples.security.WhirlwindUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
-import org.springframework.security.core.authority.GrantedAuthorityImpl;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -37,8 +37,8 @@ public class UserDetailsController {
 	@RequestMapping(value="/signup", method=RequestMethod.POST)
 	public String doSignup(@ModelAttribute("command") @Valid SignupForm form, Errors result) {
 	
-		Collection<GrantedAuthorityImpl> auths = new LinkedList<GrantedAuthorityImpl>();
-		auths.add(new GrantedAuthorityImpl("USER"));
+		Collection<SimpleGrantedAuthority> auths = new LinkedList<SimpleGrantedAuthority>();
+		auths.add(new SimpleGrantedAuthority("USER"));
 		WhirlwindUserDetails userDetails = new WhirlwindUserDetails(form.getEmail(), form.getPassword(), true, true, true, true, auths );
 		 
 		if (exists(form)) { 
