@@ -1,4 +1,4 @@
-package org.fuzzydb.samples;
+package org.fuzzydb.samples.mvc;
 
 import java.util.Collection;
 import java.util.LinkedList;

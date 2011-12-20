@@ -1,5 +1,6 @@
-package org.fuzzydb.samples;
+package org.fuzzydb.samples.mvc;
 
+import org.fuzzydb.samples.MyCounter;
 import org.fuzzydb.samples.repositories.StatsRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

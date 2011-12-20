@@ -1,6 +1,8 @@
-package org.fuzzydb.samples;
+package org.fuzzydb.samples.mvc;
 
 import java.util.ArrayList;
+
+import org.fuzzydb.samples.Cafe;
 import org.fuzzydb.samples.repositories.CafeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

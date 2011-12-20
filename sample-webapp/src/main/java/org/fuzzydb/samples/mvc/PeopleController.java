@@ -1,8 +1,10 @@
-package org.fuzzydb.samples;
+package org.fuzzydb.samples.mvc;
 
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import org.fuzzydb.samples.Person;
 import org.fuzzydb.samples.repositories.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

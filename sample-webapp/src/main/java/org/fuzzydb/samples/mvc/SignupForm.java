@@ -1,4 +1,4 @@
-package org.fuzzydb.samples;
+package org.fuzzydb.samples.mvc;
 
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;

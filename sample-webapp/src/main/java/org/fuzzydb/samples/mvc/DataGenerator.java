@@ -1,8 +1,11 @@
-package org.fuzzydb.samples;
+package org.fuzzydb.samples.mvc;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import org.fuzzydb.samples.Cafe;
+import org.fuzzydb.samples.Person;
+import org.fuzzydb.samples.Vehicle;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.factory.InitializingBean;

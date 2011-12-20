@@ -1,4 +1,4 @@
-package org.fuzzydb.samples;
+package org.fuzzydb.samples.mvc;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import org.fuzzydb.samples.Person;
 import org.fuzzydb.samples.repositories.PersonRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
