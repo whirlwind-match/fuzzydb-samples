@@ -11,8 +11,8 @@
 
 
 	<context:annotation-config/>
+    <context:component-scan base-package="org.fuzzydb.samples.config" />
 	
-	<import resource="security-context.xml"/>
 
     <tx:annotation-driven mode="aspectj" transaction-manager="transactionManager" />
     <fuzzy:tx-manager />
