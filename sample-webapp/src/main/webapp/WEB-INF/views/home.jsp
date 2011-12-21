@@ -4,12 +4,13 @@
 
 <div dojoType="dijit.TitlePane" style="width: 100%" title="Home">
 
-We've had ${count} page views.
+<%-- We've had ${count} page views. --%>
 
 	<ul>
 		<li><a href="autos/search">Autos</a></li>
 		<li><a href="people/search">People</a></li>
-		<li><a href="cafes/search">Food joints</a></li>
+		<li><a href="cafes/search" title="Food joints - will prompt for guest sign in">Food joints</a></li>
+
 		
 		<sec:authorize access="isAuthenticated()">
 		<li><a href="<spring:url value="/j_spring_security_logout" htmlEscape="true" />">Logout</a></li>

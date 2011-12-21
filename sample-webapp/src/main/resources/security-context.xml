@@ -6,16 +6,16 @@
 
     <http use-expressions="true">
         <!-- Authentication policy -->
-        <form-login login-page="/signin"
-            login-processing-url="/signin/authenticate"
-            authentication-failure-url="/signin?param.error=bad_credentials" />
-        <logout logout-url="/signout" delete-cookies="JSESSIONID" />
+        <form-login login-page="/login"
+            login-processing-url="/login/authenticate"
+            authentication-failure-url="/login?error=bad_credentials" />
+        <logout logout-url="/logout" delete-cookies="JSESSIONID" />
         <intercept-url pattern="/favicon.ico" access="permitAll" />
         <intercept-url pattern="/resources/**" access="permitAll" />
-        <intercept-url pattern="/signin/**" access="permitAll" />
+        <intercept-url pattern="/login/**" access="permitAll" />
         <intercept-url pattern="/signup/**" access="permitAll" />
         <intercept-url pattern="/autos/**" access="permitAll" />
-        <intercept-url pattern="/cafes/**" access="permitAll" />
+        <intercept-url pattern="/cafes/**" access="isAuthenticated()" />
         <intercept-url pattern="/people/**" access="permitAll" />
         <intercept-url pattern="/" access="permitAll" />
 <!--         <intercept-url pattern="/**" access="isAuthenticated()" /> TODO when signin/signup tidied up -->
