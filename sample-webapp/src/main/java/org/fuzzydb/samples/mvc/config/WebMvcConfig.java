@@ -34,6 +34,10 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import org.springframework.web.servlet.view.UrlBasedViewResolver;
+import org.springframework.web.servlet.view.tiles2.TilesConfigurer;
+import org.springframework.web.servlet.view.tiles2.TilesView;
+
 import com.wwm.attrs.converters.RefToStringConverter;
 import com.wwm.attrs.converters.StringToRefConverter;
 
@@ -91,4 +95,23 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     	viewResolver.setSuffix(".jsp");
     	return viewResolver;
     }
+    
+	@Bean
+	public TilesConfigurer tilesConfigurer() {
+		TilesConfigurer configurer = new TilesConfigurer();
+		configurer.setDefinitions(new String[] {
+				"/WEB-INF/layouts/tiles.xml",
+				"/WEB-INF/tiles/twitter/tiles.xml"                           
+		});
+		configurer.setCheckRefresh(true);
+		return configurer;
+	}
+		
+	@Bean
+	public ViewResolver tilesViewResolver() {
+		UrlBasedViewResolver viewResolver = new UrlBasedViewResolver();
+		viewResolver.setViewClass(TilesView.class);
+		viewResolver.setOrder(4);
+		return viewResolver;
+	}
 }
