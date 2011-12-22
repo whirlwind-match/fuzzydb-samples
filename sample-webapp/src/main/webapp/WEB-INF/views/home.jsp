@@ -13,7 +13,7 @@
 
 		
 		<sec:authorize access="isAuthenticated()">
-		<li><a href="<spring:url value="/j_spring_security_logout" htmlEscape="true" />">Logout</a></li>
+		<li><a href="<spring:url value="/logout" htmlEscape="true" />">Logout</a></li>
 		</sec:authorize>
 		<sec:authorize access="!isAuthenticated()">
 		<li><a href="<spring:url value="/signup" htmlEscape="true" />">Sign up</a></li>
