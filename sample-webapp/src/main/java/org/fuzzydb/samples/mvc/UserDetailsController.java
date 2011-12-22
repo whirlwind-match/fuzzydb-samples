@@ -1,22 +1,23 @@
 package org.fuzzydb.samples.mvc;
 
-import java.util.Collection;
-import java.util.LinkedList;
 
 import javax.validation.Valid;
-
+import org.fuzzydb.samples.mvc.message.Message;
+import org.fuzzydb.samples.mvc.message.MessageType;
 import org.fuzzydb.samples.repositories.UserRepository;
+import org.fuzzydb.samples.security.SignInUtils;
 import org.fuzzydb.samples.security.WhirlwindUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.social.connect.Connection;
+import org.springframework.social.connect.web.ProviderSignInUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.context.request.WebRequest;
 
 
 @Controller
@@ -28,18 +29,26 @@ public class UserDetailsController {
 
 
 	
-	@RequestMapping(value="/signup", method=RequestMethod.GET) 
-	public String signupForm(Model model) {
-		model.addAttribute("command", new SignupForm()); 	
-		return "signup";
+	@RequestMapping(value="/signup", method=RequestMethod.GET)
+	public SignupForm signupForm(WebRequest request) {
+		Connection<?> connection = ProviderSignInUtils.getConnection(request);
+		if (connection != null) {
+			request.setAttribute("message", new Message(MessageType.INFO, "Your " + StringUtils.capitalize(connection.getKey().getProviderId()) + " account is not associated with a Spring Social Showcase account. If you're new, please sign up."), WebRequest.SCOPE_REQUEST);
+			return SignupForm.fromProviderUser(connection.fetchUserProfile());
+		} else {
+			return new SignupForm();
+		}
 	}
 
+
 	@RequestMapping(value="/signup", method=RequestMethod.POST)
-	public String doSignup(@ModelAttribute("command") @Valid SignupForm form, Errors result) {
+	public String doSignup(@Valid SignupForm form, Errors result, WebRequest request) {
 	
-		Collection<SimpleGrantedAuthority> auths = new LinkedList<SimpleGrantedAuthority>();
-		auths.add(new SimpleGrantedAuthority("USER"));
-		WhirlwindUserDetails userDetails = new WhirlwindUserDetails(form.getEmail(), form.getPassword(), true, true, true, true, auths );
+		if (result.hasErrors()) {
+			return "signup";
+		}
+
+		WhirlwindUserDetails userDetails = WhirlwindUserDetails.createEnabledUser(form.getEmail(), form.getPassword());
 		 
 		if (exists(form)) { 
 			result.rejectValue("email", "accounts.emailAlreadyRegistered");
@@ -50,6 +59,8 @@ public class UserDetailsController {
 		}
 	
 		try {
+			SignInUtils.signin(userDetails.getUsername());
+			ProviderSignInUtils.handlePostSignUp(userDetails.getUsername(), request);
 			saveUser(userDetails);
 			return "redirect:/";
 		} catch (DuplicateKeyException e) {
