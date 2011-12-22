@@ -62,7 +62,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		// for spring-js dojo
-		registry.addResourceHandler("/resources/**").addResourceLocations("classpath:/META-INF/web-resources/");
+		registry.addResourceHandler("/resources/**").addResourceLocations("classpath:/META-INF/web-resources/", "/static/");
 		registry.addResourceHandler("/static/**").addResourceLocations("/static/");
 	}
 

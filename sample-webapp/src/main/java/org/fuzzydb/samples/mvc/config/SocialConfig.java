@@ -13,12 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.fuzzydb.samples.config;
+package org.fuzzydb.samples.mvc.config;
 
 import javax.inject.Inject;
 import javax.sql.DataSource;
 
 import org.fuzzydb.samples.security.SimpleSignInAdapter;
+import org.fuzzydb.samples.social.PostToWallAfterConnectInterceptor;
+import org.fuzzydb.samples.social.TweetAfterConnectInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -101,8 +103,8 @@ public class SocialConfig {
 	@Bean
 	public ConnectController connectController() {
 		ConnectController connectController = new ConnectController(connectionFactoryLocator(), connectionRepository());
-//		connectController.addInterceptor(new PostToWallAfterConnectInterceptor());
-//		connectController.addInterceptor(new TweetAfterConnectInterceptor());
+		connectController.addInterceptor(new PostToWallAfterConnectInterceptor());
+		connectController.addInterceptor(new TweetAfterConnectInterceptor());
 		return connectController;
 	}
 
@@ -110,5 +112,4 @@ public class SocialConfig {
 	public ProviderSignInController providerSignInController(RequestCache requestCache) {
 		return new ProviderSignInController(connectionFactoryLocator(), usersConnectionRepository(), new SimpleSignInAdapter(requestCache));
 	}
-
 }

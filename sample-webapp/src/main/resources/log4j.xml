@@ -16,12 +16,12 @@
 	</logger>
 
 	<logger name="com.wwm">
-		<level value="debug" />
+		<level value="info" />
 	</logger>
 
-    <logger name="com.wwm.db.internal.StoreImpl">
-        <level value="trace" />
-    </logger>
+<!--     <logger name="com.wwm.db.internal.StoreImpl"> -->
+<!--         <level value="trace" /> -->
+<!--     </logger> -->
 	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
@@ -39,10 +39,15 @@
 	<logger name="org.springframework.web">
 		<level value="debug" />
 	</logger>
+    <!-- This one's a bit noisy -->
+    <logger name="org.springframework.web.context.support.StandardServletEnvironment">
+        <level value="info" />
+    </logger>
 
     <logger name="org.springframework.security">
         <level value="info" />
     </logger>
+
 
 	<!-- Root Logger -->
 	<root>
