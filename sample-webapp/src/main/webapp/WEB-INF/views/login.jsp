@@ -55,6 +55,17 @@
 		<li>guest@fuzzydb.org / honoured</li>
 	</ul>
 	
+
+	<!-- TWITTER SIGNIN -->
+	<form id="tw_signin" action="<c:url value="/signin/twitter"/>" method="POST">
+		<button type="submit"><img src="<c:url value="/resources/social/twitter/sign-in-with-twitter-d.png"/>" /></button>
+	</form>
+
+	<!-- FACEBOOK SIGNIN -->
+	<form name="fb_signin" id="fb_signin" action="<c:url value="/signin/facebook"/>" method="POST">
+        <input type="hidden" name="scope" value="publish_stream,user_photos,offline_access" />
+		<button type="submit"><img src="<c:url value="/resources/social/facebook/sign-in-with-facebook.png"/>" /></button>
+	</form>
 </div>
 
 <jsp:directive.include file="/WEB-INF/includes/footer.jsp"/>
