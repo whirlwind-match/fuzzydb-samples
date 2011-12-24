@@ -33,7 +33,7 @@ public class UserDetailsController {
 	public SignupForm signupForm(WebRequest request) {
 		Connection<?> connection = ProviderSignInUtils.getConnection(request);
 		if (connection != null) {
-			request.setAttribute("message", new Message(MessageType.INFO, "Your " + StringUtils.capitalize(connection.getKey().getProviderId()) + " account is not associated with a Spring Social Showcase account. If you're new, please sign up."), WebRequest.SCOPE_REQUEST);
+			request.setAttribute("message", new Message(MessageType.INFO, "Your " + StringUtils.capitalize(connection.getKey().getProviderId()) + " identity is not associated with an account. If you're new, please sign up."), WebRequest.SCOPE_REQUEST);
 			return SignupForm.fromProviderUser(connection.fetchUserProfile());
 		} else {
 			return new SignupForm();
