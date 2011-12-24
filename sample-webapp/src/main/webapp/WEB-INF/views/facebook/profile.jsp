@@ -19,7 +19,18 @@
 	<dd><c:out value="${profile.relationshipStatus}"/></dd>
 </dl>
 
-<img src="http://graph.facebook.com/<c:out value="${profile.id}"/>/picture" align="middle"/>
+<div>
+	<img src="http://graph.facebook.com/<c:out value="${profile.id}"/>/picture" align="middle"/>
+</div>
+	<h3>Checkins:</h3>
+<div>
+	<c:forEach var="checkin" items="${places.checkins}">
+	<h4>${checkin.place.name} on ${checkin.createdTime}</h4>
+		${checkin.place.location.latitude},${checkin.place.location.longitude}
+	</c:forEach>
+</div>
+
+
 
 <c:url value="/connect/facebook" var="disconnectUrl"/>
 <form id="disconnect" action="${disconnectUrl}" method="post">

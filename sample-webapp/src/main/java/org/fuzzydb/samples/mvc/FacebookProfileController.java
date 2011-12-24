@@ -38,6 +38,7 @@ public class FacebookProfileController {
 			return "redirect:/connect/facebook";
 		}
 		model.addAttribute("profile", connection.getApi().userOperations().getUserProfile());
+		model.addAttribute("places", connection.getApi().placesOperations());
 		return "facebook/profile";
 	}
 

@@ -26,6 +26,11 @@
 		</sec:authorize>
 		
 	</ul>
+
+	<c:if test="${connectedToFacebook}">
+		<h4><a href="<c:url value="/facebook"/>">Facebook</a></h4>
+		<li><a href="<c:url value="/facebook"/>">User Profile</a></li>
+	</c:if>
 </div>
 
 <jsp:directive.include file="/WEB-INF/includes/footer.jsp"/>
