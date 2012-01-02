@@ -1,0 +1,9 @@
+#menu {
+	float: left;
+	width: 150px;
+	background-color: #eeeeee;
+}
+
+#main {
+	margin-left: 170px;
+}

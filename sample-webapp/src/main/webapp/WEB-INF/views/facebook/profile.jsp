@@ -1,6 +1,4 @@
 <jsp:directive.include file="/WEB-INF/includes/includes.jsp"/>
-<c:set var="title" scope="page" value="Login" />
-<jsp:directive.include file="/WEB-INF/includes/header.jsp"/>
 
 <h3>Your Facebook Profile</h3>
 <p>Hello, <c:out value="${profile.firstName}"/>!</p>
@@ -37,5 +35,3 @@
 	<button type="submit">Disconnect from Facebook</button>	
 	<input type="hidden" name="_method" value="delete" />
 </form>
-
-<jsp:directive.include file="/WEB-INF/includes/footer.jsp"/>
