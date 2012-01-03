@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -113,6 +114,15 @@ public abstract class AbstractDataController<ENTITY> {
 		return getViewPathPrefix() + "/results";
 	}
 	
+
+	@Transactional(readOnly=true)
+	@RequestMapping(value="/json/dump", method=RequestMethod.GET)
+	@ResponseBody
+	public Object jsonDump(OutputStream response) throws IOException {
+		Iterable<ENTITY> items = getRepo().findAll();
+		
+		return items;
+	}
 	
 	@Transactional(readOnly=true)
 	@RequestMapping(value="/dump", method=RequestMethod.GET)
