@@ -94,7 +94,7 @@ public abstract class AbstractDataController<ENTITY> {
 	 */
 	@Transactional(readOnly=true)
 	@RequestMapping(value="/search", method=RequestMethod.GET)
-	public String findMatches(
+	public void search(
 			Model model, 
 			@RequestParam(required=false) String style,
 			@RequestParam(required=false) String ref,
@@ -111,7 +111,7 @@ public abstract class AbstractDataController<ENTITY> {
 		Pageable pageable = new PageRequest(start/pageSize, pageSize);
 		doSearch(getRepo(), model, style, ref, pageable, idealMatch);
 		model.addAttribute("command", getSearchForm()); 
-		return getViewPathPrefix() + "/results";
+//		return getViewPathPrefix() + "/results";
 	}
 	
 

@@ -7,14 +7,9 @@
 		<p>Various examples</p>
 
 		<ul>
-
-			<li>Examples
-				<ul>
-					<li><a data-ajax="false" href="../autos/search">Autos</a></li>
-					<li><a data-ajax="false" href="../people/search">People</a></li>
-					<li><a data-ajax="false" href="../cafes/search" title="Food joints - will prompt for guest sign in">Food joints</a></li>
-				</ul>
-			</li>
+			<li><a data-ajax="false" href="autos/search">Autos</a></li>
+<!-- 			<li><a data-ajax="false" href="people/search">People</a></li> -->
+<!-- 			<li><a data-ajax="false" href="cafes/search" title="Food joints - will prompt for guest sign in">Food joints</a></li> -->
 		</ul>
 	</li>
 	<li>

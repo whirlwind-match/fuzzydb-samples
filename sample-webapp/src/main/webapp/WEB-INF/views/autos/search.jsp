@@ -5,7 +5,6 @@
 
 <jsp:directive.include file="searchFormFragment.jsp"/>
 
-
 <div dojoType="dijit.TitlePane" style="width: 100%" title="Options" open="false">
 
 	<div style="float:left; width: 30%">
@@ -55,26 +54,9 @@
 	    	</c:if>
 	    	<div  style="font-size: 100%; padding-left: 10px"><br/><b>${f:toString(result.item.options)}</b></div>
 
-				<!-- Forward scores -->
-	    	<div style="padding: 11px 2px"><b>What matches?</b>
-			    <c:forEach items="${result.score.scorerAttrNames}" var="match">
-			    	<c:set var="fwd" value="${f:forwardsScore(result,match)}"/>
-			    	<c:choose>
-				    	<c:when test="${match eq 'Distance'}">
-<!-- 			    	<div style="padding-left: 10px"> -->
-<%-- 	    				<span style="float:right; width: 50px; text-align:center">${f:round(fwd)}</span> --%>
-<%--     					${match} (miles):  --%>
-<!--     				</div> -->
-				    	</c:when>
-				    	<c:otherwise>
-			    	<div style="padding-left: 10px; padding-top: 1px;">
-			    		<span class="score" style="background-color: ${f:floatToCssRGBColorSat(fwd,0.26)}">${f:round(fwd * 100.1)}%</span>
-			    		${match}: 
-			    	</div>
-				    	</c:otherwise>
-			    	</c:choose>
-			    </c:forEach> 
-		    </div>
+			<!-- Forward scores -->
+			<sample:what-matches result="${result}"/>
+
 	    	<div style="padding: 2px 2px 0px 2px; float:left;">
 		    	<div class="attribute">Combined (mpg): <b>${f:toString(result.item.mpgCombined)}</b></div>
 		    	<div class="attribute">Emissions (gCO2/km): <b>${f:toString(result.item.co2emissions)}</b></div>

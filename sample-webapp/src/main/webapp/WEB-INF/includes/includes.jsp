@@ -5,3 +5,4 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="f" uri="/functions" %>
+<%@ taglib prefix="sample" tagdir="/WEB-INF/tags" %>

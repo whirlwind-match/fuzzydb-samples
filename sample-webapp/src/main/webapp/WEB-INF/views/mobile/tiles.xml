@@ -6,5 +6,9 @@
 	<definition name="mobile/home" extends="mobile">
 		<put-attribute name="content" value="/WEB-INF/views/mobile/home.jsp" />
 	</definition>
+	
+	<definition name="mobile/autos/search" extends="mobile">
+		<put-attribute name="content" value="/WEB-INF/views/mobile/autos/search.jsp" />
+	</definition>
 
 </tiles-definitions>
