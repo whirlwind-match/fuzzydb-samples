@@ -73,6 +73,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/login");
+		registry.addViewController("/mobile/home");
 	}
 	
 	@Bean

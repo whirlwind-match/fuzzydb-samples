@@ -12,6 +12,7 @@
 		</sec:authorize>
  -->
 
+		<li><a href="mobile/home">Mobile</a></li>
 	<ul>
 		<li><a href="autos/search">Autos</a></li>
 		<li><a href="people/search">People</a></li>
