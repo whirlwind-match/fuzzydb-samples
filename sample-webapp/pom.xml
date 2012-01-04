@@ -20,6 +20,7 @@
 		<org.aspectj-version>1.6.9</org.aspectj-version>
 		<org.slf4j-version>1.6.4</org.slf4j-version>
 		<fuzzydb.version>1.0.0.M4-SNAPSHOT</fuzzydb.version>
+		<org.springframework.mobile-version>1.0.0.M3</org.springframework.mobile-version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -98,6 +99,12 @@
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.9.2</version>
 		</dependency>
+
+        <dependency>
+            <groupId>org.springframework.mobile</groupId>
+            <artifactId>spring-mobile-device</artifactId>
+            <version>${org.springframework.mobile-version}</version>
+        </dependency>
 
 		<dependency>
 			<groupId>org.springframework.security</groupId>
