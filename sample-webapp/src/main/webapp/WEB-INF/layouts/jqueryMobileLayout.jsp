@@ -12,6 +12,7 @@
 <!-- 	<link rel="stylesheet"  href="//code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />   -->
 <!-- 	<script src="//code.jquery.com/jquery-1.6.4.js"></script> -->
 <!-- 	<script src="//code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script> -->
+	<link rel="stylesheet" href="<c:url value="/static/css/themes/fuzzydb.min.css"/>">
 	<link rel="stylesheet"  href="<c:url value="/static/jqm/jquery.mobile-1.0.min.css"/>" />  
 	<link rel="stylesheet" href="<c:url value="/static/css/site.css"/>" />
 	<script src="<c:url value="/static/jqm/jquery-1.6.4.js"/>"></script>
