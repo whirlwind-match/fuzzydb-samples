@@ -4,11 +4,21 @@
 <tiles-definitions>
 
 	<definition name="mobile/home" extends="mobile">
-		<put-attribute name="content" value="/WEB-INF/views/mobile/home.jsp" />
+		<put-attribute name="content" value="mobile.home.content" />
+	</definition>
+
+	<definition name="mobile/autos/search" extends="mobile">
+		<put-attribute name="content" value="autos.search" />
+	</definition>
+
+	<definition name="mobile.home.content" templateExpression="/WEB-INF/views/mobile/home.jsp">
+	</definition>
+
+	<definition name="autos.search" templateExpression="/WEB-INF/views/mobile/search.jsp">	
+		<put-attribute name="resultSummary" value="/WEB-INF/views/mobile/autos/resultSummary.jsp" />
+		<put-attribute name="resultDetail" value="/WEB-INF/views/mobile/autos/resultDetail.jsp" />
+		<put-attribute name="searchForm" value="/WEB-INF/views/mobile/autos/searchFormFragment.jsp" />
 	</definition>
 	
-	<definition name="mobile/autos/search" extends="mobile">
-		<put-attribute name="content" value="/WEB-INF/views/mobile/autos/search.jsp" />
-	</definition>
 
 </tiles-definitions>
