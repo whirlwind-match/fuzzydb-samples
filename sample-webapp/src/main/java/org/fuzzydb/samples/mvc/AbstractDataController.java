@@ -68,7 +68,7 @@ public abstract class AbstractDataController<ENTITY> {
 
 	@Transactional(readOnly=true)
 	@RequestMapping(value="/search", method=RequestMethod.POST) 
-	public String search(
+	public void search(
 			@RequestParam(required=false) String style,
 			@RequestParam(defaultValue="0") int start,
 			@RequestParam(defaultValue="10") int pageSize,
@@ -80,10 +80,9 @@ public abstract class AbstractDataController<ENTITY> {
 		
 		Pageable pageable = new PageRequest(start, pageSize);
 		doSearch(getRepo(), model, style, null, pageable, form);
-		
-		return getViewPathPrefix() + "/results";
 	}
 
+	
 	/**
 	 * 
 	 * @param style The name of the matching configuration or 'style'
@@ -111,7 +110,6 @@ public abstract class AbstractDataController<ENTITY> {
 		Pageable pageable = new PageRequest(start/pageSize, pageSize);
 		doSearch(getRepo(), model, style, ref, pageable, idealMatch);
 		model.addAttribute("command", getSearchForm()); 
-//		return getViewPathPrefix() + "/results";
 	}
 	
 

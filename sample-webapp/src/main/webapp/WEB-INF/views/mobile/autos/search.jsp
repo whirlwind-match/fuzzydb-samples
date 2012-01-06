@@ -4,10 +4,20 @@
 <ul data-role="listview">
 	
 	<li>
+		<h3>Fuzzy Search</h3>
+		<ul>
+			<li>
+<jsp:directive.include file="searchFormFragment.jsp"/>
+			</li>
+		</ul>
+	</li>
+
+	<li>
 		<h3>Results</h3>
 		<p>Click on 'matches' link to find matches for that vehicle</p>
-
 	</li>
+
+	
 	<c:if test="${startNextPage > 0}">
 	<li>
    		<a accesskey="n" href="?ref=${result.item.ref}&amp;style=${style}&amp;start=${startNextPage}&amp;pageSize=${pageSize}">next page</a>
@@ -28,9 +38,9 @@
 
 	    	<br/><b>${result.item.postcode}</b>
 	    	<c:if test="${!empty f:toString(f:forwardsScore(result,'Distance'))}">
-	    	 ${f:toString(f:forwardsScore(result,'Distance'))} miles
+	    		<span>&nbsp; ${f:toString(f:forwardsScore(result,'Distance'))} miles</span>
 	    	</c:if>
-	    	
+
 	    	<ul>
 	    		<li>
 			    	<div  style="font-size: 100%; padding-left: 10px"><br/><b>${f:toString(result.item.options)}</b></div>
@@ -42,10 +52,11 @@
 				    	<div class="attribute">Combined (mpg): <b>${f:toString(result.item.mpgCombined)}</b></div>
 				    	<div class="attribute">Emissions (gCO2/km): <b>${f:toString(result.item.co2emissions)}</b></div>
 				    	<div class="attribute">Power (bhp): <b>${f:toString(result.item.horsePower)}</b></div>
+				    	<div class="attribute">Distance:  ${f:toString(f:forwardsScore(result,'Distance'))} miles</div>
 			    	</div>
-			    	<span style="display: block;float: right; padding-right: 10px; padding-top: 30px"> 
+			    	<div style="float: right; padding-right: 10px; padding-top: 30px"> 
 			    		<a  data-ajax="false" href="?ref=${result.item.ref}&amp;style=${style}">matches</a>
-			    	</span>
+			    	</div>
 					<div style="clear:left; float:none" ></div>
 	    		</li>
 	    	</ul>
