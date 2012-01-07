@@ -23,7 +23,7 @@ import com.wwm.db.spring.repository.SubjectMatchQuery;
  * Example controller for creating fuzzy items and querying them
  */
 @Controller
-@RequestMapping("/people")
+@RequestMapping({"/people", "/mobile/people"}) 
 public class PeopleController extends AbstractDataController<Person> {
 
 

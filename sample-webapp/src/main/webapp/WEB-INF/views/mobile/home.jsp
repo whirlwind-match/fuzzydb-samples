@@ -8,7 +8,7 @@
 
 		<ul>
 			<li><a data-ajax="false" href="<c:url value="/mobile/autos/search"/>">Autos</a></li>
-<%-- 			<li><a data-ajax="false" href="<c:url value="/mobile/people/search"/>">People</a></li> --%>
+			<li><a data-ajax="false" href="<c:url value="/mobile/people/search"/>">People</a></li>
 			<li><a data-ajax="false" href="<c:url value="/mobile/cafes/search"/>">Food joints</a></li>
 		</ul>
 	</li>
