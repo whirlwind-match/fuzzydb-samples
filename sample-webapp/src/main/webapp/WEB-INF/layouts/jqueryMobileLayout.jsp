@@ -24,7 +24,7 @@
 
 		<div data-role="header" data-theme="f">
 			<h1>fuzzydb Mobile Sample</h1>
-			<a href="#" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
+			<a href="<c:url value="/mobile/home"/>" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
 	
 		</div><!-- /header -->
 	
