@@ -128,7 +128,7 @@ public abstract class Utils {
 			return sb.toString();
 		}
 		else if (object instanceof Float) {
-			return String.format("%.1f", object);
+			return String.format("%.0f", object);
 		}
 
 		return object.toString();
