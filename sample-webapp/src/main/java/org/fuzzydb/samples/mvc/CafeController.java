@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/cafes") 
+@RequestMapping({"/cafes", "/mobile/cafes"}) 
 public class CafeController extends AbstractDataController<Cafe> {
 
 

@@ -11,6 +11,14 @@
 		<put-attribute name="content" value="autos.search" />
 	</definition>
 
+	<definition name="mobile/cafes/search" extends="mobile">
+		<put-attribute name="content" value="cafes.search" />
+	</definition>
+
+	<definition name="mobile/people/search" extends="mobile">
+		<put-attribute name="content" value="people.search" />
+	</definition>
+
 	<definition name="mobile.home.content" templateExpression="/WEB-INF/views/mobile/home.jsp">
 	</definition>
 
@@ -20,5 +28,16 @@
 		<put-attribute name="searchForm" value="/WEB-INF/views/mobile/autos/searchFormFragment.jsp" />
 	</definition>
 	
+	<definition name="cafes.search" templateExpression="/WEB-INF/views/mobile/search.jsp">	
+		<put-attribute name="resultSummary" value="/WEB-INF/views/mobile/cafes/resultSummary.jsp" />
+		<put-attribute name="resultDetail" value="/WEB-INF/views/mobile/cafes/resultDetail.jsp" />
+		<put-attribute name="searchForm" value="/WEB-INF/views/mobile/cafes/searchFormFragment.jsp" />
+	</definition>
+
+	<definition name="people.search" templateExpression="/WEB-INF/views/mobile/search.jsp">	
+		<put-attribute name="resultSummary" value="/WEB-INF/views/mobile/people/resultSummary.jsp" />
+		<put-attribute name="resultDetail" value="/WEB-INF/views/mobile/people/resultDetail.jsp" />
+		<put-attribute name="searchForm" value="/WEB-INF/views/mobile/people/searchFormFragment.jsp" />
+	</definition>
 
 </tiles-definitions>
