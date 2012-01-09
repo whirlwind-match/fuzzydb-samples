@@ -3,23 +3,23 @@
 
 <tiles-definitions>
 
-	<definition name="connect/status" extends="page">
+	<definition name="connect/status" extends="mobile">
 		<put-attribute name="content" value="/WEB-INF/views/connect/status.jsp" />
 	</definition>
 
-	<definition name="connect/facebookConnect" extends="page">
+	<definition name="connect/facebookConnect" extends="mobile">
 		<put-attribute name="content" value="/WEB-INF/views/connect/facebookConnect.jsp" />
 	</definition>
 
-	<definition name="connect/facebookConnected" extends="page">
+	<definition name="connect/facebookConnected" extends="mobile">
 		<put-attribute name="content" value="/WEB-INF/views/connect/facebookConnected.jsp" />
 	</definition>
 
-	<definition name="connect/twitterConnect" extends="page">
+	<definition name="connect/twitterConnect" extends="mobile">
 		<put-attribute name="content" value="/WEB-INF/views/connect/twitterConnect.jsp" />
 	</definition>
 
-	<definition name="connect/twitterConnected" extends="page">
+	<definition name="connect/twitterConnected" extends="mobile">
 		<put-attribute name="content" value="/WEB-INF/views/connect/twitterConnected.jsp" />
 	</definition>
 

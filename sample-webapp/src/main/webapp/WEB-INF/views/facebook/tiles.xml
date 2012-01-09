@@ -3,7 +3,7 @@
 
 <tiles-definitions>
 
-	<definition name="facebook/profile" extends="page">
+	<definition name="facebook/profile" extends="mobile">
 		<put-attribute name="content" value="/WEB-INF/views/facebook/profile.jsp" />
 	</definition>
 
