@@ -11,13 +11,17 @@
 		</fieldset>
 
 		<fieldset data-role="controlgroup" data-type="horizontal">
-			<legend>Price (lowest expected):</legend>
+			<legend>Target price:</legend>
 			<mobile:edit-input attrName="price" popupHelp="Enter the *lowest* price you think will work..." />
 		</fieldset>
 
-		<fieldset data-role="controlgroup" data-type="horizontal">
-			<legend>What options would you like:</legend>
-			<form:checkboxes id="options" path="options" items="${options}"/> <form:errors path="options"/>
+
+		<fieldset data-role="">
+<!-- 			<legend>What options would you like:</legend> -->
+			<form:select id="options" path="options" >
+				<form:option value="">Choose options</form:option>
+				<form:options items="${options}"/>
+			</form:select>
 		</fieldset>
 
 <!-- 		<legend>Colour:</legend> -->

@@ -16,6 +16,11 @@
 	<link rel="stylesheet"  href="<c:url value="/static/jqm/jquery.mobile-1.0.min.css"/>" />  
 	<link rel="stylesheet" href="<c:url value="/static/css/site.css"/>" />
 	<script src="<c:url value="/static/jqm/jquery-1.6.4.js"/>"></script>
+	<script type="text/javascript">
+		$(document).bind('mobileinit',function(){
+		   $.mobile.selectmenu.prototype.options.nativeMenu = false;
+		});
+	</script>
 	<script src="<c:url value="/static/jqm/jquery.mobile-1.0.min.js"/>"></script>
 </head> 
 <body> 
