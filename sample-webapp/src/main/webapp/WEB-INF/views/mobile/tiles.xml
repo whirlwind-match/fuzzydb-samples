@@ -3,6 +3,10 @@
 
 <tiles-definitions>
 
+	<definition name="mobile/grid" extends="mobile">
+		<put-attribute name="content" value="mobile.grid.content" />
+	</definition>
+
 	<definition name="mobile/home" extends="mobile">
 		<put-attribute name="content" value="mobile.home.content" />
 	</definition>
@@ -17,6 +21,9 @@
 
 	<definition name="mobile/people/search" extends="mobile">
 		<put-attribute name="content" value="people.search" />
+	</definition>
+
+	<definition name="mobile.grid.content" templateExpression="/WEB-INF/views/mobile/grid.jsp">
 	</definition>
 
 	<definition name="mobile.home.content" templateExpression="/WEB-INF/views/mobile/home.jsp">

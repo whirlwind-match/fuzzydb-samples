@@ -13,11 +13,6 @@
 		</ul>
 	</li>
 
-<!-- 	<li> -->
-<!-- 		<h3>Results</h3> -->
-<!-- 		<p>Click on 'matches' link to find matches for that vehicle</p> -->
-<!-- 	</li> -->
-
     <c:forEach var="result" items="${results}">
     	<c:set var="borderwidth" value=" solid #EEE 2px;"></c:set>
     	<c:if test="${f:toPercent(result.score) eq 100}">
@@ -39,7 +34,7 @@
 	    		</li>
 	    	</ul>
 	    	
-		<li>
+		</li>
     </c:forEach> 
 	
 	<c:if test="${startNextPage > 0}">
@@ -47,4 +42,5 @@
    		<a accesskey="n" href="?ref=${result.item.ref}&amp;style=${style}&amp;start=${startNextPage}&amp;pageSize=${pageSize}">next page</a>
 	</li>
 	</c:if>
+	<li><a data-ajax="false" href="createItems?numItems=10">+10</a></li>
 </ul>

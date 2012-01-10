@@ -27,6 +27,12 @@ span.score {
 	text-align:center; 
 }
 
+div.round span, span.round {
+	border-radius: 5px; 
+	padding: 1px;
+}
+
+
 /* Social */
 
 div.accountConnection {

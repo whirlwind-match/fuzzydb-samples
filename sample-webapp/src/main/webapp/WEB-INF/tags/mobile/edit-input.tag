@@ -4,4 +4,4 @@
 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<form:input id="${attrName}" path="${attrName}" /><form:errors path="${attrName}"/>
+<form:input id="${attrName}" path="${attrName}" placeholder="${popupHelp}" /><form:errors path="${attrName}"/>

@@ -6,12 +6,10 @@
 <form:form action="search" method="post" >
 
 		<fieldset data-role="controlgroup" data-type="horizontal">
-			<legend>Location: (UK postcode e.g. CB4 or CB4 ODW)</legend>
 			<mobile:edit-input attrName="postcode" popupHelp="Any clue where? (Try the first part of a UK postcode e.g. SE1)" />
 		</fieldset>
 
-		<fieldset data-role="controlgroup" data-type="horizontal">
-			<legend>Establishment type:</legend>
+		<fieldset data-role="controlgroup" data-type="vertical">
 			<form:radiobuttons path="establishmentType" items="${establishmentTypes}" />
 		</fieldset>
 

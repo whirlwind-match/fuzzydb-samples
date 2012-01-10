@@ -4,7 +4,9 @@
 
 <tiles:importAttribute name="result" />
 
+
 	<div  style="font-size: 100%; padding-left: 10px"><br/><b>${f:toString(result.item.mealTypes)}</b></div>
+	<br/><b>Location: ${result.item.postcode}&nbsp; </b>
 
 	<!-- Forward scores -->
 	<sample:what-matches result="${result}"/>

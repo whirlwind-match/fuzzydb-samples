@@ -6,18 +6,15 @@
 <form:form action="search" method="post" >
 
 		<fieldset data-role="controlgroup" data-type="horizontal">
-			<legend>Location: (UK postcode e.g. CB4 or CB4 ODW)</legend>
-			<mobile:edit-input attrName="postcode" popupHelp="Any clue where? (Try the first part of a UK postcode e.g. SE1)" />
+			<mobile:edit-input attrName="postcode" popupHelp="Where? (Try the first part of a UK postcode e.g. SE1)" />
 		</fieldset>
 
 		<fieldset data-role="controlgroup" data-type="horizontal">
-			<legend>Target price:</legend>
-			<mobile:edit-input attrName="price" popupHelp="Enter the *lowest* price you think will work..." />
+			<mobile:edit-input attrName="price" popupHelp="Target price..." />
 		</fieldset>
 
 
 		<fieldset data-role="">
-<!-- 			<legend>What options would you like:</legend> -->
 			<form:select id="options" path="options" >
 				<form:option value="">Choose options</form:option>
 				<form:options items="${options}"/>
