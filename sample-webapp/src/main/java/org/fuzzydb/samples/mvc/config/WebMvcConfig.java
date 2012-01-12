@@ -27,12 +27,12 @@ import org.springframework.format.FormatterRegistry;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles2.TilesConfigurer;
@@ -42,14 +42,11 @@ import com.wwm.attrs.converters.RefToStringConverter;
 import com.wwm.attrs.converters.StringToRefConverter;
 
 @Configuration
-@EnableWebMvc
 @ComponentScan("org.fuzzydb.samples.mvc")
-public class WebMvcConfig extends WebMvcConfigurerAdapter {
+public class WebMvcConfig extends WebMvcConfigurationSupport {
 
 	@Inject
 	private ConnectionRepository connectionRepository;
-
-	
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
@@ -88,6 +85,13 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         messageSource.setCacheSeconds(5);
         return messageSource;
     }
+    
+    @Bean
+    public RequestMappingHandlerAdapter requestMappingHandlerAdapter() {
+    	RequestMappingHandlerAdapter adapter = super.requestMappingHandlerAdapter();
+    	adapter.setIgnoreDefaultModelOnRedirect(true);
+    	return adapter;
+    };
 
     @Bean
     public ViewResolver viewResolver() {

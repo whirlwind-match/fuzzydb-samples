@@ -3,6 +3,7 @@ package org.fuzzydb.samples.mvc;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -19,9 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
-
 import com.thoughtworks.xstream.XStream;
 import com.wwm.attrs.AttributeDefinitionService;
 import com.wwm.db.query.Result;
@@ -58,12 +56,12 @@ public abstract class AbstractDataController<ENTITY> {
 	
 	@Transactional
 	@RequestMapping(value="/createItems", method=RequestMethod.GET) 
-	public ModelAndView createItems(@RequestParam(defaultValue="5") int numItems) {
+	public String createItems(@RequestParam(defaultValue="5") int numItems) {
 		
 		for (int i = 0; i < numItems; i++) {
 			createItem();
 		}
-		return new ModelAndView(new RedirectView("search", false, true, false)); //"redirect:/search";
+		return "redirect:search";
 	}
 
 	@Transactional(readOnly=true)
@@ -114,12 +112,17 @@ public abstract class AbstractDataController<ENTITY> {
 	
 
 	@Transactional(readOnly=true)
-	@RequestMapping(value="/json/dump", method=RequestMethod.GET)
+	@RequestMapping(value="/json/dump", method=RequestMethod.GET,
+			produces="application/json")
 	@ResponseBody
-	public Object jsonDump(OutputStream response) throws IOException {
+	public Object jsonDump() throws IOException {
 		Iterable<ENTITY> items = getRepo().findAll();
 		
-		return items;
+		List<ENTITY> list = new ArrayList<ENTITY>();
+		for (ENTITY item : items) {
+			list.add(item);
+		}
+		return list;
 	}
 	
 	@Transactional(readOnly=true)
