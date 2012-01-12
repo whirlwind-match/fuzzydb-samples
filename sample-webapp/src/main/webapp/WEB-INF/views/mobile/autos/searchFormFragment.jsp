@@ -16,16 +16,17 @@
 
 		<fieldset data-role="">
 			<form:select id="options" path="options" >
-				<form:option value="">Choose options</form:option>
+				<option>Choose options</option>
 				<form:options items="${options}"/>
 			</form:select>
 		</fieldset>
 
-<!-- 		<legend>Colour:</legend> -->
-<%-- 		<td><form:select path="colour"> --%>
-<%-- 			<form:option value="" /> --%>
-<%-- 			<form:options items="${colours}"/>  --%>
-<%-- 		</form:select><form:errors path="colour"/> --%>
+		<fieldset data-role="">
+			<form:select id="colour" path="colour" >
+				<form:option value="">Choose colour</form:option>
+				<form:options items="${colours}"/>
+			</form:select>
+		</fieldset>
 
 <!-- 		<legend>Make:</legend> -->
 <%-- 		<td><form:select path="carMake"> --%>
