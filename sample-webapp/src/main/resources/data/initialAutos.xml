@@ -19,6 +19,7 @@
     <org.fuzzydb.samples.Vehicle>
 		<carMake>Citroen</carMake>
         <description>2CV</description>
+        <year>1975</year>
         <colour>Yellow</colour>
         <postcode>NE17</postcode>
         <horsePower>2</horsePower>
@@ -51,8 +52,20 @@
         </options>
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
+        <carMake>Toyota</carMake>
+        <description>Yaris</description>
+        <year>2010</year>
+        <colour>Purple</colour>
+        <postcode>SE2</postcode>
+        <horsePower>120</horsePower>
+        <mpgCombined>62</mpgCombined>
+        <co2emissions>109</co2emissions>
+        <price>6199</price>
+    </org.fuzzydb.samples.Vehicle>
+    <org.fuzzydb.samples.Vehicle>
 		<carMake>Volkswagen</carMake>
         <description>Polo BlueMotion</description>
+        <year>2012</year>
         <colour>Blue</colour>
         <postcode>LL30</postcode>
         <horsePower>120</horsePower>
@@ -63,12 +76,13 @@
     <org.fuzzydb.samples.Vehicle>
 		<carMake>Ford</carMake>
         <description>Wreck</description>
+        <year>1999</year>
         <colour>Green</colour>
         <postcode>CB9</postcode>
         <horsePower>51.66498</horsePower>
         <mpgCombined>0.0</mpgCombined>
         <co2emissions>335.7641</co2emissions>
-        <price>88241.984</price>
+        <price>250</price>
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
 		<carMake>Ford</carMake>

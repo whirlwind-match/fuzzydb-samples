@@ -4,15 +4,28 @@
 
 <style>
 <!--
+.ui-content {
+    padding: 0 ;
+}
+.ui-corner-top {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.ui-corner-bottom {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
 .ui-icon {display: none;}
 .ui-collapsible-heading a .ui-btn-inner {
    	padding-left: 12px;
 	text-overflow:clip;
 }
 .ui-collapsible-set {
-    margin: 1em 0;
+    margin: 0;
 }
-
+.ui-content .ui-listview {
+    margin: 0 -15px;
+}
 .ui-btn-inner {
 }
 -->
@@ -47,11 +60,15 @@
 		</div>
     </c:forEach> 
 </div>
-<ul data-role="listview">
 	<c:if test="${startNextPage > 0}">
-	<li>
-   		<a accesskey="n" href="?ref=${result.item.ref}&amp;style=${style}&amp;start=${startNextPage}&amp;pageSize=${pageSize}">next page</a>
-	</li>
+   		<a data-role="button" data-ajax="false" accesskey="n" href="?ref=${result.item.ref}&amp;style=${style}&amp;start=${startNextPage}&amp;pageSize=${pageSize}">next page</a>
 	</c:if>
-	<li><a data-ajax="false" href="createItems?numItems=10">+10</a></li>
+
+<ul data-role="listview">
+<%-- 	<c:if test="${startNextPage > 0}"> --%>
+<!-- 	<li> -->
+<%--    		<a data-ajax="false" accesskey="n" href="?ref=${result.item.ref}&amp;style=${style}&amp;start=${startNextPage}&amp;pageSize=${pageSize}">next page</a> --%>
+<!-- 	</li> -->
+<%-- 	</c:if> --%>
+<!-- 	<li><a data-ajax="false" href="createItems?numItems=10">+10</a></li> -->
 </ul>

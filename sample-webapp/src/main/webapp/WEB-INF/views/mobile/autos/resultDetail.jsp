@@ -10,6 +10,7 @@
 	<sample:what-matches result="${result}"/>
 
    	<div style="padding: 2px 2px 0px 2px; float:left;">
+    	<div class="attribute">Colour: <b>${f:toString(result.item.colour)}</b></div>
     	<div class="attribute">Combined (mpg): <b>${f:toString(result.item.mpgCombined)}</b></div>
     	<div class="attribute">Emissions (gCO2/km): <b>${f:toString(result.item.co2emissions)}</b></div>
     	<div class="attribute">Power (bhp): <b>${f:toString(result.item.horsePower)}</b></div>
