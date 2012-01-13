@@ -14,9 +14,10 @@ div.item-outer {
 
 span.overall-score {
 	float:right; 
-	width: 55px; height:22px; padding-top: 5px; 
+	width: 40px; height:20px; padding-top: 0px; 
 	border-radius: 5px; 
 	text-align:center; 
+	font-size: normal;
 	font-weight: bold; 
 }
 
@@ -27,9 +28,10 @@ span.score {
 	text-align:center; 
 }
 
-div.round span, span.round {
+div.round span, div.round, span.round {
 	border-radius: 5px; 
-	padding: 1px;
+	padding: 0px 4px;
+	margin-bottom:0px;
 }
 
 

@@ -8,6 +8,7 @@
         <mpgCombined>28</mpgCombined>
         <co2emissions>199</co2emissions>
         <price>10995</price>
+        <year>1999</year>
         <options>
             <string>ABS</string>
             <string>Air-con</string>
@@ -38,6 +39,7 @@
         <mpgCombined>25.0</mpgCombined>
         <co2emissions>211</co2emissions>
         <price>37499</price>
+        <year>2003</year>
         <options>
             <string>ABS</string>
             <string>Air-con</string>
@@ -70,52 +72,57 @@
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
 		<carMake>Ford</carMake>
-        <description>Wreck</description>
+        <description>Mustang</description>
+        <year>2005</year>
         <colour>Purple</colour>
         <postcode>TN2</postcode>
         <horsePower>380.505</horsePower>
         <mpgCombined>74.79506</mpgCombined>
         <co2emissions>418.7903</co2emissions>
-        <price>22467.13</price>
+        <price>12250</price>
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
 		<carMake>Ford</carMake>
-        <description>Wreck</description>
+        <description>Focus ST</description>
+        <year>2009</year>
         <colour>Orange</colour>
         <postcode>EC2</postcode>
         <horsePower>694.635</horsePower>
         <mpgCombined>39.449562</mpgCombined>
         <co2emissions>103.37641</co2emissions>
-        <price>55905.89</price>
+        <price>15950</price>
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
-		<carMake>Ford</carMake>
-        <description>Wreck</description>
+		<carMake>Audi</carMake>
+        <description>TT</description>
+        <year>2011</year>
         <colour>Red</colour>
         <postcode>SP3</postcode>
         <horsePower>107.84158</horsePower>
         <mpgCombined>58.380272</mpgCombined>
         <co2emissions>416.5233</co2emissions>
-        <price>87869.96</price>
+        <price>8995</price>
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
 		<carMake>Ford</carMake>
-        <description>Wreck</description>
+        <description>Orion</description>
+        <year>1984</year>
         <colour>Black</colour>
         <postcode>LA5</postcode>
         <horsePower>605.8836</horsePower>
         <mpgCombined>74.97544</mpgCombined>
         <co2emissions>367.6247</co2emissions>
-        <price>59410.562</price>
+        <price>410</price>
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
 		<carMake>Ford</carMake>
         <description>Wreck</description>
+        <year>1967</year>
         <colour>Grey</colour>
         <postcode>WN6</postcode>
         <horsePower>162.9333</horsePower>
         <mpgCombined>68.5578</mpgCombined>
         <co2emissions>96.88587</co2emissions>
-        <price>5521.8896</price>
+        <price>555</price>
     </org.fuzzydb.samples.Vehicle>
 </objects>

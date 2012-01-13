@@ -45,13 +45,14 @@ public class DataGenerator implements InitializingBean {
 		randomSource.configureMultiEnumAttr("mealTypes", 0.01f);
 
 		// Autos
-		randomSource.configureFloatAttr("price", 50f, 100000f, 0f);
-		randomSource.configureFloatAttr("horsePower", 50f, 700f, 0f);
-		randomSource.configureFloatAttr("mpgCombined", 10f, 80f, 0.1f);
+		randomSource.configureFloatAttr("price", 2000f, 50000f, 0f);
+		randomSource.configureFloatAttr("horsePower", 60f, 500f, 0f);
+		randomSource.configureFloatAttr("mpgCombined", 10f, 80f, 0f);
 		randomSource.configureEnumAttr("carMake", 0f);
 		randomSource.configureFloatAttr("co2emissions", 80f, 450f, 0.15f);
 		randomSource.configureEnumAttr("colour", 0f);
 		randomSource.configureMultiEnumAttr("options", 0.01f);
+		randomSource.configureFloatAttr("year", 1996f, 2011f, 0f);
 		
 		addHardcodedPeople();
 	}
@@ -80,9 +81,13 @@ public class DataGenerator implements InitializingBean {
 		addRandomAttr(wrapper, "horsePower");
 		addRandomAttr(wrapper, "mpgCombined");
 		addRandomAttr(wrapper, "carMake");
-		addRandomAttr(wrapper, "co2emissions");
+		Float mpgCombined = (Float)wrapper.getPropertyValue("mpgCombined");
+//		addRandomAttr(wrapper, "co2emissions");
+		float co2e = 6700f / mpgCombined;
+		wrapper.setPropertyValue("co2emissions", co2e);
 		addRandomAttr(wrapper, "colour");
 		addRandomAttr(wrapper, "options");
+		addRandomAttr(wrapper, "year");
 				
 		return item;
 	}

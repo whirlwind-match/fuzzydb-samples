@@ -7,9 +7,13 @@
 .ui-icon {display: none;}
 .ui-collapsible-heading a .ui-btn-inner {
    	padding-left: 12px;
+	text-overflow:clip;
 }
 .ui-collapsible-set {
     margin: 1em 0;
+}
+
+.ui-btn-inner {
 }
 -->
 </style>

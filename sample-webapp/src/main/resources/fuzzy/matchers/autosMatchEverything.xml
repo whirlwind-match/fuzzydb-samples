@@ -46,6 +46,14 @@
         <weight>0.7</weight>
     </SimilarFloatValueScorer>
 
+    <SimilarFloatValueScorer>
+        <name>Year</name>
+        <scorerAttrId>year</scorerAttrId>
+        <otherAttrId>year</otherAttrId>
+        <expectedRange>5</expectedRange> 
+        <weight>0.7</weight>
+    </SimilarFloatValueScorer>
+
     <EnumScoresMapScorer>
         <name>Similar Colour</name>
         <scorerAttrId>colour</scorerAttrId>

@@ -22,6 +22,7 @@ public class Vehicle extends BaseEntity {
 	
 	private Float price;
 
+	private Float year;
 	/**
 	 * Public constructor needed by some frameworks
 	 */
@@ -69,6 +70,10 @@ public class Vehicle extends BaseEntity {
 		return price;
 	}
 
+	public Float getYear() {
+		return year;
+	}
+	
 	public void setCarMake(String carMake) {
 		this.carMake = carMake;
 	}
@@ -103,6 +108,10 @@ public class Vehicle extends BaseEntity {
 
 	public void setPrice(Float price) {
 		this.price = price;
+	}
+	
+	public void setYear(Float year) {
+		this.year = year;
 	}
 
 	@Override
