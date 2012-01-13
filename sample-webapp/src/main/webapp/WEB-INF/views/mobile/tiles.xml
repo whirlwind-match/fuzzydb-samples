@@ -13,14 +13,17 @@
 
 	<definition name="mobile/autos/search" extends="mobile">
 		<put-attribute name="content" value="autos.search" />
+		<put-attribute name="searchContent" value="autos.searchContent" />
 	</definition>
 
 	<definition name="mobile/cafes/search" extends="mobile">
 		<put-attribute name="content" value="cafes.search" />
+		<put-attribute name="searchContent" value="cafes.searchContent" />
 	</definition>
 
 	<definition name="mobile/people/search" extends="mobile">
 		<put-attribute name="content" value="people.search" />
+		<put-attribute name="searchContent" value="people.searchContent" />
 	</definition>
 
 	<definition name="mobile.grid.content" templateExpression="/WEB-INF/views/mobile/grid.jsp">
@@ -29,22 +32,28 @@
 	<definition name="mobile.home.content" templateExpression="/WEB-INF/views/mobile/home.jsp">
 	</definition>
 
-	<definition name="autos.search" templateExpression="/WEB-INF/views/mobile/search.jsp">	
+	<definition name="autos.search" templateExpression="/WEB-INF/views/mobile/search-accordion.jsp">	
 		<put-attribute name="resultSummary" value="/WEB-INF/views/mobile/autos/resultSummary.jsp" />
 		<put-attribute name="resultDetail" value="/WEB-INF/views/mobile/autos/resultDetail.jsp" />
-		<put-attribute name="searchForm" value="/WEB-INF/views/mobile/autos/searchFormFragment.jsp" />
-	</definition>
-	
-	<definition name="cafes.search" templateExpression="/WEB-INF/views/mobile/search.jsp">	
-		<put-attribute name="resultSummary" value="/WEB-INF/views/mobile/cafes/resultSummary.jsp" />
-		<put-attribute name="resultDetail" value="/WEB-INF/views/mobile/cafes/resultDetail.jsp" />
-		<put-attribute name="searchForm" value="/WEB-INF/views/mobile/cafes/searchFormFragment.jsp" />
 	</definition>
 
-	<definition name="people.search" templateExpression="/WEB-INF/views/mobile/search.jsp">	
+	<definition name="autos.searchContent" templateExpression="/WEB-INF/views/mobile/autos/searchFormFragment.jsp">
+	</definition>
+	
+	<definition name="cafes.search" templateExpression="/WEB-INF/views/mobile/search-accordion.jsp">	
+		<put-attribute name="resultSummary" value="/WEB-INF/views/mobile/cafes/resultSummary.jsp" />
+		<put-attribute name="resultDetail" value="/WEB-INF/views/mobile/cafes/resultDetail.jsp" />
+	</definition>
+
+	<definition name="cafes.searchContent" templateExpression="/WEB-INF/views/mobile/cafes/searchFormFragment.jsp">
+	</definition>
+
+	<definition name="people.search" templateExpression="/WEB-INF/views/mobile/search-accordion.jsp">	
 		<put-attribute name="resultSummary" value="/WEB-INF/views/mobile/people/resultSummary.jsp" />
 		<put-attribute name="resultDetail" value="/WEB-INF/views/mobile/people/resultDetail.jsp" />
-		<put-attribute name="searchForm" value="/WEB-INF/views/mobile/people/searchFormFragment.jsp" />
+	</definition>
+
+	<definition name="people.searchContent" templateExpression="/WEB-INF/views/mobile/people/searchFormFragment.jsp">
 	</definition>
 
 </tiles-definitions>

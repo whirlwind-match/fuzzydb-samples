@@ -12,8 +12,8 @@
 <!-- 	<link rel="stylesheet"  href="//code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />   -->
 <!-- 	<script src="//code.jquery.com/jquery-1.6.4.js"></script> -->
 <!-- 	<script src="//code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script> -->
-	<link rel="stylesheet" href="<c:url value="/static/css/themes/fuzzydb.min.css"/>">
 	<link rel="stylesheet"  href="<c:url value="/static/jqm/jquery.mobile-1.0.min.css"/>" />  
+	<link rel="stylesheet" href="<c:url value="/static/css/themes/fuzzydb.css"/>">
 	<link rel="stylesheet" href="<c:url value="/static/css/site.css"/>" />
 	<script src="<c:url value="/static/jqm/jquery-1.6.4.js"/>"></script>
 	<script type="text/javascript">
@@ -25,11 +25,12 @@
 </head> 
 <body> 
 
-	<div data-role="page" class="type-interior">
+	<div id="main-page" data-role="page" class="type-interior">
 
-		<div data-role="header" data-theme="f">
-			<h1>fuzzydb Mobile Sample</h1>
-			<a href="<c:url value="/mobile/home"/>" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
+		<div data-role="header" data-position="fixed" data-theme="a">
+			<h1>Mobile Demo</h1>
+			<a href="<c:url value="/mobile/home"/>" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Home</a>
+			<a href="#search-page" data-role="button" data-rel="dialog">Search</a> 
 	
 		</div><!-- /header -->
 	
@@ -40,8 +41,11 @@
 		<div data-role="footer" class="footer-docs" data-theme="c">
 				<p>&copy; 2011-2012 Whirlwind Match Ltd</p>
 		</div>
-
 	</div><!-- /page -->
+
+	<div id="search-page" data-role="page">
+		<tiles:insertAttribute name="searchContent" defaultValue=""/>
+	</div>
 
 	</body>
 	</html>

@@ -15,7 +15,7 @@
 		
 		<fieldset data-role="">
 			<form:select id="newspapers" path="newspapers" >
-				<form:option value="">Choose newspapers</form:option>
+				<option>Choose newspapers</option>
 				<form:options items="${newspapers}"/>
 			</form:select>
 		</fieldset>

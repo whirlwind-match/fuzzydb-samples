@@ -4,10 +4,6 @@
 
 <tiles:importAttribute name="result" />
 
-	    	<span style="font-weight: bold; font-size: larger">${result.item}</span>
-	    	<span style="font-size: larger; padding-left: 10px"> ${f:toString(result.item.age)} yrs</span>
-	    	<span class="overall-score" style="background-color: ${f:toCssRGBColor(result.score)}">
-	    	${f:toPercent(result.score)}%</span>
 
    	<div  style="font-size: 100%; padding-left: 10px"><br/><b>${f:toString(result.item.newspapers)}</b></div>
 
