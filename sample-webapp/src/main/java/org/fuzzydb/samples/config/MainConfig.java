@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @ComponentScan(basePackages = "org.fuzzydb.samples.social", excludeFilters = { @Filter(Configuration.class) })
 @PropertySource("classpath:/application.properties")
 @EnableTransactionManagement
-//@ImportResource("classpath:/fuzzy-repository-context.xml")
 public class MainConfig {
 
 }

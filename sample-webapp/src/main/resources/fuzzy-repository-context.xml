@@ -11,8 +11,6 @@
 
 
 	<context:annotation-config/>
-    <context:component-scan base-package="org.fuzzydb.samples.config" />
-	
 
     <tx:annotation-driven mode="aspectj" transaction-manager="transactionManager" />
     <fuzzy:tx-manager />
@@ -22,13 +20,13 @@
 
     <fuzzy:repositories base-package="org.fuzzydb.samples.repositories" />
 
-    <bean id="marshaller" class="org.springframework.oxm.xstream.XStreamMarshaller">
-        <property name="aliases">
-            <map>
-                <entry key="objects" value="java.util.ArrayList"/>
-            </map>
-        </property>
-    </bean>
+<!--     <bean id="marshaller" class="org.springframework.oxm.xstream.XStreamMarshaller"> -->
+<!--         <property name="aliases"> -->
+<!--             <map> -->
+<!--                 <entry key="objects" value="java.util.ArrayList"/> -->
+<!--             </map> -->
+<!--         </property> -->
+<!--     </bean> -->
 
     
     <bean id="userInitialiser" class="com.wwm.db.spring.repository.RepositoryInitializer">
