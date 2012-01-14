@@ -19,6 +19,7 @@
 	<script type="text/javascript">
 		$(document).bind('mobileinit',function(){
 		   $.mobile.selectmenu.prototype.options.nativeMenu = false;
+		   $.mobile.ajaxEnabled = false;
 		});
 	</script>
 	<script src="<c:url value="/static/jqm/jquery.mobile-1.0.min.js"/>"></script>

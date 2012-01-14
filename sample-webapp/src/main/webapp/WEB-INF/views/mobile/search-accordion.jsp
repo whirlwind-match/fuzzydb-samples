@@ -42,33 +42,25 @@
 	   	</c:if>
 
 		<div data-role="collapsible" data-collapsed="true">
-	    	
 			<h3>
 				<tiles:insertAttribute name="resultSummary" >
 					<tiles:putAttribute name="result" value="${result}"></tiles:putAttribute>
 				</tiles:insertAttribute>
 			</h3>
 	
-				
-	
-<%-- 			<div style="border: ${borderwidth}"> --%>
-				<tiles:insertAttribute name="resultDetail" >
-					<tiles:putAttribute name="result" value="${result}"></tiles:putAttribute>
-				</tiles:insertAttribute>
-		    	
-<!-- 			</div> -->
+			<tiles:insertAttribute name="resultDetail" >
+				<tiles:putAttribute name="result" value="${result}"></tiles:putAttribute>
+			</tiles:insertAttribute>
 		</div>
     </c:forEach> 
 </div>
-	<c:if test="${startNextPage > 0}">
-   		<a data-role="button" data-ajax="false" accesskey="n" href="?ref=${result.item.ref}&amp;style=${style}&amp;start=${startNextPage}&amp;pageSize=${pageSize}">next page</a>
-	</c:if>
 
-<ul data-role="listview">
-<%-- 	<c:if test="${startNextPage > 0}"> --%>
-<!-- 	<li> -->
-<%--    		<a data-ajax="false" accesskey="n" href="?ref=${result.item.ref}&amp;style=${style}&amp;start=${startNextPage}&amp;pageSize=${pageSize}">next page</a> --%>
-<!-- 	</li> -->
-<%-- 	</c:if> --%>
-<!-- 	<li><a data-ajax="false" href="createItems?numItems=10">+10</a></li> -->
-</ul>
+<div >
+	<a style="float:left" data-role="button" data-inline="true" data-icon="plus" data-ajax="false" href="createItems?numItems=10">+10</a>
+
+	<c:if test="${startNextPage > 0}">
+   		<a style="float:right" data-theme="d" data-role="button" data-inline="true" data-icon="arrow-r" data-ajax="false" 
+   		accesskey="n" href="?ref=${result.item.ref}&amp;style=${style}&amp;start=${startNextPage}&amp;pageSize=${pageSize}">next page</a>
+	</c:if>
+</div>
+
