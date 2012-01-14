@@ -32,7 +32,7 @@
 		method='POST'>
     	<div>
             <label for="j_username">Email:</label>
-            <input id="j_username" type='text' name='j_username' style="width:150px <c:if test="${not empty signinErrorMessage}">value="${SPRING_SECURITY_LAST_USERNAME}"</c:if>"/>
+            <input id="j_username" type='text' name='j_username' style='width:150px' <c:if test="${not empty signinErrorMessage}">value="${SPRING_SECURITY_LAST_USERNAME}"</c:if> />
             <script type="text/javascript">Spring.addDecoration(new Spring.ElementDecoration({elementId : "j_username", widgetType : "dijit.form.ValidationTextBox", widgetAttrs : {promptMessage: "Enter Your Email", required : true}})); </script>
         </div>
         <br/>
