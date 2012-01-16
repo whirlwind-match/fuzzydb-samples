@@ -15,6 +15,8 @@
  */
 package org.fuzzydb.samples.mvc.config;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.fuzzydb.samples.social.ConnectedToHandlerInterceptor;
@@ -24,7 +26,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.mobile.device.DeviceResolverHandlerInterceptor;
+import org.springframework.mobile.device.DeviceWebArgumentResolver;
 import org.springframework.social.connect.ConnectionRepository;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -33,6 +38,7 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.i18n.CookieLocaleResolver;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
+import org.springframework.web.servlet.mvc.method.annotation.ServletWebArgumentResolverAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles2.TilesConfigurer;
@@ -51,8 +57,16 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(new ConnectedToHandlerInterceptor(connectionRepository));		
+		registry.addInterceptor(new DeviceResolverHandlerInterceptor());
 	}
 
+	// TODO: BLOG THIS - It's really useful for Spring Mobile users to know how to do it in JavaConfig
+	@Override
+	protected void addArgumentResolvers(
+			List<HandlerMethodArgumentResolver> argumentResolvers) {
+		argumentResolvers.add(new ServletWebArgumentResolverAdapter(new DeviceWebArgumentResolver()));
+	}
+	
 	@Override
 	public void addFormatters(FormatterRegistry registry) {
 		super.addFormatters(registry);
@@ -86,7 +100,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
         return messageSource;
     }
     
-    @Override
+	@Override
 	@Bean
     public RequestMappingHandlerAdapter requestMappingHandlerAdapter() {
     	RequestMappingHandlerAdapter adapter = super.requestMappingHandlerAdapter();
