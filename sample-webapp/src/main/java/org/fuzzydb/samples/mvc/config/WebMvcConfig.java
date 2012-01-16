@@ -86,7 +86,8 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
         return messageSource;
     }
     
-    @Bean
+    @Override
+	@Bean
     public RequestMappingHandlerAdapter requestMappingHandlerAdapter() {
     	RequestMappingHandlerAdapter adapter = super.requestMappingHandlerAdapter();
     	adapter.setIgnoreDefaultModelOnRedirect(true);
@@ -106,7 +107,6 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
 		TilesConfigurer configurer = new TilesConfigurer();
 		configurer.setDefinitions(new String[] {
 				"/WEB-INF/layouts/tiles.xml",
-				"/WEB-INF/tiles/**/tiles.xml",                           
 				"/WEB-INF/views/**/tiles.xml"                           
 		});
 		configurer.setCheckRefresh(true);
