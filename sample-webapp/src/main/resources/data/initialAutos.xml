@@ -56,11 +56,14 @@
         <description>Yaris</description>
         <year>2010</year>
         <colour>Purple</colour>
-        <postcode>SE2</postcode>
+        <postcode>E6</postcode>
         <horsePower>120</horsePower>
         <mpgCombined>62</mpgCombined>
         <co2emissions>109</co2emissions>
         <price>6199</price>
+        <options>
+            <string>Power steering</string>
+        </options>
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
 		<carMake>Volkswagen</carMake>
@@ -72,28 +75,37 @@
         <mpgCombined>62</mpgCombined>
         <co2emissions>109</co2emissions>
         <price>9199</price>
+        <options>
+            <string>Power steering</string>
+        </options>
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
 		<carMake>Ford</carMake>
         <description>Wreck</description>
         <year>1999</year>
         <colour>Green</colour>
-        <postcode>CB9</postcode>
+        <postcode>N7</postcode>
         <horsePower>51.66498</horsePower>
         <mpgCombined>0.0</mpgCombined>
         <co2emissions>335.7641</co2emissions>
         <price>250</price>
+        <options>
+            <string>Power steering</string>
+        </options>
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
 		<carMake>Ford</carMake>
         <description>Mustang</description>
         <year>2005</year>
         <colour>Purple</colour>
-        <postcode>TN2</postcode>
+        <postcode>W7</postcode>
         <horsePower>380.505</horsePower>
         <mpgCombined>74.79506</mpgCombined>
         <co2emissions>418.7903</co2emissions>
         <price>12250</price>
+        <options>
+            <string>Power steering</string>
+        </options>
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
 		<carMake>Ford</carMake>
@@ -105,6 +117,9 @@
         <mpgCombined>39.449562</mpgCombined>
         <co2emissions>103.37641</co2emissions>
         <price>15950</price>
+        <options>
+            <string>Power steering</string>
+        </options>
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
 		<carMake>Audi</carMake>
@@ -116,6 +131,9 @@
         <mpgCombined>58.380272</mpgCombined>
         <co2emissions>416.5233</co2emissions>
         <price>8995</price>
+        <options>
+            <string>Power steering</string>
+        </options>
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
 		<carMake>Ford</carMake>
@@ -127,6 +145,9 @@
         <mpgCombined>74.97544</mpgCombined>
         <co2emissions>367.6247</co2emissions>
         <price>410</price>
+        <options>
+            <string>CD Player</string>
+        </options>
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
 		<carMake>Ford</carMake>
@@ -138,5 +159,8 @@
         <mpgCombined>68.5578</mpgCombined>
         <co2emissions>96.88587</co2emissions>
         <price>555</price>
+        <options>
+            <string>CD Player</string>
+        </options>
     </org.fuzzydb.samples.Vehicle>
 </objects>
