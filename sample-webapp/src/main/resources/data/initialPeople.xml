@@ -16,9 +16,23 @@
 		</newspapers>
 		<postcode>SE1</postcode>
 	</org.fuzzydb.samples.Person>
-<!-- 	<org.fuzzydb.samples.Person> -->
-<!-- 		<description>Null</description> -->
-<!-- 	</org.fuzzydb.samples.Person> -->
+	<org.fuzzydb.samples.Person>
+		<description>Arnold</description>
+		<isMale>true</isMale>
+		<age>51</age>
+		<ageRange>
+			<float>40</float>
+			<float>45</float>
+			<float>48</float>
+		</ageRange>
+		<salary>200000.0</salary>
+		<smoke>Cigar-smoker</smoke>
+		<newspapers>
+			<string>New York Times</string>
+			<string>LA Times</string>
+		</newspapers>
+		<postcode>{34.134,118.32}</postcode>
+	</org.fuzzydb.samples.Person>
 	<org.fuzzydb.samples.Person>
 		<description>Angelina</description>
 		<isMale>false</isMale>
