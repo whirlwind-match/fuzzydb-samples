@@ -8,7 +8,7 @@
         <weight>0.99</weight>
     </EnumMatchScorer>        
 
-    <MultiEnumScorer>
+    <OptionsScorer>
         <name>Options</name>
         <scorerAttrId>options</scorerAttrId>
         <otherAttrId>options</otherAttrId>
@@ -16,7 +16,7 @@
         <scoreNull>true</scoreNull>
         <scoreOnNull>0.0</scoreOnNull>
 		<noScoreDirection>reverse</noScoreDirection>
-    </MultiEnumScorer>        
+    </OptionsScorer>        
 
     <VectorDistanceScorer>
         <name>Within 100 miles</name>

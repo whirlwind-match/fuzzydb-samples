@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ScoreConfiguration name="foodEstablishments">
 
-    <MultiEnumScorer>
+    <OptionsScorer>
         <name>Food Sourcing</name>
         <scorerAttrId>foodSourcingPolicy</scorerAttrId>
         <otherAttrId>foodSourcingPolicy</otherAttrId>
         <weight>0.7</weight>
         <scoreNull>true</scoreNull>
         <scoreOnNull>0.2</scoreOnNull>
-    </MultiEnumScorer>        
+    </OptionsScorer>        
 
-    <MultiEnumScorer>
+    <OptionsScorer>
         <name>Meal Types</name>
         <scorerAttrId>mealTypes</scorerAttrId>
         <otherAttrId>mealTypes</otherAttrId>
         <weight>0.7</weight>
         <scoreNull>true</scoreNull>
         <scoreOnNull>0.2</scoreOnNull>
-    </MultiEnumScorer>        
+    </OptionsScorer>        
 
     <VectorDistanceScorer>
         <name>Nearby (10 miles)</name>
