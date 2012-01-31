@@ -6,25 +6,16 @@
 <head>
 	<title>samples</title> 
 	<tiles:insertAttribute name="headCommonContent" />
-</head> 
+</head>
 
 <body> 
+
 	<div id="main-page" data-role="page" class="type-interior">
 
-		<div data-role="header" data-position="fixed" data-theme="a">
-			<h1>Demo</h1>
-			<a href="<c:url value="/mobile/home"/>" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-left jqm-home">Home</a>
-	
-		</div><!-- /header -->
 	
 		<div data-role="content">
 			<tiles:insertAttribute name="content" />
 		</div><!-- /content -->
-	
-		<div data-role="footer" class="footer-docs" data-theme="c">
-<!-- 				<p>&copy; 2011-2012 Whirlwind Match Ltd, Fuzzit Ltd</p> -->
-		</div>
-	</div><!-- /page -->
-
+	</div>	
 </body>
 </html>

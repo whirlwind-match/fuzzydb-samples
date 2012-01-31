@@ -11,17 +11,17 @@
 		<put-attribute name="content" value="mobile.home.content" />
 	</definition>
 
-	<definition name="mobile/autos/search" extends="mobile">
+	<definition name="mobile/autos/search" extends="mobilePlusSearch">
 		<put-attribute name="content" value="autos.search" />
 		<put-attribute name="searchContent" value="autos.searchContent" />
 	</definition>
 
-	<definition name="mobile/cafes/search" extends="mobile">
+	<definition name="mobile/cafes/search" extends="mobilePlusSearch">
 		<put-attribute name="content" value="cafes.search" />
 		<put-attribute name="searchContent" value="cafes.searchContent" />
 	</definition>
 
-	<definition name="mobile/people/search" extends="mobile">
+	<definition name="mobile/people/search" extends="mobilePlusSearch">
 		<put-attribute name="content" value="people.search" />
 		<put-attribute name="searchContent" value="people.searchContent" />
 	</definition>

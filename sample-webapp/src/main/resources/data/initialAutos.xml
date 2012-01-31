@@ -81,13 +81,13 @@
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
 		<carMake>Ford</carMake>
-        <description>Wreck</description>
+        <description>Explorer</description>
         <year>1999</year>
         <colour>Green</colour>
         <postcode>N7</postcode>
-        <horsePower>51.66498</horsePower>
-        <mpgCombined>0.0</mpgCombined>
-        <co2emissions>335.7641</co2emissions>
+        <horsePower>120</horsePower>
+        <mpgCombined>14.0</mpgCombined>
+        <co2emissions>280</co2emissions>
         <price>250</price>
         <options>
             <string>Power steering</string>
@@ -99,9 +99,9 @@
         <year>2005</year>
         <colour>Purple</colour>
         <postcode>W7</postcode>
-        <horsePower>380.505</horsePower>
-        <mpgCombined>74.79506</mpgCombined>
-        <co2emissions>418.7903</co2emissions>
+        <horsePower>380</horsePower>
+        <mpgCombined>18</mpgCombined>
+        <co2emissions>300</co2emissions>
         <price>12250</price>
         <options>
             <string>Power steering</string>
@@ -113,9 +113,9 @@
         <year>2009</year>
         <colour>Orange</colour>
         <postcode>EC2</postcode>
-        <horsePower>694.635</horsePower>
-        <mpgCombined>39.449562</mpgCombined>
-        <co2emissions>103.37641</co2emissions>
+        <horsePower>250</horsePower>
+        <mpgCombined>39</mpgCombined>
+        <co2emissions>153</co2emissions>
         <price>15950</price>
         <options>
             <string>Power steering</string>
@@ -127,9 +127,9 @@
         <year>2011</year>
         <colour>Red</colour>
         <postcode>SP3</postcode>
-        <horsePower>107.84158</horsePower>
-        <mpgCombined>58.380272</mpgCombined>
-        <co2emissions>416.5233</co2emissions>
+        <horsePower>180</horsePower>
+        <mpgCombined>44</mpgCombined>
+        <co2emissions>160</co2emissions>
         <price>8995</price>
         <options>
             <string>Power steering</string>
@@ -141,9 +141,9 @@
         <year>1984</year>
         <colour>Black</colour>
         <postcode>LA5</postcode>
-        <horsePower>605.8836</horsePower>
-        <mpgCombined>74.97544</mpgCombined>
-        <co2emissions>367.6247</co2emissions>
+        <horsePower>105</horsePower>
+        <mpgCombined>38</mpgCombined>
+        <co2emissions>167</co2emissions>
         <price>410</price>
         <options>
             <string>CD Player</string>
@@ -151,13 +151,13 @@
     </org.fuzzydb.samples.Vehicle>
     <org.fuzzydb.samples.Vehicle>
 		<carMake>Ford</carMake>
-        <description>Wreck</description>
+        <description>Anglia</description>
         <year>1967</year>
         <colour>Grey</colour>
         <postcode>WN6</postcode>
-        <horsePower>162.9333</horsePower>
-        <mpgCombined>68.5578</mpgCombined>
-        <co2emissions>96.88587</co2emissions>
+        <horsePower>39</horsePower>
+        <mpgCombined>34</mpgCombined>
+        <co2emissions>176</co2emissions>
         <price>555</price>
         <options>
             <string>CD Player</string>

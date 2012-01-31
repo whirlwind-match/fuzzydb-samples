@@ -2,8 +2,16 @@
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 
 <tiles-definitions>
+
+	<definition name="head.local" templateExpression="/WEB-INF/layouts/headLocal.jsp" />
         
+    <definition name="headCommon">
+    	<put-attribute name="headCommonContent" value="head.local" />
+    </definition>
+
 	<definition name="page" templateExpression="/WEB-INF/layouts/page.jsp" />
-	<definition name="mobile" templateExpression="/WEB-INF/layouts/jqueryMobileLayout.jsp" />
+	<definition name="mobile" extends="headCommon" templateExpression="/WEB-INF/layouts/jqueryMobileLayout.jsp" />
+	<definition name="mobilePlusSearch" extends="headCommon" templateExpression="/WEB-INF/layouts/jqueryMobilePlusSearch.jsp" />
+	<definition name="mobileHeadless" extends="headCommon" templateExpression="/WEB-INF/layouts/jqueryMobileHeadless.jsp" />
         
 </tiles-definitions>

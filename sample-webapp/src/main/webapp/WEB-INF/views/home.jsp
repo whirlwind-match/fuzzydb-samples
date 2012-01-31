@@ -16,7 +16,7 @@
 	<ul>
 		<li><a href="autos/search">Autos</a></li>
 		<li><a href="people/search">People</a></li>
-		<li><a href="cafes/search" title="Food joints - will prompt for guest sign in">Food joints</a></li>
+		<li><a href="cafes/search" title="Dining Out - will prompt for guest sign in">Dining Out</a></li>
 
 		
 		<sec:authorize access="isAuthenticated()">
