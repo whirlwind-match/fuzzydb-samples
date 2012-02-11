@@ -254,6 +254,11 @@
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.cloudfoundry</groupId>
+			<artifactId>cloudfoundry-runtime</artifactId>
+			<version>0.8.1</version>
+		</dependency>
 	</dependencies>
 	<repositories>
 		<!-- For developing against latest Spring milestones -->
