@@ -5,6 +5,7 @@
 
 <form:form action="search" method="post" >
 
+		<div id="location" style="display:none">Location: Near you</div>
 		<fieldset data-role="controlgroup" data-type="horizontal">
 			<mobile:edit-input attrName="postcode" popupHelp="Where? (Try the first part of a UK postcode e.g. SE1)" />
 		</fieldset>

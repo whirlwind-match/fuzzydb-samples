@@ -1,7 +1,7 @@
 	<script type="text/javascript">
 		function success(position) {
 		  var s = document.querySelector('#postcode');
-		  s.value = "{" + position.coords.latitude +"," + position.coords.longitude + "}"
+		  s.value = "{" + position.coords.latitude +"," + position.coords.longitude + "}";
 // 			alert( "you're at: " + position.coords.latitude +"," + position.coords.longitude );
 		};
 
