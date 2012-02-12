@@ -16,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -109,7 +110,51 @@ public abstract class AbstractDataController<ENTITY> {
 		doSearch(getRepo(), model, style, ref, pageable, idealMatch);
 		model.addAttribute("command", getSearchForm()); 
 	}
+
+	@Transactional(readOnly=true)
+	@RequestMapping(value="/json/search", method=RequestMethod.GET,
+	produces="application/json")
+	@ResponseBody
+	public Object jsonSearch(
+			Model model, 
+			@RequestParam(required=false) String style,
+			@RequestParam(required=false) String ref,
+			@RequestParam(defaultValue="0") int start,
+			@RequestParam(defaultValue="10") int pageSize) {
 	
+		style = style == null ? getDefaultSearchStyle() : style;
+
+		// We need some attributes to search against.  This doesn't have to be something already in the 
+		// database.  For the default, we'll just grab a named sample from our dataGenerator.
+		// If we have a key (ref), then we'll use that to grab an item.
+		ENTITY idealMatch = StringUtils.hasText(ref) ? getRepo().findOne(ref) : getRepo().findFirst();
+
+		Pageable pageable = new PageRequest(start/pageSize, pageSize);
+		doSearch(getRepo(), model, style, ref, pageable, idealMatch);
+		return model; //.asMap().get("results");
+	}
+
+	
+	@Transactional(readOnly=true)
+	@RequestMapping(value="/json/search", method=RequestMethod.POST,
+			consumes="application/json",
+			produces="application/json")
+	@ResponseBody
+	public Object jsonSearch(
+		@RequestParam(required=false) String style,
+		@RequestParam(defaultValue="0") int start,
+		@RequestParam(defaultValue="10") int pageSize,
+		Model model, 
+		@RequestBody @ModelAttribute("command") @Valid ENTITY form, 
+		Errors result) {
+	
+	style = style == null ? getDefaultSearchStyle() : style;
+	
+	Pageable pageable = new PageRequest(start, pageSize);
+	doSearch(getRepo(), model, style, null, pageable, form);
+	return model.asMap().get("results");
+}
+
 
 	@Transactional(readOnly=true)
 	@RequestMapping(value="/json/dump", method=RequestMethod.GET,
