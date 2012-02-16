@@ -16,8 +16,7 @@
 package org.fuzzydb.samples.mvc.config;
 
 import javax.inject.Inject;
-import javax.sql.DataSource;
-
+import org.fuzzydb.samples.config.SqlDatabaseConfig;
 import org.fuzzydb.samples.security.SimpleSignInAdapter;
 import org.fuzzydb.samples.social.PostToWallAfterConnectInterceptor;
 import org.fuzzydb.samples.social.TweetAfterConnectInterceptor;
@@ -57,7 +56,7 @@ public class SocialConfig {
 	private Environment environment;
 
 	@Inject
-	private DataSource dataSource;
+	private SqlDatabaseConfig dbConfig;
 
 	@Bean
 	@Scope(value="singleton", proxyMode=ScopedProxyMode.INTERFACES) 
@@ -73,7 +72,7 @@ public class SocialConfig {
 	@Bean
 	@Scope(value="singleton", proxyMode=ScopedProxyMode.INTERFACES) 
 	public UsersConnectionRepository usersConnectionRepository() {
-		return new JdbcUsersConnectionRepository(dataSource, connectionFactoryLocator(), Encryptors.noOpText());
+		return new JdbcUsersConnectionRepository(dbConfig.dataSource(), connectionFactoryLocator(), Encryptors.noOpText());
 	}
 
 	@Bean
