@@ -19,11 +19,14 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.fuzzydb.samples.data.DataGenerator;
 import org.fuzzydb.samples.social.ConnectedToHandlerInterceptor;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.FilterType;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.mobile.device.DeviceResolverHandlerInterceptor;
@@ -47,8 +50,14 @@ import org.springframework.web.servlet.view.tiles2.TilesView;
 import com.wwm.attrs.converters.RefToStringConverter;
 import com.wwm.attrs.converters.StringToRefConverter;
 
+/**
+ * Master web config.  Component scan includes config Beans and the scanned components
+ * @author neale
+ *
+ */
 @Configuration
-@ComponentScan("org.fuzzydb.samples.mvc")
+@ComponentScan(basePackageClasses={WebMvcConfig.class, DataGenerator.class}, 
+	excludeFilters={@Filter(type=FilterType.ASSIGNABLE_TYPE, value=WebMvcConfig.class)})
 public class WebMvcConfig extends WebMvcConfigurationSupport {
 
 	@Inject

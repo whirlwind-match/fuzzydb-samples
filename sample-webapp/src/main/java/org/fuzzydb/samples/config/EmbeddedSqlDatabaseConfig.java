@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-//@Profile("embedded")
 public class EmbeddedSqlDatabaseConfig extends SqlDatabaseConfig {
 
 	private final Logger log = LoggerFactory.getLogger(getClass());

@@ -1,4 +1,4 @@
-package org.fuzzydb.samples.mvc;
+package org.fuzzydb.samples.data;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,14 +19,15 @@ import com.wwm.postcode.RandomUKShortPostcode;
 @Component
 public class DataGenerator implements InitializingBean {
 
-	@Autowired
-	private RandomAttributeSource randomSource;
+	private final RandomAttributeSource randomSource;
 	
 	private final RandomUKShortPostcode randomPostcodes = new RandomUKShortPostcode();
 	
 	private final Map<String, Person> people = new HashMap<String, Person>();
 	
-	public DataGenerator() {
+	@Autowired
+	public DataGenerator(RandomAttributeSource randomSource) {
+		this.randomSource = randomSource;
 	}
 
 	

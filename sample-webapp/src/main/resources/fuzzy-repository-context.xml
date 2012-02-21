@@ -20,14 +20,6 @@
 
     <fuzzy:repositories base-package="org.fuzzydb.samples.repositories" />
 
-<!--     <bean id="marshaller" class="org.springframework.oxm.xstream.XStreamMarshaller"> -->
-<!--         <property name="aliases"> -->
-<!--             <map> -->
-<!--                 <entry key="objects" value="java.util.ArrayList"/> -->
-<!--             </map> -->
-<!--         </property> -->
-<!--     </bean> -->
-
     
     <bean id="userInitialiser" class="com.wwm.db.spring.repository.RepositoryInitializer">
         <constructor-arg name="repo" ref="userRepository"/>
@@ -53,7 +45,7 @@
         <property name="resources" value="classpath:/data/initialAutos.xml"/>
     </bean>
 
-    <bean id="randomGenerator" class="com.wwm.db.spring.random.RandomAttributeSource"/>
+<!--     <bean id="randomGenerator" class="com.wwm.db.spring.random.RandomAttributeSource"/> -->
     <bean id="postcodeConverter" class="com.wwm.postcode.PostcodeConvertor" />
 
 </beans>
