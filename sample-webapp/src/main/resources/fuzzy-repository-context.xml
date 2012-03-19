@@ -19,15 +19,6 @@
     <fuzzy:initialize />
 
     <fuzzy:repositories base-package="org.fuzzydb.samples.repositories" />
-
-<!--     <bean id="marshaller" class="org.springframework.oxm.xstream.XStreamMarshaller"> -->
-<!--         <property name="aliases"> -->
-<!--             <map> -->
-<!--                 <entry key="objects" value="java.util.ArrayList"/> -->
-<!--             </map> -->
-<!--         </property> -->
-<!--     </bean> -->
-
     
     <bean id="userInitialiser" class="com.wwm.db.spring.repository.RepositoryInitializer">
         <constructor-arg name="repo" ref="userRepository"/>

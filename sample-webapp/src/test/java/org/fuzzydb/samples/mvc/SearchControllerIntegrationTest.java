@@ -8,6 +8,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import org.fuzzydb.samples.Person;
 import org.fuzzydb.samples.repositories.PersonRepository;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -30,6 +31,7 @@ import org.junit.runner.RunWith;
  * @author Neale
  *
  */
+@Ignore("Still needs work")
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:test-context.xml"})
 public class SearchControllerIntegrationTest {

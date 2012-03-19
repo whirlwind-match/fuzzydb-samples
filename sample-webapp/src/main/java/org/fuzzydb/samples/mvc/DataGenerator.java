@@ -10,6 +10,7 @@ import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 
 import com.wwm.db.spring.random.RandomAttributeSource;
@@ -17,6 +18,7 @@ import com.wwm.model.attributes.Attribute;
 import com.wwm.postcode.RandomUKShortPostcode;
 
 @Component
+@DependsOn("com.wwm.db.spring.StoreInitializer#0")
 public class DataGenerator implements InitializingBean {
 
 	@Autowired

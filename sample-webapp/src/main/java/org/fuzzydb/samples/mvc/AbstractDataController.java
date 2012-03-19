@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.fuzzydb.samples.GenericEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -145,13 +146,13 @@ public abstract class AbstractDataController<ENTITY> {
 		@RequestParam(defaultValue="0") int start,
 		@RequestParam(defaultValue="10") int pageSize,
 		Model model, 
-		@RequestBody @ModelAttribute("command") @Valid ENTITY form, 
-		Errors result) {
+		@RequestBody @Valid GenericEntity form ) { //, 
+//		Errors result) {
 	
 	style = style == null ? getDefaultSearchStyle() : style;
 	
 	Pageable pageable = new PageRequest(start, pageSize);
-	doSearch(getRepo(), model, style, null, pageable, form);
+	doSearch(getRepo(), model, style, null, pageable, (ENTITY) form);
 	return model.asMap().get("results");
 }
 
