@@ -269,8 +269,29 @@
 			<snapshots><enabled>false</enabled></snapshots>
 		</repository>
 	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>org.springframework.maven.milestone</id>
+			<name>Spring Maven Milestone Repository</name>
+			<url>http://maven.springframework.org/milestone</url>
+			<snapshots><enabled>false</enabled></snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.cloudfoundry</groupId>
+				<artifactId>cf-maven-plugin</artifactId>
+				<version>1.0.0.M1</version>
+				<configuration>
+					<server>api.cloudfoundry.com</server>
+					<target>http://api.cloudfoundry.com</target>
+					<url>fuzzydb-sample-webapp.cloudfoundry.com</url>
+					<memory>256</memory>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -285,7 +306,7 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.1.1</version>
 				<configuration>
-					<warName>${project.artifactId}</warName>
+<!-- 					<warName>${project.artifactId}</warName> -->
 				</configuration>
 			</plugin>
 			<plugin>
