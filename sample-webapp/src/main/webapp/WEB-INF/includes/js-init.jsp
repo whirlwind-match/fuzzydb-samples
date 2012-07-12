@@ -24,5 +24,8 @@
 				getLocation();
 			});
 		});
+		
+		// Deal with Facebook adding hash
+		if (window.location.hash == "#_=_") window.location.hash = "";
 	</script>
 	

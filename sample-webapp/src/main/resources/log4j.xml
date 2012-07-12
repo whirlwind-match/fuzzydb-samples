@@ -43,6 +43,13 @@
     <logger name="org.springframework.web.context.support.StandardServletEnvironment">
         <level value="info" />
     </logger>
+    <logger name="org.springframework.web.servlet.resource.ResourceHttpRequestHandler">
+        <level value="info" />
+    </logger>
+    <logger name="org.springframework.web.servlet.view.tiles2.TilesView">
+        <level value="info" />
+    </logger>
+    
 
     <logger name="org.springframework.security">
         <level value="info" />

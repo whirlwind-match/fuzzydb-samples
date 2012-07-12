@@ -9,17 +9,21 @@
 	 
 	<packaging>war</packaging>
 	<properties>
-		<java-version>1.6</java-version>
-		<org.springframework-version>3.1.0.RELEASE</org.springframework-version>
-		<org.springframework.security-version>3.1.0.RELEASE</org.springframework.security-version>
-        <org.springframework.social-version>1.0.1.RELEASE</org.springframework.social-version>
-        <org.springframework.social.facebook-version>1.0.1.RELEASE</org.springframework.social.facebook-version>
-        <org.springframework.social.twitter-version>1.0.1.RELEASE</org.springframework.social.twitter-version>
-        <org.springframework.webflow-version>2.2.1.RELEASE</org.springframework.webflow-version>
-		<org.aspectj-version>1.6.9</org.aspectj-version>
-		<org.slf4j-version>1.6.4</org.slf4j-version>
-		<fuzzydb.version>1.0.0.M4-SNAPSHOT</fuzzydb.version>
-		<org.springframework.mobile-version>1.0.0.M3</org.springframework.mobile-version>
+		<java.version>1.6</java.version>
+		<fuzzydb.version>1.0.0.M4</fuzzydb.version>
+		<spring.data.core.version>1.3.0.RELEASE</spring.data.core.version>
+        <spring.data.mongodb.version>1.1.0.M1</spring.data.mongodb.version>
+		<spring.data.jpa.version>1.1.0.RELEASE</spring.data.jpa.version>
+		<hibernate.version>3.6.5.Final</hibernate.version>
+		<spring.version>3.1.1.RELEASE</spring.version>
+		<spring.security.version>3.1.1.RELEASE</spring.security.version>
+		<spring.social.version>1.0.2.RELEASE</spring.social.version>
+		<spring.social.facebook.version>1.0.1.RELEASE</spring.social.facebook.version>
+		<spring.social.twitter.version>1.0.1.RELEASE</spring.social.twitter.version>
+        <spring.webflow.version>2.2.1.RELEASE</spring.webflow.version>
+		<org.aspectj.version>1.6.9</org.aspectj.version>
+		<org.slf4j.version>1.6.4</org.slf4j.version>
+		<spring.mobile.version>1.0.0.RELEASE</spring.mobile.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -40,6 +44,29 @@
 			<scope>compile</scope>
 		</dependency>
 
+        <dependency>
+            <groupId>org.cloudfoundry</groupId>
+            <artifactId>cloudfoundry-runtime</artifactId>
+            <version>0.8.1</version>
+        </dependency>
+        <dependency>
+                <groupId>org.hibernate.javax.persistence</groupId>
+                <artifactId>hibernate-jpa-2.0-api</artifactId>
+        </dependency>
+        <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <scope>runtime</scope>
+        </dependency>
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.fuzzydb.atom</groupId>
 			<artifactId>org.fuzzydb.atom.server</artifactId>
@@ -57,16 +84,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.apache.geronimo.specs</groupId>
-			<artifactId>geronimo-jpa_2.0_spec</artifactId>
-			<version>1.1</version>
-			<scope>provided</scope><!-- weaving breaks if we omit this! -->
-		</dependency>
-		<!-- Spring -->
-		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>${org.springframework-version}</version>
 			<exclusions>
 				<!-- Exclude Commons Logging in favor of SLF4j -->
 				<exclusion>
@@ -75,11 +94,18 @@
 				 </exclusion>
 			</exclusions>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
-			<version>${org.springframework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
 		</dependency>
         <dependency>
             <groupId>com.h2database</groupId>
@@ -90,7 +116,6 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>${org.springframework-version}</version>
         </dependency>
 
 		<dependency>
@@ -98,55 +123,51 @@
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.9.2</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+		</dependency>
 
         <dependency>
             <groupId>org.springframework.mobile</groupId>
             <artifactId>spring-mobile-device</artifactId>
-            <version>${org.springframework.mobile-version}</version>
         </dependency>
 
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-web</artifactId>
-			<version>${org.springframework.security-version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
-			<version>${org.springframework.security-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-taglibs</artifactId>
-			<version>${org.springframework.security-version}</version>
 		</dependency>
         
         <dependency>
             <groupId>org.springframework.social</groupId>
             <artifactId>spring-social-core</artifactId>
-            <version>${org.springframework.social-version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.social</groupId>
             <artifactId>spring-social-facebook</artifactId>
-            <version>${org.springframework.social.facebook-version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.social</groupId>
             <artifactId>spring-social-twitter</artifactId>
-            <version>${org.springframework.social.twitter-version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.social</groupId>
             <artifactId>spring-social-web</artifactId>
-            <version>${org.springframework.social-version}</version>
         </dependency>
         
         <dependency>
             <groupId>org.springframework.webflow</groupId>
             <artifactId>spring-js</artifactId>
-            <version>${org.springframework.webflow-version}</version>
         </dependency>
         
         <!-- Apache Tiles -->
@@ -165,25 +186,25 @@
 		<dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
-			<version>${org.aspectj-version}</version>
+			<version>${org.aspectj.version}</version>
 		</dependency>	
 		
 		<!-- Logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>${org.slf4j-version}</version>
+			<version>${org.slf4j.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
-			<version>${org.slf4j-version}</version>
+			<version>${org.slf4j.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
-			<version>${org.slf4j-version}</version>
+			<version>${org.slf4j.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -242,22 +263,25 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.7</version>
+			<version>4.10</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.cloudfoundry</groupId>
-			<artifactId>cloudfoundry-runtime</artifactId>
-			<version>0.8.1</version>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>1.9.0</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	
 	<repositories>
-		<!-- For developing against latest Spring milestones -->
+		<!-- For developing against latest Spring milestones & Cloudfoundry RUNTIME! -->
 		<repository>
 			<id>org.springframework.maven.milestone</id>
 			<name>Spring Maven Milestone Repository</name>
 			<url>http://maven.springframework.org/milestone</url>
 			<snapshots><enabled>false</enabled></snapshots>
+			<releases><updatePolicy>never</updatePolicy></releases>
 		</repository>
 	</repositories>
 
@@ -267,6 +291,7 @@
 			<name>Spring Maven Milestone Repository</name>
 			<url>http://maven.springframework.org/milestone</url>
 			<snapshots><enabled>false</enabled></snapshots>
+			<releases><updatePolicy>never</updatePolicy></releases>
 		</pluginRepository>
 	</pluginRepositories>
 
@@ -286,10 +311,10 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-		        <version>2.3.2</version>
+		        <version>2.5.1</version>
 				<configuration>
-					<source>${java-version}</source>
-					<target>${java-version}</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -323,12 +348,12 @@
 					<dependency>
 						<groupId>org.aspectj</groupId>
 						<artifactId>aspectjrt</artifactId>
-						<version>${org.aspectj-version}</version>
+						<version>${org.aspectj.version}</version>
 					</dependency>
 					<dependency>
 						<groupId>org.aspectj</groupId>
 						<artifactId>aspectjtools</artifactId>
-						<version>${org.aspectj-version}</version>
+						<version>${org.aspectj.version}</version>
 					</dependency>
 				</dependencies>
 				<executions>
@@ -347,8 +372,8 @@
 						</aspectLibrary>
 					</aspectLibraries>
 					<outxml>true</outxml>
-					<source>${java-version}</source>
-					<target>${java-version}</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -362,33 +387,6 @@
 					</excludes>
 				</configuration>
 			</plugin>
-<!-- 			<plugin> -->
-<!-- 				<groupId>com.encodedknowledge.maven</groupId> -->
-<!-- 				<artifactId>maven-dependency-sanity-plugin</artifactId> -->
-<!-- 				<version>0.2</version> -->
-<!-- 				<configuration> -->
-<!-- 					<warnOnly>true</warnOnly> -->
-<!-- 					<scopes> -->
-<!-- 						<scope>compile</scope> -->
-<!-- 						<scope>test</scope> -->
-<!-- 					</scopes> -->
-<!-- 					<exclusions> -->
-<!-- 						<exclusion> -->
-<!-- 							<artifacts> -->
-<!-- 								<artifact>foo:foo:2.1</artifact> -->
-<!-- 								<artifact>bar:bar:1.0</artifact> -->
-<!-- 							</artifacts> -->
-<!-- 						</exclusion> -->
-<!-- 					</exclusions> -->
-<!-- 				</configuration> -->
-<!-- 				<executions> -->
-<!-- 					<execution> -->
-<!-- 						<goals> -->
-<!-- 							<goal>check</goal> -->
-<!-- 						</goals> -->
-<!-- 					</execution> -->
-<!-- 				</executions> -->
-<!-- 			</plugin> -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>tomcat-maven-plugin</artifactId>
@@ -396,6 +394,7 @@
 			</plugin>						
 		</plugins>
 	</build>
+	
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -403,6 +402,134 @@
 				<artifactId>commons-logging</artifactId>
 				<version>1.1.1</version>
 				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate.javax.persistence</groupId>
+				<artifactId>hibernate-jpa-2.0-api</artifactId>
+				<version>1.0.0.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-entitymanager</artifactId>
+				<version>${hibernate.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>cglib</groupId>
+						<artifactId>cglib</artifactId>
+			        </exclusion>
+		        </exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aspects</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-orm</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-oxm</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-commons-core</artifactId>
+				<version>${spring.data.core.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-jpa</artifactId>
+				<version>${spring.data.jpa.version}</version>
+			</dependency>
+
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-mongodb</artifactId>
+                <version>${spring.data.mongodb.version}</version>
+            </dependency>
+
+			<dependency>
+				<groupId>org.springframework.mobile</groupId>
+				<artifactId>spring-mobile-device</artifactId>
+				<version>${spring.mobile.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-web</artifactId>
+				<version>${spring.security.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-config</artifactId>
+				<version>${spring.security.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-taglibs</artifactId>
+				<version>${spring.security.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.social</groupId>
+				<artifactId>spring-social-core</artifactId>
+				<version>${spring.social.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.social</groupId>
+				<artifactId>spring-social-facebook</artifactId>
+				<version>${spring.social.facebook.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.social</groupId>
+				<artifactId>spring-social-twitter</artifactId>
+				<version>${spring.social.twitter.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.social</groupId>
+				<artifactId>spring-social-web</artifactId>
+				<version>${spring.social.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.webflow</groupId>
+				<artifactId>spring-js</artifactId>
+				<version>${spring.webflow.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

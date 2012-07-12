@@ -22,7 +22,7 @@
 		</div><!-- /content -->
 	
 		<div data-role="footer" class="footer-docs" data-theme="c">
-<!-- 				<p>&copy; 2011-2012 Whirlwind Match Ltd, Fuzzit Ltd</p> -->
+<!-- 				<p>&copy; 2011-2012 Whirlwind Match Ltd</p> -->
 		</div>
 	</div><!-- /page -->
 
