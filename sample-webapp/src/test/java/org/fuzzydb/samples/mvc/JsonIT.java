@@ -2,6 +2,7 @@ package org.fuzzydb.samples.mvc;
 
 import org.codehaus.jackson.map.ObjectMapper;
 import org.fuzzydb.samples.GenericEntity;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -22,6 +23,7 @@ public class JsonIT {
 	}
 	
 	@Test
+	@Ignore("Integration test needs filtering and running with deployed app")
 	public void testSimpleSearch() {
 		
 		HttpHeaders headers = new HttpHeaders();
