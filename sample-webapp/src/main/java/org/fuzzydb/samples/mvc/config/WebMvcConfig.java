@@ -19,6 +19,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.fuzzydb.attrs.converters.RefToStringConverter;
+import org.fuzzydb.attrs.converters.StringToRefConverter;
 import org.fuzzydb.samples.social.ConnectedToHandlerInterceptor;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -43,9 +45,6 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 import org.springframework.web.servlet.view.tiles2.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles2.TilesView;
-
-import com.wwm.attrs.converters.RefToStringConverter;
-import com.wwm.attrs.converters.StringToRefConverter;
 
 @Configuration
 @ComponentScan("org.fuzzydb.samples.mvc")

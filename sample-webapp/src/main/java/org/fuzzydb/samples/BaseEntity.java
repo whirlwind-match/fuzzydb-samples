@@ -1,8 +1,8 @@
 package org.fuzzydb.samples;
 
+import org.fuzzydb.spring.annotation.DerivedField;
 import org.springframework.data.annotation.Id;
 
-import com.wwm.db.spring.annotation.DerivedField;
 import com.wwm.model.dimensions.IPoint3D;
 
 public class BaseEntity {

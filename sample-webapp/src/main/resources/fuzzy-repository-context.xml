@@ -20,31 +20,31 @@
 
     <fuzzy:repositories base-package="org.fuzzydb.samples.repositories" />
     
-    <bean id="userInitialiser" class="com.wwm.db.spring.repository.RepositoryInitializer">
+    <bean id="userInitialiser" class="org.fuzzydb.spring.repository.RepositoryInitializer">
         <constructor-arg name="repo" ref="userRepository"/>
         <constructor-arg name="unmarshaller" ref="marshaller"/>
         <property name="resources" value="classpath:/data/initialUsers.xml"/>
     </bean>
     
-    <bean id="peopleInitialiser" class="com.wwm.db.spring.repository.RepositoryInitializer">
+    <bean id="peopleInitialiser" class="org.fuzzydb.spring.repository.RepositoryInitializer">
         <constructor-arg name="repo" ref="personRepository"/>
         <constructor-arg name="unmarshaller" ref="marshaller"/>
         <property name="resources" value="classpath:/data/initialPeople.xml"/>
     </bean>
 
-    <bean id="cafeInitialiser" class="com.wwm.db.spring.repository.RepositoryInitializer">
+    <bean id="cafeInitialiser" class="org.fuzzydb.spring.repository.RepositoryInitializer">
         <constructor-arg name="repo" ref="cafeRepository"/>
         <constructor-arg name="unmarshaller" ref="marshaller"/>
         <property name="resources" value="classpath:/data/initialCafes.xml"/>
     </bean>
 
-    <bean id="vehicleInitialiser" class="com.wwm.db.spring.repository.RepositoryInitializer">
+    <bean id="vehicleInitialiser" class="org.fuzzydb.spring.repository.RepositoryInitializer">
         <constructor-arg name="repo" ref="vehicleRepository"/>
         <constructor-arg name="unmarshaller" ref="marshaller"/>
         <property name="resources" value="classpath:/data/initialAutos.xml"/>
     </bean>
 
-    <bean id="randomGenerator" class="com.wwm.db.spring.random.RandomAttributeSource"/>
+    <bean id="randomGenerator" class="org.fuzzydb.spring.random.RandomAttributeSource"/>
     <bean id="postcodeConverter" class="com.wwm.postcode.PostcodeConvertor" />
 
 </beans>

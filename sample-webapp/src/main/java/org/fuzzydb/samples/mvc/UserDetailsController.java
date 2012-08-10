@@ -2,6 +2,7 @@ package org.fuzzydb.samples.mvc;
 
 
 import javax.validation.Valid;
+
 import org.fuzzydb.samples.mvc.message.Message;
 import org.fuzzydb.samples.mvc.message.MessageType;
 import org.fuzzydb.samples.repositories.UserRepository;

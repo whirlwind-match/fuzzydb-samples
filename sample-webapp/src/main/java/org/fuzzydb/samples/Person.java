@@ -2,9 +2,9 @@ package org.fuzzydb.samples;
 
 import javax.validation.constraints.Digits;
 
+import org.fuzzydb.spring.annotation.DerivedField;
 import org.springframework.data.annotation.Transient;
 
-import com.wwm.db.spring.annotation.DerivedField;
 import com.wwm.model.dimensions.IPoint3D;
 
 public class Person extends BaseEntity {

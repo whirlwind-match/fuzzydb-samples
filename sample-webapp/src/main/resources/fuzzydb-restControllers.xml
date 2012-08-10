@@ -16,8 +16,8 @@
           class="org.springframework.context.support.ConversionServiceFactoryBean">
         <beans:property name="converters">
             <beans:list>
-                <beans:bean class="com.wwm.attrs.converters.StringToRefConverter"/> <!-- NOTE: Exposing refs in website URLs is not recommended ;) -->
-                <beans:bean class="com.wwm.attrs.converters.RefToStringConverter"/>
+                <beans:bean class="org.fuzzydb.attrs.converters.StringToRefConverter"/> <!-- NOTE: Exposing refs in website URLs is not recommended ;) -->
+                <beans:bean class="org.fuzzydb.attrs.converters.RefToStringConverter"/>
             </beans:list>
         </beans:property>
     </beans:bean>

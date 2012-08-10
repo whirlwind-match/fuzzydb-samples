@@ -6,6 +6,8 @@ import java.util.Iterator;
 
 import org.fuzzydb.samples.Person;
 import org.fuzzydb.samples.repositories.PersonRepository;
+import org.fuzzydb.spring.repository.AttributeMatchQuery;
+import org.fuzzydb.spring.repository.SubjectMatchQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,10 +16,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import com.thoughtworks.xstream.XStream;
 import com.wwm.db.query.Result;
-import com.wwm.db.spring.repository.AttributeMatchQuery;
-import com.wwm.db.spring.repository.SubjectMatchQuery;
 
 /**
  * Example controller for creating fuzzy items and querying them

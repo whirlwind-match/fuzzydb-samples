@@ -16,6 +16,7 @@
 package org.fuzzydb.samples.mvc.config;
 
 import javax.inject.Inject;
+
 import org.fuzzydb.samples.config.SqlDatabaseConfig;
 import org.fuzzydb.samples.security.SimpleSignInAdapter;
 import org.fuzzydb.samples.social.PostToWallAfterConnectInterceptor;
