@@ -19,7 +19,7 @@
 		<level value="info" />
 	</logger>
 
-<!--     <logger name="com.wwm.db.internal.StoreImpl"> -->
+<!--     <logger name="org.fuzzydb.client.internal.StoreImpl"> -->
 <!--         <level value="trace" /> -->
 <!--     </logger> -->
 	

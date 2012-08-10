@@ -8,6 +8,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.fuzzydb.attrs.AttributeDefinitionService;
+import org.fuzzydb.core.query.Result;
 import org.fuzzydb.samples.GenericEntity;
 import org.fuzzydb.spring.repository.AttributeMatchQuery;
 import org.fuzzydb.spring.repository.FuzzyRepository;
@@ -28,7 +29,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.thoughtworks.xstream.XStream;
-import com.wwm.db.query.Result;
 
 public abstract class AbstractDataController<ENTITY> {
 

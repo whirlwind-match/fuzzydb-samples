@@ -3,6 +3,7 @@ package org.fuzzydb.samples.mvc;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.fuzzydb.postcode.RandomUKShortPostcode;
 import org.fuzzydb.samples.Cafe;
 import org.fuzzydb.samples.Person;
 import org.fuzzydb.samples.Vehicle;
@@ -15,7 +16,6 @@ import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 
 import com.wwm.model.attributes.Attribute;
-import com.wwm.postcode.RandomUKShortPostcode;
 
 @Component
 @DependsOn("org.fuzzydb.spring.StoreInitializer#0")

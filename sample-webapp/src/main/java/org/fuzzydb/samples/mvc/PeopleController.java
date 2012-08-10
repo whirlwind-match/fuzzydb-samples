@@ -4,6 +4,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import org.fuzzydb.core.query.Result;
 import org.fuzzydb.samples.Person;
 import org.fuzzydb.samples.repositories.PersonRepository;
 import org.fuzzydb.spring.repository.AttributeMatchQuery;
@@ -18,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.thoughtworks.xstream.XStream;
-import com.wwm.db.query.Result;
 
 /**
  * Example controller for creating fuzzy items and querying them

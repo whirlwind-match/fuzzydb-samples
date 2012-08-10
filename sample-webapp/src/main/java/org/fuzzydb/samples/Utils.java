@@ -6,9 +6,9 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.fuzzydb.core.query.Result;
 import org.springframework.util.Assert;
 
-import com.wwm.db.query.Result;
 import com.wwm.model.attributes.Score;
 
 public abstract class Utils {

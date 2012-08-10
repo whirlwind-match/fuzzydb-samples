@@ -45,6 +45,6 @@
     </bean>
 
     <bean id="randomGenerator" class="org.fuzzydb.spring.random.RandomAttributeSource"/>
-    <bean id="postcodeConverter" class="com.wwm.postcode.PostcodeConvertor" />
+    <bean id="postcodeConverter" class="org.fuzzydb.postcode.PostcodeConvertor" />
 
 </beans>

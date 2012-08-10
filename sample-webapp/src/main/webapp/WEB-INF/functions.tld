@@ -43,25 +43,25 @@
     <function>
         <name>forwardsTotal</name>
         <function-class>org.fuzzydb.samples.Utils</function-class>
-        <function-signature>java.lang.Float forwardsTotal(com.wwm.db.query.Result)</function-signature>
+        <function-signature>java.lang.Float forwardsTotal(org.fuzzydb.client.query.Result)</function-signature>
     </function>
 
     <function>
         <name>reverseTotal</name>
         <function-class>org.fuzzydb.samples.Utils</function-class>
-        <function-signature>java.lang.Float reverseTotal(com.wwm.db.query.Result)</function-signature>
+        <function-signature>java.lang.Float reverseTotal(org.fuzzydb.client.query.Result)</function-signature>
     </function>
 
     <function>
         <name>forwardsScore</name>
         <function-class>org.fuzzydb.samples.Utils</function-class>
-        <function-signature>java.lang.Float forwardsScore(com.wwm.db.query.Result, java.lang.String)</function-signature>
+        <function-signature>java.lang.Float forwardsScore(org.fuzzydb.client.query.Result, java.lang.String)</function-signature>
     </function>
 
     <function>
         <name>reverseScore</name>
         <function-class>org.fuzzydb.samples.Utils</function-class>
-        <function-signature>Float reverseScore(com.wwm.db.query.Result, java.lang.String)</function-signature>
+        <function-signature>Float reverseScore(org.fuzzydb.client.query.Result, java.lang.String)</function-signature>
     </function>
 
     <function>
