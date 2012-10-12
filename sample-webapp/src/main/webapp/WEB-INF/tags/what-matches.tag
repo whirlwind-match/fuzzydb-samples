@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="f" uri="/functions" %>
+<%@ taglib prefix="f" uri="http://fuzzydb.org/jsp/functions" %>
 
 <%@ tag body-content="empty" %> 
 <%@ attribute name="result" type="java.lang.Object" required="true" %>

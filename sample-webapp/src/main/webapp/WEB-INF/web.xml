@@ -32,6 +32,16 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
+	<filter>
+		<filter-name>etagFilter</filter-name>
+    	<filter-class>org.springframework.web.filter.ShallowEtagHeaderFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>etagFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
     <!-- Enables support for DELETE and PUT request methods with web browser clients -->
     <filter>
         <filter-name>hiddenHttpMethodFilter</filter-name>
@@ -82,13 +92,7 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
-	<servlet>
-		<servlet-name>atomServlet</servlet-name>
-		<servlet-class>com.wwm.atom.impl.FuzzAbderaServlet</servlet-class>
 
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-		
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
@@ -99,8 +103,4 @@
 		<url-pattern>/r/*</url-pattern>
 	</servlet-mapping>
 
-	<servlet-mapping>
-		<servlet-name>atomServlet</servlet-name>
-		<url-pattern>/fuzz/*</url-pattern>
-	</servlet-mapping>
 </web-app>

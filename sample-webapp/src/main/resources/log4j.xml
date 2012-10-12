@@ -15,7 +15,7 @@
 		<level value="info" />
 	</logger>
 
-	<logger name="com.wwm">
+	<logger name="com.wwm.postcode">
 		<level value="info" />
 	</logger>
 

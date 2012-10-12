@@ -1,4 +1,4 @@
-<%@ taglib prefix="f" uri="/functions" %>
+<%@ taglib prefix="f" uri="http://fuzzydb.org/jsp/functions" %>
 <%@ taglib prefix="sample" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 

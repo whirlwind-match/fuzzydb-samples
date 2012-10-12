@@ -7,9 +7,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.fuzzydb.core.query.Result;
+import org.fuzzydb.dto.attributes.Score;
 import org.springframework.util.Assert;
 
-import com.wwm.model.attributes.Score;
 
 public abstract class Utils {
 
