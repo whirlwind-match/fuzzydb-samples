@@ -13,7 +13,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,7 +26,7 @@ public class HomeController {
 	private static final String HOME_PAGE = "/";
 
 	private final Provider<ConnectionRepository> connectionRepositoryProvider;
-	
+
 	private final UserRepository accountRepository;
 
 	@Inject
@@ -47,7 +46,6 @@ public class HomeController {
 	/**
 	 * Simple scenario for updating one composite object
 	 */
-	@Transactional
 	@RequestMapping(value=HOME_PAGE, method=RequestMethod.GET)
 	public String home(Principal currentUser, Model model) {
 		model.addAttribute("connectionsToProviders", getConnectionRepository().findAllConnections());
@@ -56,16 +54,16 @@ public class HomeController {
 		}
 
 		logger.info("Welcome home!");
-		
+
 		MyCounter counter = counterRepo.findOne(HOME_PAGE);
-		
+
 		if (counter == null) {
 			counter = new MyCounter(HOME_PAGE);
 		}
-		counter.count++;
+		counter.increment();
 		counterRepo.save(counter);
-		
-		model.addAttribute("count", counter.count);
+
+		model.addAttribute("count", counter.getCount());
 		return "home";
 	}
 }

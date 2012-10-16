@@ -15,7 +15,11 @@
 		<level value="info" />
 	</logger>
 
-	<logger name="com.wwm.postcode">
+	<logger name="org.fuzzydb">
+		<level value="debug" />
+	</logger>
+
+	<logger name="org.fuzzydb.postcode">
 		<level value="info" />
 	</logger>
 
@@ -58,7 +62,7 @@
 
 	<!-- Root Logger -->
 	<root>
-		<priority value="debug" />
+		<priority value="info" />
 		<appender-ref ref="console" />
 	</root>
 	
