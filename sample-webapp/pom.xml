@@ -10,10 +10,10 @@
 	<packaging>war</packaging>
 	<properties>
 		<java.version>1.6</java.version>
-		<fuzzydb.version>1.0.0.RELEASE</fuzzydb.version>
+		<fuzzydb.version>1.0.1.RELEASE</fuzzydb.version>
 		<spring.data.core.version>1.4.0.RELEASE</spring.data.core.version>
         <spring.data.mongodb.version>1.1.0.RELEASE</spring.data.mongodb.version>
-		<hibernate.version>3.6.5.Final</hibernate.version>
+		<hibernate.version>3.6.7.Final</hibernate.version>
 		<spring.version>3.1.1.RELEASE</spring.version>
 		<spring.security.version>3.1.1.RELEASE</spring.security.version>
 		<spring.social.version>1.0.2.RELEASE</spring.social.version>
