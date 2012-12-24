@@ -17,11 +17,14 @@ package org.fuzzydb.samples.mvc.twitter;
 
 import javax.inject.Inject;
 
+import org.springframework.social.twitter.api.Place;
 import org.springframework.social.twitter.api.Twitter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.List;
 
 @Controller
 public class TwitterTrendsController {
@@ -35,7 +38,8 @@ public class TwitterTrendsController {
 
 	@RequestMapping(value="/twitter/trends/daily", method=RequestMethod.GET)
 	public String showTrends(Model model) {
-		model.addAttribute("trends", twitter.searchOperations().getDailyTrends().get(0));
+        List<Place> places = twitter.geoOperations().reverseGeoCode(53, 0);
+// TODO: work out place id for search        model.addAttribute("trends", twitter.searchOperations().getLocalTrends(places.get(0).getId()).get(0));
 		return "twitter/dailyTrends";
 	}
 	
